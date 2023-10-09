@@ -4,7 +4,8 @@
 #include "Uc.h"
 #include "Schedule.h"
 
-class Student {
+class Student
+{
 public:
     Student();
 

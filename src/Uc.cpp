@@ -18,7 +18,7 @@ string Uc::getUcCode()
 
 void Uc::addClass(const string &UcClass)
 {
-    for(vector<string>::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)
+    for (vector<string>::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)
         if (*it == UcClass)
             return;
     UcClasses.push_back(UcClass);
