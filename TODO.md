@@ -1,3 +1,3 @@
 ### TODO LIST
 
-- [] Criar classes
+- [ ] Criar classes
