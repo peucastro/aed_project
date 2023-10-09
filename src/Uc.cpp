@@ -1,4 +1,4 @@
-#include "../headers/Uc.h"
+#include "../inc/Uc.h"
 
 Uc::Uc()
 {
@@ -18,5 +18,13 @@ string Uc::getUcCode()
 
 void Uc::addClass(const string &UcClass)
 {
+    for(vector<string>::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)
+        if (*it == UcClass)
+            return;
     UcClasses.push_back(UcClass);
+}
+
+unsigned int Uc::classesCount()
+{
+    return UcClasses.size();
 }
