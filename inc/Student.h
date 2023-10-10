@@ -7,6 +7,7 @@
 class Student
 {
 public:
+
     Student();
 
     Student(const string &studentCode, const string &studentName);
@@ -18,6 +19,9 @@ public:
     string getstudentName();
 
     void setstudentName(const string &studentName);
+
+    bool operator==(const Student& other);
+    
 
 private:
     string studentCode;
