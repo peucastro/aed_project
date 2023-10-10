@@ -11,6 +11,10 @@ Class::Class(string ucCode, string classCode, string weekDay, double startHour, 
     this->type = type;
 }
 
+string Class::getClassCode(){
+    return this->classCode;
+}
+
 Uc Class::getUc(){
     return this->uc;
 }
@@ -38,5 +42,43 @@ void Class::removeStudent(Student student){
 
 vector<Student> Class::getStudents(){
     return this->students;
+}
+
+string Class::getWeekDay(){
+    return this->weekDay;
+}
+
+void Class::setWeekDay(const string &weekDay){
+    this->weekDay = weekDay;
+}
+
+double Class::getStartHour(){
+    return this->startHour;
+}
+
+void Class::setStartHour(const double &startHour){
+    this->startHour = startHour;
+}
+
+double Class::getDuration(){
+    return this->duration;
+}
+
+void Class::setDuration(const double &duration){
+    this->duration = duration;
+}
+
+string Class::getType(){
+    return this->type;
+}
+
+void Class::setType(const string &type){
+    this->type = type;
+}
+
+bool Class::operator==(Class& other){
+    if((this->uc.getUcCode()==other.getUc().getUcCode()) && (this->classCode==other.getClassCode())){
+        return true;
+    } else return false;
 }
 

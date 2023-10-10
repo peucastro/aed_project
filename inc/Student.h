@@ -1,5 +1,5 @@
-#ifndef AED_STUDENT_H
-#define AED_STUDENT_H
+#ifndef AED_PROJECT_STUDENT_H
+#define AED_PROJECT_STUDENT_H
 
 #include "Uc.h"
 #include "Schedule.h"
@@ -29,4 +29,4 @@ private:
     Schedule studentSchedule;
 };
 
-#endif // AED_STUDENT_H
+#endif // AED_PROJECT_STUDENT_H
