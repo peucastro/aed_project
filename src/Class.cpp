@@ -40,22 +40,3 @@ vector<Student> Class::getStudents(){
     return this->students;
 }
 
-/*public:
-    Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type);
-    Uc getUc();
-    string getClass();
-    void setUc(const Uc &uc);
-    void addStudent(Student student);
-    void removeStudent(Student student);
-    vector<Student> getStudents();
-
-private:
-    Uc uc;
-    vector<Student> students;
-    string weekDay;
-    double startHour;
-    double duration;
-    string type;
-};
-*/
-
