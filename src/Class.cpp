@@ -1,5 +1,4 @@
 #include "../inc/Class.h"
-#include "Class.h"
 
 
 Class::Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type){

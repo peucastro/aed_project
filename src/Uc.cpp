@@ -3,7 +3,7 @@
 Uc::Uc()
 {
     UcCode = "NO_NAME";
-    UcClasses;
+    UcClasses = vector<string>();
 }
 
 Uc::Uc(const string &UcCode)
