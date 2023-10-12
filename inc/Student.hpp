@@ -1,8 +1,8 @@
 #ifndef AED_PROJECT_STUDENT_H
 #define AED_PROJECT_STUDENT_H
 
-#include "Uc.h"
-#include "Schedule.h"
+#include "Uc.hpp"
+#include "Schedule.hpp"
 
 class Student
 {
@@ -21,7 +21,7 @@ public:
     void setstudentName(const string &studentName);
 
     bool operator==(const Student& other);
-    
+
 
 private:
     string studentCode;

@@ -3,13 +3,13 @@
 
 #include <vector>
 #include <string>
-#include "Student.h"
+#include "Student.hpp"
 using namespace std;
 
 class Class
 {
 public:
-    
+
     Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type);
     Uc getUc();
     string getClassCode();

@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <string>
-#include "Student.h"
-#include "Class.h"
+#include "Student.hpp"
+#include "Class.hpp"
 using namespace std;
 
 class Schedule

@@ -1,4 +1,4 @@
-#include "../inc/Student.h"
+#include "../inc/Student.hpp"
 
 Student::Student()
 {

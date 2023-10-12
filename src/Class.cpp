@@ -1,7 +1,7 @@
-#include "../inc/Class.h"
+#include "../inc/Class.hpp"
 
-
-Class::Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type){
+Class::Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type)
+{
     this->uc.setUcCode(ucCode);
     this->uc.addClass(classCode);
     this->weekDay = weekDay;
@@ -10,74 +10,93 @@ Class::Class(string ucCode, string classCode, string weekDay, double startHour, 
     this->type = type;
 }
 
-string Class::getClassCode(){
+string Class::getClassCode()
+{
     return this->classCode;
 }
 
-Uc Class::getUc(){
+Uc Class::getUc()
+{
     return this->uc;
 }
 
-void Class::setUc(const Uc &uc){
+void Class::setUc(const Uc &uc)
+{
     this->uc = uc;
 }
 
-void Class::addStudent(Student student){
+void Class::addStudent(Student student)
+{
     Student new_student = Student(student.getstudentCode(), student.getstudentName());
     this->students.push_back(new_student);
 }
 
-void Class::removeStudent(Student student){
+void Class::removeStudent(Student student)
+{
     int mark;
-    for(int i = 0; i < this->students.size(); i++){
-        if(this->students.at(i)==student){
+    for (int i = 0; i < this->students.size(); i++)
+    {
+        if (this->students.at(i) == student)
+        {
             mark = i;
         }
     }
     auto it = this->students.begin();
-    advance(it,mark);
+    advance(it, mark);
     this->students.erase(it);
 }
 
-vector<Student> Class::getStudents(){
+vector<Student> Class::getStudents()
+{
     return this->students;
 }
 
-string Class::getWeekDay(){
+string Class::getWeekDay()
+{
     return this->weekDay;
 }
 
-void Class::setWeekDay(const string &weekDay){
+void Class::setWeekDay(const string &weekDay)
+{
     this->weekDay = weekDay;
 }
 
-double Class::getStartHour(){
+double Class::getStartHour()
+{
     return this->startHour;
 }
 
-void Class::setStartHour(const double &startHour){
+void Class::setStartHour(const double &startHour)
+{
     this->startHour = startHour;
 }
 
-double Class::getDuration(){
+double Class::getDuration()
+{
     return this->duration;
 }
 
-void Class::setDuration(const double &duration){
+void Class::setDuration(const double &duration)
+{
     this->duration = duration;
 }
 
-string Class::getType(){
+string Class::getType()
+{
     return this->type;
 }
 
-void Class::setType(const string &type){
+void Class::setType(const string &type)
+{
     this->type = type;
 }
 
-bool Class::operator==(Class& other){
-    if((this->uc.getUcCode()==other.getUc().getUcCode()) && (this->classCode==other.getClassCode())){
+bool Class::operator==(Class &other)
+{
+    if ((this->uc.getUcCode() == other.getUc().getUcCode()) && (this->classCode == other.getClassCode()))
+    {
         return true;
-    } else return false;
+    }
+    else
+        return false;
 }
-

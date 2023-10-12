@@ -1,7 +1,7 @@
-#include "../inc/Schedule.h"
+#include "../inc/Schedule.hpp"
 
 Schedule::Schedule(){
-    
+
 }
 
 bool Schedule::classesCrash(Class &class1, Class &class2){
