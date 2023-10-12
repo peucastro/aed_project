@@ -7,6 +7,7 @@
 #include "Class.hpp"
 using namespace std;
 
+class Class;
 class Schedule
 {
 public:
