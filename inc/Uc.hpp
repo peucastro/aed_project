@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 class Uc
@@ -12,6 +14,7 @@ public:
     Uc(const string &UcCode);
     string getUcCode();
     void addClass(const string &UcClass);
+    string getUcClass(const int &i);
     unsigned int classesCount();
     void setUcCode(string &ucCode);
 
