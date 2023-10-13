@@ -6,26 +6,26 @@ Uc::Uc()
     UcClasses = vector<string>();
 }
 
-Uc::Uc(const string &UcCode)
+Uc::Uc(const string &UcCode) : UcCode(UcCode)
 {
-    this->UcCode = UcCode;
-    UcClasses = vector<string>();
-
     ifstream file;
     file.open("../data/classes_per_uc.csv", std::ios::in);
 
     string line;
-    while(getline(file, line)){
-        std::istringstream stream(line);
+
+    while (getline(file, line)) {
+        istringstream stream(line);
         string Code, ClassCode;
-        cout << line << endl;
-         if (std::getline(stream, Code, ',')) {
-            if(Code != UcCode) break;
-            if (std::getline(stream, ClassCode, ',')) {
+
+        if (getline(stream, Code, ',')) {
+            if (Code == UcCode) {
+                if (getline(stream, ClassCode, ',')) {
                 UcClasses.push_back(ClassCode);
+                    }
             }
         }
     }
+    file.close();
 }
 
 string Uc::getUcCode()
@@ -41,10 +41,9 @@ void Uc::addClass(const string &UcClass)
     UcClasses.push_back(UcClass);
 }
 
-string Uc::getUcClass(const int &i){
-    return UcClasses[i];
+void Uc::getClasses(){
+    for(string turma : UcClasses) cout << turma << endl;
 }
-
 unsigned int Uc::classesCount()
 {
     return UcClasses.size();
