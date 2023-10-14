@@ -4,11 +4,13 @@ Student::Student()
 {
     this->studentName = "NO_NAME";
     this->studentCode = "NO_CODE";
+    this->schedule = {};
 }
 Student::Student(const string &studentCode, const string &studentName)
 {
     this->studentCode = studentCode;
     this->studentName = studentName;
+    this->schedule = {};
 }
 string Student::getstudentCode()
 {
@@ -26,7 +28,12 @@ void Student::setstudentName(const string &studentName)
 {
     this->studentName = studentName;
 }
+void Student::addLecture(const pair<string, string> &lecture)
+{
+    schedule.insert(lecture);
+}
 
-bool Student::operator==(const Student& other){
+bool Student::operator==(const Student &other)
+{
     return this->studentCode == other.studentCode && this->studentName == other.studentName;
 }
