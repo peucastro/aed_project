@@ -1,5 +1,4 @@
 #include "../inc/Student.hpp"
-#include <iostream>
 #include <stdexcept>
 
 void testConstructor()

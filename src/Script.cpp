@@ -1,4 +1,5 @@
 #include "../inc/Script.hpp"
+using namespace std;
 
 Student Script::loadStudent(const string &studenCode)
 {
@@ -25,7 +26,7 @@ Student Script::loadStudent(const string &studenCode)
         {
             student.setstudentCode(studentCodeFromFile);
             student.setstudentName(studentNameFromFile);
-            student.addLecture(pair{ucCodeFromFile, classCodefromFile});
+            student.addClass(pair{ucCodeFromFile, classCodefromFile});
         }
     }
 

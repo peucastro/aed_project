@@ -1,5 +1,4 @@
 #include "../inc/Uc.hpp"
-#include <iostream>
 #include <stdexcept>
 
 void testConstructor()

@@ -9,24 +9,24 @@ class Student
 public:
     Student();
 
-    Student(const string &studentCode, const string &studentName);
+    Student(const std::string &studentCode, const std::string &studentName);
 
-    string getstudentCode();
+    std::string getstudentCode();
 
-    void setstudentCode(const string &studentCode);
+    void setstudentCode(const std::string &studentCode);
 
-    string getstudentName();
+    std::string getstudentName();
 
-    void setstudentName(const string &studentName);
+    void setstudentName(const std::string &studentName);
 
-    void addLecture(const pair<string, string> &lecture);
+    void addClass(const std::pair<std::string, std::string> &Class);
 
     bool operator==(const Student &other);
 
 private:
-    string studentCode;
-    string studentName;
-    std::map<string, string> schedule;
+    std::string studentCode;
+    std::string studentName;
+    std::map<std::string, std::string> schedule;
 };
 
-#endif // AED_PROJECT_STUDENT_H
+#endif

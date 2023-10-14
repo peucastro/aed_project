@@ -1,4 +1,5 @@
 #include "../inc/Student.hpp"
+using namespace std;
 
 Student::Student()
 {
@@ -28,9 +29,9 @@ void Student::setstudentName(const string &studentName)
 {
     this->studentName = studentName;
 }
-void Student::addLecture(const pair<string, string> &lecture)
+void Student::addClass(const pair<string, string> &Class)
 {
-    schedule.insert(lecture);
+    schedule.insert(Class);
 }
 
 bool Student::operator==(const Student &other)

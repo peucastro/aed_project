@@ -1,40 +1,37 @@
 #ifndef AED_PROJECT_CLASS_H
 #define AED_PROJECT_CLASS_H
 
-#include <vector>
-#include <string>
 #include "Student.hpp"
-using namespace std;
 
 class Class
 {
 public:
-
-    Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type);
+    Class(const std::string &ucCode);
+    Class(const std::string &ucCode, const std::string &classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type);
     Uc getUc();
-    string getClassCode();
+    std::string getClassCode();
     void setUc(const Uc &uc);
-    void addStudent(Student student);
-    void removeStudent(Student student);
-    vector<Student> getStudents();
-    string getWeekDay();
-    void setWeekDay(const string &weekDay);
+    void addStudent(Student &student);
+    void removeStudent(const Student &student);
+    std::vector<Student> getStudents();
+    std::string getWeekDay();
+    void setWeekDay(const std::string &weekDay);
     double getStartHour();
     void setStartHour(const double &startHour);
     double getDuration();
-    void setDuration(double const &duration);
-    string getType();
-    void setType(const string &type);
-    bool operator==(Class& other);
+    void setDuration(const double &duration);
+    std::string getType();
+    void setType(const std::string &type);
+    bool operator==(Class &other);
 
 private:
     Uc uc;
-    string classCode;
-    vector<Student> students;
-    string weekDay;
+    std::string classCode;
+    std::vector<Student> students;
+    std::string weekDay;
     double startHour;
     double duration;
-    string type;
+    std::string type;
 };
 
-#endif // AED_PROJECT_CLASS_H
+#endif

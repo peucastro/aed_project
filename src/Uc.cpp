@@ -1,5 +1,6 @@
 #include "../inc/Uc.hpp"
-#include <iostream>
+using namespace std;
+
 Uc::Uc()
 {
     UcCode = "NO_NAME";
@@ -13,15 +14,19 @@ Uc::Uc(const string &UcCode) : UcCode(UcCode)
 
     string line;
 
-    while (getline(file, line)) {
+    while (getline(file, line))
+    {
         istringstream stream(line);
         string Code, ClassCode;
 
-        if (getline(stream, Code, ',')) {
-            if (Code == UcCode) {
-                if (getline(stream, ClassCode, ',')) {
-                UcClasses.push_back(ClassCode);
-                    }
+        if (getline(stream, Code, ','))
+        {
+            if (Code == UcCode)
+            {
+                if (getline(stream, ClassCode, ','))
+                {
+                    UcClasses.push_back(ClassCode);
+                }
             }
         }
     }
@@ -38,7 +43,7 @@ void Uc::setUcCode(const string &UcCode)
     this->UcCode = UcCode;
 }
 
-    void Uc::addClass(const string &UcClass)
+void Uc::addClass(const string &UcClass)
 {
     for (vector<string>::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)
         if (*it == UcClass)
@@ -46,8 +51,10 @@ void Uc::setUcCode(const string &UcCode)
     UcClasses.push_back(UcClass);
 }
 
-void Uc::printClasses(){
-    for(string turma : UcClasses) cout << turma << endl;
+void Uc::printClasses()
+{
+    for (string turma : UcClasses)
+        cout << turma << endl;
 }
 
 unsigned int Uc::classesCount()

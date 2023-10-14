@@ -3,23 +3,24 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 #include <fstream>
 #include <sstream>
-using namespace std;
 
 class Uc
 {
 public:
     Uc();
-    Uc(const string &UcCode);
-    string getUcCode();
-    void setUcCode(const string &UcCode);
-    void addClass(const string &UcClass);
+    Uc(const std::string &UcCode);
+    std::string getUcCode();
+    void setUcCode(const std::string &UcCode);
+    void addClass(const std::string &UcClass);
     void printClasses();
     unsigned int classesCount();
+
 private:
-    string UcCode;
-    vector<string> UcClasses;
+    std::string UcCode;
+    std::vector<std::string> UcClasses;
 };
 
 #endif

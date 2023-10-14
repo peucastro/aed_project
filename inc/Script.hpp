@@ -1,15 +1,9 @@
 #include "Uc.hpp"
-#include "Class.hpp"
 #include "Student.hpp"
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <map>
+#include "Class.hpp"
 
 class Script
 {
 public:
-    Student loadStudent(const string &studentCode);
+    Student loadStudent(const std::string &studentCode);
 };

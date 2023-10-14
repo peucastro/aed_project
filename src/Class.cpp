@@ -1,6 +1,12 @@
 #include "../inc/Class.hpp"
+using namespace std;
 
-Class::Class(string ucCode, string classCode, string weekDay, double startHour, double duration, string type)
+Class::Class(const string &ucCode)
+{
+
+}
+
+Class::Class(const std::string &ucCode, const std::string &classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type)
 {
     this->uc.setUcCode(ucCode);
     this->uc.addClass(classCode);
@@ -25,13 +31,13 @@ void Class::setUc(const Uc &uc)
     this->uc = uc;
 }
 
-void Class::addStudent(Student student)
+void Class::addStudent(Student &student)
 {
     Student new_student = Student(student.getstudentCode(), student.getstudentName());
     this->students.push_back(new_student);
 }
 
-void Class::removeStudent(Student student)
+void Class::removeStudent(const Student &student)
 {
     int mark;
     for (int i = 0; i < this->students.size(); i++)
