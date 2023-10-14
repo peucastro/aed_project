@@ -13,7 +13,7 @@ public:
     Uc();
     Uc(const string &UcCode);
     string getUcCode();
-    void setUcCode(string &ucCode);
+    void setUcCode(const string &UcCode);
     void addClass(const string &UcClass);
     void printClasses();
     unsigned int classesCount();
