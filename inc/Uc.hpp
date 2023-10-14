@@ -13,12 +13,10 @@ public:
     Uc();
     Uc(const string &UcCode);
     string getUcCode();
-    void addClass(const string &UcClass);
-    void getClasses();
-    unsigned int classesCount();
     void setUcCode(string &ucCode);
-    
-
+    void addClass(const string &UcClass);
+    void printClasses();
+    unsigned int classesCount();
 private:
     string UcCode;
     vector<string> UcClasses;

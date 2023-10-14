@@ -29,5 +29,4 @@ void Student::setstudentName(const string &studentName)
 
 bool Student::operator==(const Student& other){
     return this->studentCode == other.studentCode && this->studentName == other.studentName;
-
 }

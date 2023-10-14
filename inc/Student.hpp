@@ -2,6 +2,7 @@
 #define AED_PROJECT_STUDENT_H
 
 #include "Uc.hpp"
+#include "Schedule.hpp"
 
 class Student
 {
@@ -25,7 +26,6 @@ public:
 private:
     string studentCode;
     string studentName;
-    Schedule studentSchedule;
 };
 
 #endif // AED_PROJECT_STUDENT_H

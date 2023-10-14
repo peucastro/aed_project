@@ -41,9 +41,10 @@ void Uc::addClass(const string &UcClass)
     UcClasses.push_back(UcClass);
 }
 
-void Uc::getClasses(){
+void Uc::printClasses(){
     for(string turma : UcClasses) cout << turma << endl;
 }
+
 unsigned int Uc::classesCount()
 {
     return UcClasses.size();
