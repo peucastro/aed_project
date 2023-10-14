@@ -2,7 +2,6 @@
 #define AED_PROJECT_STUDENT_H
 
 #include "Uc.hpp"
-#include "Schedule.hpp"
 
 class Student
 {
