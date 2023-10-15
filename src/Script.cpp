@@ -1,7 +1,8 @@
 #include "../inc/Script.hpp"
 using namespace std;
 
-Student Script::loadStudent(const string &studenCode)
+//Receives a student code and returns all the that the student is enrolled in. 
+Student Script::loadStudent(const string &studentCode)
 {
     Student student;
 
@@ -22,7 +23,7 @@ Student Script::loadStudent(const string &studenCode)
 
         getline(getline(getline(getline(iss, studentCodeFromFile, ','), studentNameFromFile, ','), ucCodeFromFile, ','), classCodefromFile, ',');
 
-        if (studentCodeFromFile == studenCode)
+        if (studentCodeFromFile == studentCode)
         {
             student.setstudentCode(studentCodeFromFile);
             student.setstudentName(studentNameFromFile);
@@ -35,6 +36,32 @@ Student Script::loadStudent(const string &studenCode)
     return student;
 }
 
+
+//Receives an UC and adds all the Classes of that UC
+void Script::loadClasses(Uc &uc_){
+    ifstream file;
+    file.open("../data/classes_per_uc.csv", std::ios::in);
+
+    if(!file.is_open()) cout << "not open";
+    string line;
+
+    while (getline(file, line)) {
+        istringstream stream(line);
+        string Code, ClassCode;
+
+        if (getline(stream, Code, ',')) {
+            if (Code == uc_.getUcCode()) {
+                if (getline(stream, ClassCode)) {
+                uc_.addClass(ClassCode);
+                    }
+            }
+        }
+    }
+    file.close();
+}
+
+
+//Receives a Lecture and adds all the students of that Lecture
 void Script::studentsInClass(Lecture &oneLecture_){
 
 
@@ -49,22 +76,15 @@ void Script::studentsInClass(Lecture &oneLecture_){
     // Ler os dados do arquivo CSV
     while (getline(file, line)) {
         istringstream iss(line);
-        string StudentCode, StudentName, UcCode, ClassCode;
+        string StudentCode, StudentName, UcCode, classCode;
 
-        if (getline(iss, StudentCode, ',') &&
-            getline(iss, StudentName, ',') &&
-            getline(iss, UcCode, ',') &&
-            getline(iss, ClassCode)) {
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, ',');
             
-            cout << ClassCode << " - " << oneLecture_.getClassCode() << endl;
-            if(UcCode == oneLecture_.getUc().getUcCode() && oneLecture_.getClassCode() == ClassCode){
+            if(UcCode == oneLecture_.getUc().getUcCode() && classCode.compare(oneLecture_.getClassCode())){
                 Student student(StudentCode, StudentName);
                 oneLecture_.addStudent(student);
                 
-
-
             }
-        }
     }
 
     file.close();
