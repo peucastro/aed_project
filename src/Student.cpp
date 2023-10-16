@@ -31,7 +31,9 @@ void Student::setstudentName(const string &studentName)
 }
 void Student::addClass(const pair<string, string> &Class)
 {
-    schedule.insert(Class);
+    for (map<string, string>::iterator it = schedule.begin(); it != schedule.end(); it++)
+
+        schedule.insert(Class);
 }
 
 bool Student::operator==(const Student &other)

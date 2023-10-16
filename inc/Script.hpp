@@ -1,7 +1,4 @@
-#include "Uc.hpp"
-#include "Student.hpp"
 #include "Lecture.hpp"
-#include "Uc.hpp"
 
 class Script
 {

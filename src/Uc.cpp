@@ -9,28 +9,6 @@ Uc::Uc()
 
 Uc::Uc(const string &UcCode) : UcCode(UcCode)
 {
-    ifstream file;
-    file.open("../data/classes_per_uc.csv", std::ios::in);
-
-    string line;
-
-    while (getline(file, line))
-    {
-        istringstream stream(line);
-        string Code, ClassCode;
-
-        if (getline(stream, Code, ','))
-        {
-            if (Code == UcCode)
-            {
-                if (getline(stream, ClassCode, ','))
-                {
-                    UcClasses.push_back(ClassCode);
-                }
-            }
-        }
-    }
-    file.close();
 }
 
 string Uc::getUcCode()
