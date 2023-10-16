@@ -6,7 +6,7 @@ class Lecture
 {
 public:
     Lecture(const std::string &ucCode);
-    Lecture(const std::string &ucCode, const std::string&  classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type);
+    Lecture(const std::string &ucCode, const std::string &classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type);
     Uc getUc();
     std::string getClassCode();
     void setUc(const Uc &uc);
@@ -21,7 +21,7 @@ public:
     void setDuration(const double &duration);
     std::string getType();
     void setType(const std::string &type);
-    bool operator==( Lecture &other);
+    bool operator==(Lecture &other);
 
 private:
     Uc uc;

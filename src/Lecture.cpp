@@ -3,10 +3,9 @@ using namespace std;
 
 Lecture::Lecture(const string &ucCode)
 {
-
 }
 
-Lecture::Lecture(const std::string &ucCode, const std::string &classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type): uc(ucCode)
+Lecture::Lecture(const std::string &ucCode, const std::string &classCode, const std::string &weekDay, const double &startHour, const double &duration, const std::string &type) : uc(ucCode)
 {
     this->uc.setUcCode(ucCode);
     this->uc.addClass(classCode);

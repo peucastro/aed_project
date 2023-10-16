@@ -1,4 +1,3 @@
-#include "../inc/Student.hpp"
 #include "../inc/Script.hpp"
 #include <stdexcept>
 
