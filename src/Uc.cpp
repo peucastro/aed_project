@@ -49,6 +49,7 @@ void Uc::addClass(const string &UcClass)
         if (*it == UcClass)
             return;
     UcClasses.push_back(UcClass);
+    sort(UcClasses.begin(), UcClasses.end());
 }
 
 void Uc::printClasses()

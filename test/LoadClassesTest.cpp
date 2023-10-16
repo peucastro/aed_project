@@ -8,7 +8,6 @@ void printClasses(){
     Uc uc = Uc("L.EIC001");
     cout << uc.classesCount() << endl;
     uc.printClasses();
-
 }
 
 int main(){

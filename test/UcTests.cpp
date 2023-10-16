@@ -34,6 +34,7 @@ void testClassesCount()
     Uc uc;
     uc.addClass("Classe1");
     uc.addClass("Classe2");
+    
     if (uc.classesCount() != 2)
     {
         throw std::runtime_error("Teste para obter a contagem de classes falhou.");
