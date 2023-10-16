@@ -34,6 +34,9 @@ void Lecture::setUc(const Uc &uc)
 
 void Lecture::addStudent(Student &student)
 {
+    for (auto it = this->students.begin(); it != this->students.end(); it++)
+        if (*it == student)
+            return;
     this->students.push_back(student);
 }
 
