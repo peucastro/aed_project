@@ -1,6 +1,8 @@
 #include "../inc/Script.hpp"
 #include <stdexcept>
 
+// g++ -o StudentLoadTests StudentLoadTests.cpp ../src/Script.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp
+
 void testLoadCode()
 {
     Script script;

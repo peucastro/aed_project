@@ -93,3 +93,33 @@ void Script::studentsInClass(Lecture &oneLecture_)
 
     file.close();
 }
+
+vector<Student> Script::studentsinUc(Uc &uc)
+{
+    vector<Student> students;
+
+    ifstream file("../data/students_classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+    }
+
+    string line;
+
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+        string StudentCode, StudentName, UcCode, classCode;
+
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+
+        if (UcCode == uc.getUcCode())
+        {
+            Student student{StudentCode, StudentName};
+            students.push_back(student);
+        }
+    }
+
+    file.close();
+    return students;
+}

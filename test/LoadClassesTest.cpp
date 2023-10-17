@@ -1,6 +1,8 @@
 #include "../inc/Script.hpp"
 #include <stdexcept>
 
+// g++ -o LoadClassesTest LoadClassesTest.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
+
 void printClasses()
 {
     Script script;
