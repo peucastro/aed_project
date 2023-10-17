@@ -15,7 +15,7 @@ public:
     std::string getUcCode();
     void setUcCode(const std::string &UcCode);
     void addClass(const std::string &UcClass);
-    void printClasses();
+    void printClasses(const std::string &SortMethod);
     unsigned int classesCount();
 
 private:

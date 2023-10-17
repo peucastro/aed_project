@@ -9,7 +9,11 @@ void printClasses()
     Uc uc = Uc("L.EIC001");
     script.loadClasses(uc);
     std::cout << "Número de turmas da Uc: " << uc.classesCount() << std::endl;
-    uc.printClasses();
+    
+    uc.printClasses("3");
+    
+
+
 }
 
 int main()

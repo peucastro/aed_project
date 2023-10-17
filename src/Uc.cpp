@@ -30,10 +30,17 @@ void Uc::addClass(const string &UcClass)
     sort(UcClasses.begin(), UcClasses.end());
 }
 
-void Uc::printClasses()
+void Uc::printClasses(const string &SortMethod)
 {
-    for (string turma : UcClasses)
-        cout << turma << endl;
+    if (SortMethod == "1") {
+        for (const string &turma : UcClasses)
+            cout << turma << endl;
+    } else if (SortMethod == "2") {
+        for (auto it = UcClasses.rbegin(); it != UcClasses.rend(); ++it)
+            cout << *it << endl;
+    } else {
+        cout << "Selecione um método de ordenação válido" << endl;
+    }
 }
 
 unsigned int Uc::classesCount()
