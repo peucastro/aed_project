@@ -1,4 +1,6 @@
 #include "../inc/Script.hpp"
+#include <string>
+
 using namespace std;
 
 // Receives a student code and returns all the that the student is enrolled in.
@@ -93,3 +95,52 @@ void Script::studentsInClass(Lecture &oneLecture_)
 
     file.close();
 }
+
+//Consultar horário pelo número de estudante
+
+vector<Lecture> Script::getSchedule(const string &studentCode_){
+    Script script;
+    Student oneStudent_ = script.loadStudent(studentCode_);
+    vector<Lecture> result = {};
+
+    ifstream file("../data/classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+        return result;
+    }
+
+    string line;
+
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+        string ClassCode,UcCode,Weekday,strStarHour,strDuration,Type;
+        double StartHour,Duration;
+         //ClassCode,UcCode,Weekday,StartHour,Duration,Type;
+
+        getline(getline(getline(getline(getline(getline(iss, ClassCode, ','), UcCode, ','), Weekday, ','), strStarHour, ','), strDuration, ','), Type, '\r');
+
+        try {
+        StartHour = stod(strStarHour);
+        Duration = stod(strDuration);
+        } catch (const std::invalid_argument& e) {
+            //primeira linha de classes.csv sempre irá dar um erro
+        } catch (const std::out_of_range& e) {
+            std::cerr << "Erro: Conversão fora do alcance. O número é muito grande ou muito pequeno." << std::endl;
+        }
+        
+        if(oneStudent_.inClass(UcCode, ClassCode)){
+            
+            Lecture lecture(UcCode,ClassCode,Weekday,StartHour,Duration,Type);
+            result.push_back(lecture);
+        }
+
+    }
+
+    file.close();
+
+    return result;
+
+}
+

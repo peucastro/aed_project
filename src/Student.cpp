@@ -7,6 +7,14 @@ Student::Student()
     this->studentCode = "NO_CODE";
     this->schedule = {};
 }
+
+Student::Student(const Student &student_){
+    this->studentName = student_.studentName;
+    this->studentCode = student_.studentCode;
+    this->schedule = student_.schedule;
+}
+
+
 Student::Student(const string &studentCode, const string &studentName)
 {
     this->studentCode = studentCode;
@@ -31,9 +39,19 @@ void Student::setstudentName(const string &studentName)
 }
 void Student::addClass(const pair<string, string> &Class)
 {
-    for (map<string, string>::iterator it = schedule.begin(); it != schedule.end(); it++)
 
-        schedule.insert(Class);
+ schedule.insert(Class);
+}
+
+bool Student::inClass(const string &ucCode_, const string &classCode_){
+    auto it = schedule.find(ucCode_);
+    if(it!=schedule.end()){
+        
+        if(it->second == classCode_) return true;
+        else return false;
+    }else{
+        return false;
+    }
 }
 
 bool Student::operator==(const Student &other)

@@ -9,6 +9,8 @@ class Student
 public:
     Student();
 
+    Student(const Student &student_);
+
     Student(const std::string &studentCode, const std::string &studentName);
 
     std::string getstudentCode();
@@ -20,6 +22,8 @@ public:
     void setstudentName(const std::string &studentName);
 
     void addClass(const std::pair<std::string, std::string> &Class);
+
+    bool inClass(const std::string &ucCode, const std::string &classCode);
 
     bool operator==(const Student &other);
 
