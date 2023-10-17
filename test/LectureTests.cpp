@@ -1,56 +1,61 @@
 #include "../inc/Lecture.hpp"
-#include "../inc/Student.hpp"
-#include <vector>
 
-using namespace std;
+// g++ -o LectureTests LectureTests.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp
 
-//g++ -o LectureTests LectureTests.cpp ../src/Lecture.cpp ../src/Student.cpp ../src/Uc.cpp
-
-void AttributeStudentTests(){
-    Lecture lecture("L.EIC001","1LEIC01","Monday",10.5,1.5,"TP");
-    Student check("202200041","Leonardo");
+void AttributeStudentTests()
+{
+    Lecture lecture("L.EIC001", "1LEIC01", "Monday", 10.5, 1.5, "TP");
+    Student check("202200041", "Leonardo");
     lecture.addStudent(check);
     bool conditionCheck = true;
-    for(Student student : lecture.getStudents()){
-        if(student == check) conditionCheck = false;
+    for (Student student : lecture.getStudents())
+    {
+        if (student == check)
+            conditionCheck = false;
     }
-    if(conditionCheck){
+    if (conditionCheck)
+    {
         throw std::runtime_error("Teste addStudent falhou.");
     }
     lecture.removeStudent(check);
-    for(Student student : lecture.getStudents()){
-        if(student == check) conditionCheck = true;
+    for (Student student : lecture.getStudents())
+    {
+        if (student == check)
+            conditionCheck = true;
     }
-    if(conditionCheck){
+    if (conditionCheck)
+    {
         throw std::runtime_error("Teste removeStudent falhou.");
     }
 }
 
-void LectureFullConstructorTest(){
-    Lecture lecture("L.EIC001","1LEIC01","Monday",10.5,1.5,"TP");
-    if (lecture.getUc().getUcCode()!="L.EIC001" || lecture.getClassCode()!="1LEIC01" || lecture.getWeekDay() != "Monday" || lecture.getDuration()!=1.5 || lecture.getStartHour()!=10.5 || lecture.getType()!="TP")
+void LectureFullConstructorTest()
+{
+    Lecture lecture("L.EIC001", "1LEIC01", "Monday", 10.5, 1.5, "TP");
+    if (lecture.getUc().getUcCode() != "L.EIC001" || lecture.getClassCode() != "1LEIC01" || lecture.getWeekDay() != "Monday" || lecture.getDuration() != 1.5 || lecture.getStartHour() != 10.5 || lecture.getType() != "TP")
     {
         throw std::runtime_error("Teste do Full Constructor do lecture falhou.");
     }
 }
 
-void LectureConstructorTest(){
+void LectureConstructorTest()
+{
     Lecture lecture("L.EIC001");
     if (lecture.getUc().getUcCode() != "L.EIC001")
     {
         throw std::runtime_error("Teste do constructor default falhou.");
     }
-
-
 }
 
-int main(){
-try
+int main()
+{
+    try
     {
         LectureConstructorTest();
         LectureFullConstructorTest();
         AttributeStudentTests();
-        std::cout << std::endl << "Compilação finalizada, todos os testes passaram!" << std::endl;
+        std::cout << std::endl
+                  << "Compilação finalizada, todos os testes passaram!" << std::endl;
     }
     catch (const std::runtime_error &ex)
     {

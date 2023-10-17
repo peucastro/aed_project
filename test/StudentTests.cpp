@@ -1,6 +1,8 @@
 #include "../inc/Student.hpp"
 #include <stdexcept>
 
+// g++ -o StudentTests StudentTests.cpp ../src/Student.cpp
+
 void testConstructor()
 {
     Student student;
