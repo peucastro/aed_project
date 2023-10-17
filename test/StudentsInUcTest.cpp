@@ -9,13 +9,10 @@ void testStudentsInUc()
     Uc uc{"L.EIC001"};
     std::vector<Student> students = script.studentsinUc(uc);
 
-    unsigned short int count = 0;
-    for (Student &s : students)
+    if (students.size() != 32)
     {
-        std::cout << s.getstudentCode() << " - " << s.getstudentName() << std::endl;
-        count++;
+        throw std::runtime_error("Teste para mostrar o numero de estuantes de uma Uc falhou.");
     }
-    std::cout << "Numero total de estudantes nesta Uc: " << count << std::endl;
 }
 
 int main()
@@ -23,7 +20,7 @@ int main()
     try
     {
         testStudentsInUc();
-        std::cout << "Compilação finalizada, analisar resultados acima" << std::endl;
+        std::cout << "Compilação finalizada, todos os testes passaram" << std::endl;
     }
     catch (const std::runtime_error &ex)
     {

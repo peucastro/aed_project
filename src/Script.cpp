@@ -123,3 +123,33 @@ vector<Student> Script::studentsinUc(Uc &uc)
     file.close();
     return students;
 }
+
+vector<Student> Script::studentsInYear(const std::string &year)
+{
+    vector<Student> students;
+    ifstream file("../data/students_classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+    }
+
+    string line;
+
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+
+        if (line.substr(0, 4) == year)
+        {
+            string StudentCode, StudentName, UcCode, classCode;
+            getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+            Student student{StudentCode, StudentName};
+
+            if (find(students.begin(), students.end(), student) == students.end())
+                students.push_back(student);
+        }
+    }
+
+    file.close();
+    return students;
+}
