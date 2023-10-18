@@ -11,5 +11,6 @@ public:
     std::vector<Lecture> getSchedule(const std::string &studentCode);
     std::vector<Student> studentsinUc(Uc &uc);
     std::vector<Student> studentsInYear(const std::string &year);
+    int studentsInNUc(int number);
 
 };

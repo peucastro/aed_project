@@ -1,5 +1,6 @@
 #include "../inc/Script.hpp"
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -201,6 +202,42 @@ vector<Lecture> Script::getSchedule(const string &studentCode_){
     file.close();
 
     return result;
+
+}
+
+//ADM 1 / CONSULTAR QUANTOS ESTUDANTES ESTÃO INSCRITOS EM PELO O MENOS N UC'S
+int Script::studentsInNUc(int number){
+    int result = 0;
+    int aux = 0;
+    ifstream file("../data/students_classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+    }
+
+    unordered_map<string, unordered_map<string, bool>> studentUCs;
+    string line;
+
+    
+    while (std::getline(file, line)) {
+        istringstream iss(line);
+        string studentCode, studentName, ucCode, classCode;
+        getline(getline(getline(getline(iss, studentCode, ','), studentName, ','), ucCode, ','), classCode, '\r');
+        
+        studentUCs[studentCode][ucCode] = true;
+        
+    }
+
+    int count = 0;
+
+    // Contar estudantes inscritos em pelo menos N UCs
+    for (const auto& student : studentUCs) {
+        if (student.second.size() >= number) {
+            count++;
+        }
+    }
+
+    return count;
 
 }
 
