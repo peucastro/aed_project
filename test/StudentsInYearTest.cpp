@@ -6,7 +6,7 @@
 void testStudentsInYear()
 {
     Script script;
-    std::vector<Student> students = script.studentsInYear("2019");
+    std::unordered_set<Student, Student::Hash> students = script.studentsInYear("2019");
 
     if (students.size() != 10)
     {

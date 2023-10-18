@@ -1,8 +1,6 @@
 #include "../inc/Lecture.hpp"
 using namespace std;
 
-//Implementation of class Lecture
-
 Lecture::Lecture(const string &ucCode) : uc(ucCode)
 {
 }
