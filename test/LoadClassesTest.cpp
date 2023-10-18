@@ -9,11 +9,8 @@ void printClasses()
     Uc uc = Uc("L.EIC001");
     script.loadClasses(uc);
     std::cout << "Número de turmas da Uc: " << uc.classesCount() << std::endl;
-    
+
     uc.printClasses("3");
-    
-
-
 }
 
 int main()
@@ -21,7 +18,8 @@ int main()
     try
     {
         printClasses();
-        std::cout << std::endl << "Compilação finalizada, analisar resultados acima" << std::endl;
+        std::cout << std::endl
+                  << "Compilação finalizada, analisar resultados acima" << std::endl;
     }
     catch (const std::runtime_error &ex)
     {

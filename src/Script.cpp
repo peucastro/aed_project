@@ -1,7 +1,4 @@
 #include "../inc/Script.hpp"
-#include <string>
-#include <unordered_map>
-
 using namespace std;
 
 // Receives a student code and returns all the that the student is enrolled in.
@@ -190,9 +187,9 @@ vector<Lecture> Script::getSchedule(const string &studentCode_){
         } catch (const std::out_of_range& e) {
             std::cerr << "Erro: Conversão fora do alcance. O número é muito grande ou muito pequeno." << std::endl;
         }
-        
+
         if(oneStudent_.inClass(UcCode, ClassCode)){
-            
+
             Lecture lecture(UcCode,ClassCode,Weekday,StartHour,Duration,Type);
             result.push_back(lecture);
         }
@@ -218,14 +215,14 @@ int Script::studentsInNUc(int number){
     unordered_map<string, unordered_map<string, bool>> studentUCs;
     string line;
 
-    
+
     while (std::getline(file, line)) {
         istringstream iss(line);
         string studentCode, studentName, ucCode, classCode;
         getline(getline(getline(getline(iss, studentCode, ','), studentName, ','), ucCode, ','), classCode, '\r');
-        
+
         studentUCs[studentCode][ucCode] = true;
-        
+
     }
 
     int count = 0;

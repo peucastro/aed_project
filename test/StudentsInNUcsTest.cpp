@@ -1,24 +1,24 @@
 #include "../inc/Script.hpp"
-#include <vector>
+#include <stdexcept>
 
-using namespace std;
+// g++ -o StudentsInNUcsTest StudentsInNUcsTest.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
 
 void studentsInNUcsTesting(){
     Script script;
 
-    cout << script.studentsInNUc(3) << endl;;
-    cout << script.studentsInNUc(5) << endl;
-    cout << script.studentsInNUc(-1) << endl;
-    cout << script.studentsInNUc(10) << endl;
+    std::cout << script.studentsInNUc(3) << std::endl;;
+    std::cout << script.studentsInNUc(5) << std::endl;
+    std::cout << script.studentsInNUc(-1) << std::endl;
+    std::cout << script.studentsInNUc(10) << std::endl;
 
 }
 
 int main(){
     try{
         studentsInNUcsTesting();
-        cout << std::endl << "Compilação finalizada, analisar resultados acima" << endl;
+        std::cout << std::endl << "Compilação finalizada, analisar resultados acima" << std::endl;
     }catch(const std::runtime_error &ex){
-        cerr << "Erro: " << ex.what() << endl;
+        std::cerr << "Erro: " << ex.what() << std::endl;
         return 1;
     }
     return 0;

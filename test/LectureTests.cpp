@@ -1,4 +1,5 @@
 #include "../inc/Lecture.hpp"
+#include <stdexcept>
 
 // g++ -o LectureTests LectureTests.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp
 

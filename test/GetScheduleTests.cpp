@@ -1,20 +1,21 @@
 #include "../inc/Script.hpp"
-#include <vector>
+#include <stdexcept>
 
-using namespace std;
+// g++ - o GetScheduleTests GetScheduleTests.cpp../ src / Uc.cpp../ src / Lecture.cpp../ src / Student.cpp../ src / Script.cpp
 
-void getScheduleTest(){
+void getScheduleTest()
+{
     Script script;
-    string input = "202025232";
-    
+    std::string input = "202025232";
+
     if(script.getSchedule(input).size() != 2){
         throw std::runtime_error("Teste falhou");
 
     }else{
-        cout << "ESTUDANTE 202025232 :" << endl;
+        std::cout << "ESTUDANTE 202025232 :" << std::endl;
         for(Lecture lecture : script.getSchedule(input)){
-        
-            cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << endl;
+
+            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
         }
     }
 
@@ -24,24 +25,21 @@ void getScheduleTest(){
         throw std::runtime_error("Teste falhou");
 
     }else{
-        cout << "---------------------------------------" << endl << endl;
-        cout << "ESTUDANTE 202024127 :" << endl;
+        std::cout << "---------------------------------------" << std::endl << std::endl;
+        std::cout << "ESTUDANTE 202024127 :" << std::endl;
         for(Lecture lecture : script.getSchedule(input)){
-        
-            cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << endl;
+
+            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
         }
     }
-
-    
-
 }
 
 int main(){
     try{
         getScheduleTest();
-        cout << std::endl << "Compilação finalizada, analisar resultados acima" << endl;
+        std::cout << std::endl << "Compilação finalizada, analisar resultados acima" << std::endl;
     }catch(const std::runtime_error &ex){
-        cerr << "Erro: " << ex.what() << endl;
+        std::cerr << "Erro: " << ex.what() << std::endl;
         return 1;
     }
     return 0;
