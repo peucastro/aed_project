@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-
+#include <stack>
 class Uc
 {
 public:

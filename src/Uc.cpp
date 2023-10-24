@@ -36,8 +36,12 @@ void Uc::printClasses(const string &SortMethod)
         for (const string &turma : UcClasses)
             cout << turma << endl;
     } else if (SortMethod == "2") {
-        for (auto it = UcClasses.rbegin(); it != UcClasses.rend(); ++it)
-            cout << *it << endl;
+        stack<string> reverse;
+        for(const string &turma : UcClasses) reverse.push(turma);
+        while(!reverse.empty()){
+            cout << reverse.top() << endl;
+            reverse.pop();
+        }
     } else {
         cout << "Selecione um método de ordenação válido" << endl;
     }
