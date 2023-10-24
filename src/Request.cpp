@@ -1,30 +1,76 @@
-#include "Request.hpp"
+#include "../inc/Request.hpp"
 using namespace std;
 
-Request::Request(string studentCode, char type)
-{
-    this->id = currentId++;
-    this->studentCode = studentCode;
-    this->type = type;
+unsigned Request::currentId = 0;
 
-    switch (id)
+Request::Request(std::string studentCode, char type)
+    : id(currentId++), studentCode(studentCode), type(type)
+{
+
+    switch (type)
     {
-    case 1:
-        addUc();
+    case '1':
+    {
+        // addUc();
         break;
-    case 2:
-        removeUc();
+    }
+    case '2':
+    {
+        string ucCode;
+        cout << "Enter the code for the Uc you want to disenroll: ", cin >> ucCode, cout << endl;
+        removeUc(ucCode);
         break;
-    case 3:
-        switchUc();
+    }
+    case '3':
+    {
+        // switchUc();
         break;
-    case 4:
-        switchClass();
+    }
+    case '4':
+    {
+        // switchClass();
         break;
+    }
     }
 }
 
-unsigned Request::getId()
+
+bool Request::removeUc(string ucCode)
 {
-    return this->id;
+    ifstream read_file("../data/students_classes.csv");
+    string line;
+    queue<string> lines;
+    bool flag = false;
+
+    while (getline(read_file, line))
+    {
+        istringstream iss(line);
+        string StudentCode, StudentName, UcCode, classCode;
+
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+
+        if (StudentCode == studentCode && UcCode == ucCode)
+        {
+            flag = true;
+            continue;
+        }
+
+        lines.push(line);
+    }
+    read_file.close();
+
+    size_t count = lines.size();
+    ofstream write_file("../data/students_classes.csv");
+    for (int i = 0; i < count; i++)
+    {
+        write_file << lines.front();
+        lines.pop();
+    }
+    write_file.close();
+
+    ofstream write_log("../requests_log.csv");
+    write_log << id << ',' << type << ',' << studentCode << ',' << ucCode << endl;
+    write_log.close();
+
+    return flag;
 }

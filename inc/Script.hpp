@@ -1,3 +1,6 @@
+#ifndef AED_PROJECT_SCRIPT_H
+#define AED_PROJECT_SCRIPT_H
+
 #include "Lecture.hpp"
 #include <fstream>
 #include <sstream>
@@ -15,3 +18,5 @@ public:
     std::unordered_set<Student, Student::Hash> studentsInYear(const std::string &year);
     int studentsInNUc(int number);
 };
+
+#endif
