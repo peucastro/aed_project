@@ -44,7 +44,6 @@ bool Request::removeUc(string ucCode)
     ifstream read_file("../data/students_classes.csv");
     string line;
     queue<string> lines;
-    cout << "Começando" << endl;
     while (getline(read_file, line))
     {
         istringstream iss(line);
@@ -61,7 +60,6 @@ bool Request::removeUc(string ucCode)
         lines.push(line);
     }
     read_file.close();
-    cout << "Passei do primeiro while" << endl;
 
     if (this->flag)
     {
@@ -162,5 +160,6 @@ bool Request::addUc(string ucCodeDestination)
 }
 
 bool Request::switchUc(string ucOrigin, string ucDestination){
+
     return true;
 }
