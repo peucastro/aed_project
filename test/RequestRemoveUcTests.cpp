@@ -1,6 +1,6 @@
 #include "../inc/Request.hpp"
 
-// g++ -o RequestRemoveUcTests RequestRemoveUcTests.cpp ../src/Request.cpp
+// g++ -o RequestRemoveUcTests RequestRemoveUcTests.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
 
 void testRemoveUc()
 {

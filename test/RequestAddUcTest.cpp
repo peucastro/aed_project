@@ -4,12 +4,12 @@
 
 using namespace std;
 
-// g++ - o GetScheduleTests GetScheduleTests.cpp../ src / Uc.cpp../ src / Lecture.cpp../ src / Student.cpp../ src / Script.cpp
+// g++ -o RequestAddUcTest RequestAddUcTest.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
 
 void addUcRequestTest()
-{   
+{
     Request newRequest("202031607", '1');
-    
+
 }
 
 int main(){

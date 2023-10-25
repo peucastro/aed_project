@@ -1,12 +1,9 @@
 #ifndef AED_PROJECT_REQUEST_H
 #define AED_PROJECT_REQUEST_H
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
+#include "../inc/Script.hpp"
 #include <queue>
-
+#include <set>
 
 /*
     Request types:
@@ -21,9 +18,8 @@ class Request
 {
 public:
     Request(std::string studentCode, char type);
-    bool removeUc(std::string ucCode);
-    unsigned getId();
     bool addUc(std::string ucCodeDestination);
+    bool removeUc(std::string ucCode);
     bool switchUc();
     bool switchClass();
 
@@ -32,6 +28,7 @@ private:
     static unsigned currentId;
     std::string studentCode;
     char type;
+    bool flag = false;
 };
 
 #endif
