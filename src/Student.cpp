@@ -43,6 +43,10 @@ void Student::addClass(const pair<string, string> &Class)
     schedule.insert(Class);
 }
 
+map<string, string> Student::getSchedule(){
+    return this->schedule;
+}
+
 bool Student::inClass(const string &ucCode_, const string &classCode_)
 {
     auto it = schedule.find(ucCode_);

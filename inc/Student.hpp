@@ -13,6 +13,7 @@ public:
     std::string getstudentCode();
     void setstudentCode(const std::string &studentCode);
     std::string getstudentName();
+    std::map<std::string, std::string> getSchedule();
     void setstudentName(const std::string &studentName);
     void addClass(const std::pair<std::string, std::string> &Class);
     bool inClass(const std::string &ucCode, const std::string &classCode);

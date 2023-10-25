@@ -7,7 +7,7 @@ void printStudents()
 {
     Lecture oneClass("L.EIC002", "1LEIC05", "Monday", 10.5, 2, "TP");
     Script script;
-    script.studentsInClass(oneClass);
+    script.studentsInLecture(oneClass);
 
     for (Student student : oneClass.getStudents())
     {

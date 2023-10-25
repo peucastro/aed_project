@@ -7,6 +7,7 @@
 #include <sstream>
 #include <queue>
 
+
 /*
     Request types:
     1 -> Add Uc
@@ -20,8 +21,9 @@ class Request
 {
 public:
     Request(std::string studentCode, char type);
-    bool addUc();
     bool removeUc(std::string ucCode);
+    unsigned getId();
+    bool addUc(std::string ucCodeDestination);
     bool switchUc();
     bool switchClass();
 

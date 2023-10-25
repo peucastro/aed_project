@@ -12,9 +12,10 @@ class Script
 public:
     Student loadStudent(const std::string &studentCode);
     void loadClasses(Uc &uc_);
-    void studentsInClass(Lecture &oneLecture_);
+    void studentsInLecture(Lecture &oneLecture_);
     std::vector<Lecture> getSchedule(const std::string &studentCode);
     std::vector<Student> studentsinUc(Uc &uc);
+    std::vector<Student> studentsinClass(std::string ucCode_, std::string classCode_);
     std::unordered_set<Student, Student::Hash> studentsInYear(const std::string &year);
     int studentsInNUc(int number);
 };

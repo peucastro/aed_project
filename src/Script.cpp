@@ -66,7 +66,7 @@ void Script::loadClasses(Uc &uc_)
 }
 
 // Receives a Lecture and adds all the students of that Lecture
-void Script::studentsInClass(Lecture &oneLecture_)
+void Script::studentsInLecture(Lecture &oneLecture_)
 {
 
     ifstream file("../data/students_classes.csv");
@@ -115,6 +115,37 @@ vector<Student> Script::studentsinUc(Uc &uc)
         getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
 
         if (UcCode == uc.getUcCode())
+        {
+            Student student{StudentCode, StudentName};
+            students.push_back(student);
+        }
+    }
+
+    file.close();
+    return students;
+}
+
+// Receives a class and returns all the students registered in that class
+vector<Student> Script::studentsinClass(string ucCode_, string classCode_)
+{
+    vector<Student> students;
+
+    ifstream file("../data/students_classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+    }
+
+    string line;
+
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+        string StudentCode, StudentName, UcCode, classCode;
+
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+
+        if (UcCode == ucCode_ && classCode == classCode_)
         {
             Student student{StudentCode, StudentName};
             students.push_back(student);

@@ -47,6 +47,10 @@ void Uc::printClasses(const string &SortMethod)
     }
 }
 
+vector<string> Uc::getClasses(){
+    return this->UcClasses;
+}
+
 unsigned int Uc::classesCount()
 {
     return UcClasses.size();

@@ -16,7 +16,7 @@ public:
     void addClass(const std::string &UcClass);
     void printClasses(const std::string &SortMethod);
     unsigned int classesCount();
-
+    std::vector<std::string> getClasses();
 private:
     std::string UcCode;
     std::vector<std::string> UcClasses;

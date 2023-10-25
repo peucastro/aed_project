@@ -2,6 +2,7 @@
 #define AED_PROJECT_LECTURE_H
 
 #include "Student.hpp"
+#include "Uc.hpp"
 class Lecture
 {
 public:
