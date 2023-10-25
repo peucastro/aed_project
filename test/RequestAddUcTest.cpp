@@ -10,12 +10,6 @@ void addUcRequestTest()
 {   
     Request newRequest("202030247", '1');
 
-    Script script;
-    std::cout << "ESTUDANTE 202030247 :" << std::endl;
-        for(Lecture lecture : script.getSchedule("202031607")){
-
-            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
-        }
 }
 
 int main(){

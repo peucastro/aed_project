@@ -10,19 +10,15 @@ Student Script::loadStudent(const string &studentCode)
 
     if (!file.is_open())
     {
-        cout << "Nao consegui abrir" << endl;
         return student;
     }
 
     string line;
     getline(file, line);
-    cout << line << endl;
     while (getline(file, line))
     {
-        cout << line << endl;
         istringstream iss(line);
         string studentCodeFromFile, studentNameFromFile, ucCodeFromFile, classCodefromFile;
-        cout << studentCodeFromFile << endl;
         getline(getline(getline(getline(iss, studentCodeFromFile, ','), studentNameFromFile, ','), ucCodeFromFile, ','), classCodefromFile, '\r');
 
         if (studentCodeFromFile == studentCode)
