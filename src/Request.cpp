@@ -15,7 +15,7 @@ unsigned Request::currentId = 0;
 Request::Request(string studentCode, char type) : id(currentId++), studentCode(studentCode), type(type)
 {
     
-    switch (id)
+    switch (type)
     {
     case '1':
     {
@@ -25,19 +25,20 @@ Request::Request(string studentCode, char type) : id(currentId++), studentCode(s
         addUc(ucCodeDestination);
         break;
     }
-    case 2:
+    case '2':
        {
         string ucCode;
         cout << "Enter the code for the Uc you want to disenroll: ", cin >> ucCode, cout << endl;
         removeUc(ucCode);
         break;
        }
-    case 3:
+    case '3':
         //switchUc();
         break;
-    case 4:
+    case '4':
         //switchClass();
         break;
+    
     }
 }
 
@@ -76,7 +77,7 @@ bool Request::removeUc(string ucCode)
     }
     write_file.close();
 
-    ofstream write_log("../requests_log.csv");
+    ofstream write_log("../requests_log.csv", ios::app);
     write_log << id << ',' << type << ',' << studentCode << ',' << ucCode << endl;
     write_log.close();
 
