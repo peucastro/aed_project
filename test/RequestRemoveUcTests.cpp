@@ -4,11 +4,9 @@
 
 void testRemoveUc()
 {
-    std::string studentCode = "202031607";
 
-    char requestType = '2';
+    Request newRequest("202030247", '2');
 
-    Request(studentCode, requestType);
 }
 
 int main()

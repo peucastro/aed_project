@@ -26,8 +26,13 @@ Request::Request(string studentCode, char type) : id(currentId++), studentCode(s
         break;
     }
     case '3':
-        // switchUc();
+    {
+        string ucOrigin, ucDestination;
+        cout << "Enter the code for the Uc you want to disenroll: ", cin >> ucOrigin, cout << endl;
+        cout << "Enter the code for the Uc you want to register for: ", cin >> ucDestination, cout << endl;
+        switchUc(ucOrigin, ucDestination);
         break;
+    }
     case '4':
         // switchClass();
         break;
@@ -39,7 +44,7 @@ bool Request::removeUc(string ucCode)
     ifstream read_file("../data/students_classes.csv");
     string line;
     queue<string> lines;
-
+    cout << "Começando" << endl;
     while (getline(read_file, line))
     {
         istringstream iss(line);
@@ -56,6 +61,7 @@ bool Request::removeUc(string ucCode)
         lines.push(line);
     }
     read_file.close();
+    cout << "Passei do primeiro while" << endl;
 
     if (this->flag)
     {
@@ -73,7 +79,7 @@ bool Request::removeUc(string ucCode)
     ofstream write_file("../data/students_classes.csv");
     for (int i = 0; i < count; i++)
     {
-        write_file << lines.front();
+        write_file << lines.front() << endl;
         lines.pop();
     }
     write_file.close();
@@ -153,4 +159,8 @@ bool Request::addUc(string ucCodeDestination)
 
     this->flag = true;
     return this->flag;
+}
+
+bool Request::switchUc(string ucOrigin, string ucDestination){
+    return true;
 }
