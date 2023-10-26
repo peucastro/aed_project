@@ -4,6 +4,7 @@
 #include "../inc/Script.hpp"
 #include <queue>
 #include <set>
+#include <list>
 
 /*
     Request types:
@@ -17,11 +18,13 @@
 class Request
 {
 public:
+    Request(){};
     Request(std::string studentCode, char type);
     bool addUc(std::string ucCodeDestination);
     bool removeUc(std::string ucCode);
     bool switchUc(std::string ucOrigin, std::string ucDestination);
     bool switchClass();
+    void studentRequests(const std::string &studentCode);
 private:
     unsigned id;
     std::string studentCode;

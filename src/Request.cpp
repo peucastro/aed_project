@@ -1,4 +1,5 @@
 #include "../inc/Request.hpp"
+#include <sstream>
 using namespace std;
 
 #define MAXIMO 40
@@ -269,4 +270,42 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
 
     this->flag = true;
     return this->flag;
+}
+
+void Request::studentRequests(const string& studentCode){
+    ifstream read_file("../requests_log.csv");
+    string line;
+    while (getline(read_file, line))
+    {
+        istringstream iss(line);
+        string id_, type_,studentCode_;
+
+
+        getline(getline(getline(iss, id_, ','), type_, ','), studentCode_, ',');
+
+        if (studentCode_ == studentCode)
+        {
+            if(type_ == "1"){
+                string ucCode_, classCode_;
+                getline(getline(iss,ucCode_,','),classCode_,'\r');
+                cout << "Operation ID: " << id_ << " | Student added the UC " << ucCode_ << " and entered the class " << classCode_ << endl;
+            }else if(type_ == "2"){
+                string ucCode_;
+                getline(iss, ucCode_,'\r');
+                cout << "Operation ID: " << id_ << " | Student removed the UC " << ucCode_ << endl;
+            }else if(type_=="3"){
+                string ucOrigin_, ucDestination_, classCode_;
+                getline(getline(getline(iss, ucOrigin_,','),ucDestination_,','),classCode_,'\r');
+                cout << "Operation ID: " << id_ << " |  Student switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
+            }/*else if(type=="4"){
+                switch class
+            }
+            */
+   
+        }
+    
+    }
+    read_file.close();
+
+
 }
