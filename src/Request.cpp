@@ -3,10 +3,18 @@ using namespace std;
 
 #define MAXIMO 40
 
-unsigned Request::currentId = 0;
-
-Request::Request(string studentCode, char type) : id(currentId++), studentCode(studentCode), type(type)
+Request::Request(string studentCode, char type)
 {
+    this->studentCode = studentCode;
+    this->type = type;
+
+    ifstream log("../requests_log.csv");
+    string line;
+    char count = 0;
+    while (getline(log, line))
+        count++;
+    this->id = count;
+    log.close();
 
     switch (type)
     {
@@ -159,7 +167,8 @@ bool Request::addUc(string ucCodeDestination)
     return this->flag;
 }
 
-bool Request::switchUc(string ucOrigin, string ucDestination){
+bool Request::switchUc(string ucOrigin, string ucDestination)
+{
     ifstream read_file("../data/students_classes.csv");
     string line;
     queue<string> lines;
@@ -185,7 +194,7 @@ bool Request::switchUc(string ucOrigin, string ucDestination){
         throw runtime_error("You are not enrolled at this Uc.");
         return this->flag;
     }
-    
+
     size_t count = lines.size();
     ofstream write_file("../data/students_classes.csv");
     for (int i = 0; i < count; i++)
@@ -204,7 +213,6 @@ bool Request::switchUc(string ucOrigin, string ucDestination){
         return this->flag;
     }
 
-    
     Uc destination(ucDestination);
     script.loadClasses(destination);
     int max = 0;

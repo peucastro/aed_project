@@ -1,10 +1,8 @@
 #include "../inc/Request.hpp"
 
-using namespace std;
+// g++ -o RequestSwitchUcTest RequestSwitchUcTest.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
 
-// g++ -o RequestAddUcTest RequestAddUcTest.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
-
-void addUcRequestTest()
+void testSwitchUc()
 {
     Student student_old = Script().loadStudent("202030247");
     std::map<std::string, std::string> old_schedule = student_old.getSchedule();
@@ -13,7 +11,7 @@ void addUcRequestTest()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request newRequest("202030247", '1');
+    Request("202030247", '3');
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
@@ -22,11 +20,16 @@ void addUcRequestTest()
         std::cout << p.first << " - " << p.second << std::endl;
 }
 
-int main(){
-    try{
-        addUcRequestTest();
-        std::cout << std::endl << "Compilação finalizada, analisar resultados acima" << std::endl;
-    }catch(const std::runtime_error &ex){
+int main()
+{
+    try
+    {
+        testSwitchUc();
+        std::cout << std::endl
+                  << "Compilação finalizada, analisar os resultados." << std::endl;
+    }
+    catch (const std::runtime_error &ex)
+    {
         std::cerr << "Erro: " << ex.what() << std::endl;
         return 1;
     }

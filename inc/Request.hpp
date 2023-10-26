@@ -24,7 +24,6 @@ public:
     bool switchClass();
 private:
     unsigned id;
-    static unsigned currentId;
     std::string studentCode;
     char type;
     bool flag = false;
