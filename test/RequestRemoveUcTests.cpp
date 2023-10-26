@@ -11,7 +11,9 @@ void testRemoveUc()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request newRequest("202030247", '2');
+    std::string ucCode;
+    std::cout << "Enter the code for the Uc you want to disenroll: ", std::cin >> ucCode, std::cout << std::endl;
+    Request("202030247", '1').addUc(ucCode);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();

@@ -1,6 +1,4 @@
 #include "../inc/Request.hpp"
-#include <sstream>
-#include <algorithm>
 using namespace std;
 
 #define MAXIMO 40
@@ -17,42 +15,6 @@ Request::Request(string studentCode, char type)
         count++;
     this->id = count;
     log.close();
-
-    switch (type)
-    {
-    case '1':
-    {
-        string ucCodeDestination;
-        cout << "Enter the code for the UC you want to enroll: ";
-        cin >> ucCodeDestination;
-        addUc(ucCodeDestination);
-        break;
-    }
-    case '2':
-    {
-        string ucCode;
-        cout << "Enter the code for the Uc you want to disenroll: ", cin >> ucCode, cout << endl;
-        removeUc(ucCode);
-        break;
-    }
-    case '3':
-    {
-        string ucOrigin, ucDestination;
-        cout << "Enter the code for the Uc you want to disenroll: ", cin >> ucOrigin, cout << endl;
-        cout << "Enter the code for the Uc you want to register for: ", cin >> ucDestination, cout << endl;
-        switchUc(ucOrigin, ucDestination);
-        break;
-    }
-    case '4':
-    {
-        string uc, classOrigin, classDestination;
-        cout << "Enter the code for the Uc you want to change classes:", cin >> uc, cout<< endl;
-        cout << "Enter the code for the class you want to disenroll:", cin >> classOrigin, cout<< endl;
-        cout << "Enter the code for the class you want to enroll:", cin >> classDestination, cout<< endl;
-        switchClass(uc, classOrigin, classDestination);
-        break;
-    }
-    }
 }
 
 bool Request::removeUc(string ucCode)
@@ -106,7 +68,8 @@ bool Request::addUc(string ucCodeDestination)
     Script script;
     Student newStudent = script.loadStudent(this->studentCode);
     map<std::string, std::string> new_schedule = newStudent.getSchedule();
-    if(new_schedule.find(ucCodeDestination)!=new_schedule.end()){
+    if (new_schedule.find(ucCodeDestination) != new_schedule.end())
+    {
         throw runtime_error("Student already registered in this UC");
         return this->flag;
     }
@@ -279,46 +242,47 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
     return this->flag;
 }
 
-
-
-
-void Request::studentRequests(const string& studentCode){
+void Request::studentRequests(const string &studentCode)
+{
     ifstream read_file("../requests_log.csv");
     string line;
     while (getline(read_file, line))
     {
         istringstream iss(line);
-        string id_, type_,studentCode_;
-
+        string id_, type_, studentCode_;
 
         getline(getline(getline(iss, id_, ','), type_, ','), studentCode_, ',');
 
         if (studentCode_ == studentCode)
         {
-            if(type_ == "1"){
+            if (type_ == "1")
+            {
                 string ucCode_, classCode_;
-                getline(getline(iss,ucCode_,','),classCode_,'\r');
+                getline(getline(iss, ucCode_, ','), classCode_, '\r');
                 cout << "Operation ID: " << id_ << " | Student added the UC " << ucCode_ << " and entered the class " << classCode_ << endl;
-            }else if(type_ == "2"){
-                string ucCode_;
-                getline(iss, ucCode_,'\r');
-                cout << "Operation ID: " << id_ << " | Student removed the UC " << ucCode_ << endl;
-            }else if(type_=="3"){
-                string ucOrigin_, ucDestination_, classCode_;
-                getline(getline(getline(iss, ucOrigin_,','),ucDestination_,','),classCode_,'\r');
-                cout << "Operation ID: " << id_ << " |  Student switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
-            }/*else if(type=="4"){
-                switch class
             }
-            */
-   
+            else if (type_ == "2")
+            {
+                string ucCode_;
+                getline(iss, ucCode_, '\r');
+                cout << "Operation ID: " << id_ << " | Student removed the UC " << ucCode_ << endl;
+            }
+            else if (type_ == "3")
+            {
+                string ucOrigin_, ucDestination_, classCode_;
+                getline(getline(getline(iss, ucOrigin_, ','), ucDestination_, ','), classCode_, '\r');
+                cout << "Operation ID: " << id_ << " |  Student switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
+            } /*else if(type=="4"){
+                 switch class
+             }
+             */
         }
-    
     }
     read_file.close();
 }
-bool Request::switchClass(std::string currentUc, std::string classOrigin, std::string classDestination){
-    
+bool Request::switchClass(std::string currentUc, std::string classOrigin, std::string classDestination)
+{
+
     Script script;
     Uc uc = Uc(currentUc);
     Student newStudent = script.loadStudent(this->studentCode);
@@ -345,7 +309,7 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
             eligibleClasses.push_back(currClass);
         }
     }
-    
+
     if (max > MAXIMO)
     {
         throw runtime_error("All classes with maximum occupancy");
@@ -358,9 +322,9 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
         return this->flag;
     }
 
-    for(auto e : eligibleClasses)
+    for (auto e : eligibleClasses)
     {
-        if(e == classDestination)
+        if (e == classDestination)
         {
             this->flag = true;
             break;
@@ -376,7 +340,7 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     string line;
     queue<string> lines;
     while (getline(read_file, line))
-    {  
+    {
         istringstream iss(line);
         string StudentCode, StudentName, UcCode, classCode;
         getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
@@ -400,5 +364,54 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     write_file << this->studentCode << ',' << newStudent.getstudentName() << ',' << currentUc << ',' << classDestination << '\r';
     write_file.close();
 
-    return this->flag;  
+    return this->flag;
+}
+
+void Request::undoRequest(unsigned id)
+{
+    ifstream log("../requests_log.csv");
+    string line;
+    while (getline(log, line))
+    {
+        istringstream iss(line);
+        string idFromFile, typeFromFile, studentCodeFromFile;
+        getline(getline(getline(iss, idFromFile, ','), typeFromFile, ','), studentCode, '\r');
+        if (idFromFile == to_string(id))
+        {
+            switch (typeFromFile[0])
+            {
+            case '1':
+            {
+                string ucCodeFromFile, classCodeFromFile;
+                getline(getline(iss, ucCodeFromFile, ','), classCodeFromFile, '\r');
+                // TODO
+                break;
+            }
+            case '2':
+            {
+                string ucCodeFromFile;
+                getline(iss, ucCodeFromFile, '\r');
+                // TODO
+                break;
+            }
+            case '3':
+            {
+                string originFromFile, destinationFromFile, classCodeFromFile;
+                getline(getline(getline(iss, originFromFile, ','), destinationFromFile, ','), classCodeFromFile, '\r');
+                // TODO
+                break;
+            }
+            case '4':
+            {
+                string ucCodeFromFile, originFromFile, destinationFromFile;
+                getline(getline(getline(iss, ucCodeFromFile, ','), originFromFile, ','), destinationFromFile, '\r');
+                // TODO
+                break;
+            }
+            }
+        }
+    }
+
+    if (log.eof())
+        throw runtime_error("This request does not exist.");
 }

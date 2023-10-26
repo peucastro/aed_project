@@ -13,7 +13,10 @@ void addUcRequestTest()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request newRequest("202030247", '1');
+    string ucCodeDestination;
+    cout << "Enter the code for the UC you want to enroll: ";
+    cin >> ucCodeDestination;
+    Request("202030247", '1').addUc(ucCodeDestination);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
@@ -31,7 +34,10 @@ void testRemoveUc()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request newRequest("202030247", '2');
+    std::string ucCodeDestination;
+    std::cout << "Enter the code for the UC you want to enroll: ";
+    std::cin >> ucCodeDestination;
+    Request("202030247", '1').addUc(ucCodeDestination);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
@@ -49,7 +55,10 @@ void testSwitchUc()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request("202030247", '3');
+    std::string ucCodeDestination;
+    std::cout << "Enter the code for the UC you want to enroll: ";
+    std::cin >> ucCodeDestination;
+    Request("202030247", '1').addUc(ucCodeDestination);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
@@ -58,12 +67,12 @@ void testSwitchUc()
         std::cout << p.first << " - " << p.second << std::endl;
 }
 
-void testStudentRequests(){
+void testStudentRequests()
+{
     testRemoveUc();
     addUcRequestTest();
     testSwitchUc();
     Request().studentRequests("202030247");
-    
 }
 
 int main()

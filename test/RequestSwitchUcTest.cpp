@@ -11,7 +11,10 @@ void testSwitchUc()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request("202030247", '3');
+    std::string ucOrigin, ucDestination;
+    std::cout << "Enter the code for the Uc you want to disenroll: ", std::cin >> ucOrigin, std::cout << std::endl;
+    std::cout << "Enter the code for the Uc you want to register for: ", std::cin >> ucDestination, std::cout << std::endl;
+    Request("202030247", '3').switchUc(ucOrigin, ucDestination);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();

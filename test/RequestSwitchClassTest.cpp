@@ -11,7 +11,11 @@ void testSwitchClass()
         std::cout << p.first << " - " << p.second << std::endl;
     std::cout << std::endl;
 
-    Request("202030247", '4');
+    std::string uc, classOrigin, classDestination;
+    std::cout << "Enter the code for the Uc you want to change classes:", std::cin >> uc, std::cout << std::endl;
+    std::cout << "Enter the code for the class you want to disenroll:", std::cin >> classOrigin, std::cout << std::endl;
+    std::cout << "Enter the code for the class you want to enroll:", std::cin >> classDestination, std::cout << std::endl;
+    Request("202030247", '4').switchClass(uc, classOrigin, classDestination);
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
