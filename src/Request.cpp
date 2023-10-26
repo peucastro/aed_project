@@ -97,12 +97,12 @@ bool Request::addUc(string ucCodeDestination)
 {
     Script script;
     Student newStudent = script.loadStudent(this->studentCode);
-    /* condicional que checa se o estudante ja esta inscrito naquela uc, sempre retorna verdadeiro não sei pq
-    if(newStudent.getSchedule().find(ucCodeDestination)!=newStudent.getSchedule().end()){
+    map<std::string, std::string> new_schedule = newStudent.getSchedule();
+    if(new_schedule.find(ucCodeDestination)!=new_schedule.end()){
         throw runtime_error("Student already registered in this UC");
         return this->flag;
     }
-    */
+
     if (newStudent.getSchedule().size() >= 7)
     {
         throw runtime_error("Student registered in maximum number of UC's");

@@ -235,7 +235,7 @@ vector<Lecture> Script::getSchedule(const string &studentCode_)
     return result;
 }
 
-// ADM 1 | Check how many students are anrolled in at least N Ucs
+// ADM 1 | Check how many students are e nrolled in at least N Ucs
 int Script::studentsInNUc(int number)
 {
     int result = 0;
