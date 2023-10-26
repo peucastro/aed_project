@@ -53,7 +53,7 @@ void Script::loadClasses(Uc &uc_)
         {
             if (Code == uc_.getUcCode())
             {
-                if (getline(stream, ClassCode))
+                if (getline(stream, ClassCode,'\r'))
                 {
                     uc_.addClass(ClassCode);
                 }

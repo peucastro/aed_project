@@ -1,5 +1,6 @@
 #include "../inc/Request.hpp"
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 #define MAXIMO 40
@@ -325,8 +326,10 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     int max = 0;
     int min = 100;
     vector<string> eligibleClasses = {};
+
     for (string currClass : uc.getClasses())
     {
+
         int classSize = script.studentsinClass(uc.getUcCode(), currClass).size();
         if (classSize + 1 > max)
         {
@@ -343,7 +346,6 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
         }
     }
     
-    
     if (max > MAXIMO)
     {
         throw runtime_error("All classes with maximum occupancy");
@@ -356,41 +358,47 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
         return this->flag;
     }
 
-    for(string eligible : eligibleClasses){
-        cout << eligible;
-
-    if(eligible == classDestination)
+    for(auto e : eligibleClasses)
     {
-        ifstream read_file("../data/students_classes.csv");
-        string line;
-        queue<string> lines;
-        while (getline(read_file, line))
+        if(e == classDestination)
         {
+            this->flag = true;
+            break;
+        }
+    }
+    if (!(this->flag))
+    {
+        throw runtime_error("The selected UC is unavaiable");
+        return this->flag;
+    }
+
+    ifstream read_file("../data/students_classes.csv");
+    string line;
+    queue<string> lines;
+    while (getline(read_file, line))
+    {  
         istringstream iss(line);
         string StudentCode, StudentName, UcCode, classCode;
         getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
 
-        if (StudentCode == studentCode && UcCode == currentUc && classCode == classOrigin)
+        if (StudentCode == this->studentCode && UcCode == currentUc && classCode == classOrigin)
         {
+            this->flag = true;
             continue;
         }
-
         lines.push(line);
-        }
-        read_file.close();
+    }
+    read_file.close();
 
-        size_t count = lines.size();
-        ofstream write_file("../data/students_classes.csv");
-        for (int i = 0; i < count; i++)
-        {
+    size_t count = lines.size();
+    ofstream write_file("../data/students_classes.csv");
+    for (int i = 0; i < count; i++)
+    {
         write_file << lines.front() << endl;
         lines.pop();
-        }
-        write_file << this->studentCode << ',' << newStudent.getstudentName() << ',' << currentUc << ',' << classDestination << endl;
-        write_file.close();
-        this->flag = true;
     }
-    }
-    return this->flag;
-    }
+    write_file << this->studentCode << ',' << newStudent.getstudentName() << ',' << currentUc << ',' << classDestination << '\r';
+    write_file.close();
 
+    return this->flag;  
+}
