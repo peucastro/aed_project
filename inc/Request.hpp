@@ -23,8 +23,9 @@ public:
     bool addUc(std::string ucCodeDestination);
     bool removeUc(std::string ucCode);
     bool switchUc(std::string ucOrigin, std::string ucDestination);
-    bool switchClass();
+    bool switchClass(std::string uc, std::string classOrigin, std::string classDestination);
     void studentRequests(const std::string &studentCode);
+
 private:
     unsigned id;
     std::string studentCode;

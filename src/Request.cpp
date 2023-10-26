@@ -43,8 +43,14 @@ Request::Request(string studentCode, char type)
         break;
     }
     case '4':
-        // switchClass();
+    {
+        string uc, classOrigin, classDestination;
+        cout << "Enter the code for the Uc you want to change classes:", cin >> uc, cout<< endl;
+        cout << "Enter the code for the class you want to disenroll:", cin >> classOrigin, cout<< endl;
+        cout << "Enter the code for the class you want to enroll:", cin >> classDestination, cout<< endl;
+        switchClass(uc, classOrigin, classDestination);
         break;
+    }
     }
 }
 
@@ -272,6 +278,9 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
     return this->flag;
 }
 
+
+
+
 void Request::studentRequests(const string& studentCode){
     ifstream read_file("../requests_log.csv");
     string line;
@@ -306,6 +315,82 @@ void Request::studentRequests(const string& studentCode){
     
     }
     read_file.close();
-
-
 }
+bool Request::switchClass(std::string currentUc, std::string classOrigin, std::string classDestination){
+    
+    Script script;
+    Uc uc = Uc(currentUc);
+    Student newStudent = script.loadStudent(this->studentCode);
+    script.loadClasses(uc);
+    int max = 0;
+    int min = 100;
+    vector<string> eligibleClasses = {};
+    for (string currClass : uc.getClasses())
+    {
+        int classSize = script.studentsinClass(uc.getUcCode(), currClass).size();
+        if (classSize + 1 > max)
+        {
+            max = classSize + 1;
+        }
+        else if (classSize + 1 < min)
+        {
+            min = classSize + 1;
+        }
+
+        if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
+        {
+            eligibleClasses.push_back(currClass);
+        }
+    }
+    
+    
+    if (max > MAXIMO)
+    {
+        throw runtime_error("All classes with maximum occupancy");
+        return this->flag;
+    }
+
+    if ((max - min) > 4)
+    {
+        throw runtime_error("Adding the student would affect the balance of classes in this UC");
+        return this->flag;
+    }
+
+    for(string eligible : eligibleClasses){
+        cout << eligible;
+
+    if(eligible == classDestination)
+    {
+        ifstream read_file("../data/students_classes.csv");
+        string line;
+        queue<string> lines;
+        while (getline(read_file, line))
+        {
+        istringstream iss(line);
+        string StudentCode, StudentName, UcCode, classCode;
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+
+        if (StudentCode == studentCode && UcCode == currentUc && classCode == classOrigin)
+        {
+            continue;
+        }
+
+        lines.push(line);
+        }
+        read_file.close();
+
+        size_t count = lines.size();
+        ofstream write_file("../data/students_classes.csv");
+        for (int i = 0; i < count; i++)
+        {
+        write_file << lines.front() << endl;
+        lines.pop();
+        }
+        write_file << this->studentCode << ',' << newStudent.getstudentName() << ',' << currentUc << ',' << classDestination << endl;
+        write_file.close();
+        this->flag = true;
+    }
+    }
+    return this->flag;
+    }
+
