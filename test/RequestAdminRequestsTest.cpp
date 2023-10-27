@@ -1,6 +1,6 @@
 #include "../inc/Request.hpp"
 
-// g++ -o RequestStudentRequests RequestStudentRequests.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
+// g++ -o RequestAdminRequestsTest RequestAdminRequestsTest.cpp ../src/Request.cpp ../src/Uc.cpp ../src/Student.cpp ../src/Lecture.cpp ../src/Script.cpp
 
 using namespace std;
 
@@ -71,7 +71,7 @@ void testStudentRequests()
     testRemoveUc();
     addUcRequestTest();
     testSwitchUc();
-    Request().studentRequests("202030247");
+    Request().adminRequests();
 }
 
 int main()
