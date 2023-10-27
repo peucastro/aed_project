@@ -364,6 +364,11 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     write_file << this->studentCode << ',' << newStudent.getstudentName() << ',' << currentUc << ',' << classDestination << '\r';
     write_file.close();
 
+    ofstream write_log("../requests_log.csv", ios::app);
+    write_log << id << ',' << type << ',' << studentCode << ',' << currentUc << ',' << classOrigin << ',' << classDestination << endl;
+    write_log.close();
+
+
     return this->flag;
 }
 
