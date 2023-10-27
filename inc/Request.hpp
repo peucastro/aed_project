@@ -25,6 +25,7 @@ public:
     bool switchUc(std::string ucOrigin, std::string ucDestination);
     bool switchClass(std::string uc, std::string classOrigin, std::string classDestination);
     void studentRequests(const std::string &studentCode);
+    void adminRequests();
     void undoRequest(unsigned id);
 
 private:
