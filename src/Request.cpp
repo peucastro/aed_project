@@ -116,6 +116,10 @@ bool Request::addUc(string ucCodeDestination)
         return this->flag;
     }
 
+    if(eligibleClasses.size() < 1){
+        throw runtime_error("This UC hasn't avaiable classes");
+        return this->flag;
+    }
     // StudentCode,StudentName,UcCode,ClassCode
 
     ofstream outFile("../data/students_classes.csv", ios::app);
@@ -139,48 +143,20 @@ bool Request::addUc(string ucCodeDestination)
 }
 
 bool Request::switchUc(string ucOrigin, string ucDestination)
-{
-    ifstream read_file("../data/students_classes.csv");
-    string line;
-    queue<string> lines;
-    while (getline(read_file, line))
-    {
-        istringstream iss(line);
-        string StudentCode, StudentName, UcCode, classCode;
-
-        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
-
-        if (StudentCode == studentCode && UcCode == ucOrigin)
-        {
-            this->flag = true;
-            continue;
-        }
-
-        lines.push(line);
-    }
-    read_file.close();
-
-    if (!(this->flag))
-    {
-        throw runtime_error("You are not enrolled at this Uc.");
-        return this->flag;
-    }
-
-    size_t count = lines.size();
-    ofstream write_file("../data/students_classes.csv");
-    for (int i = 0; i < count; i++)
-    {
-        write_file << lines.front() << endl;
-        lines.pop();
-    }
-    write_file.close();
-
+{   
     Script script;
     Student newStudent = script.loadStudent(this->studentCode);
 
-    if (newStudent.getSchedule().size() >= 7)
+    map<std::string, std::string> new_schedule = newStudent.getSchedule();
+
+    if (new_schedule.find(ucOrigin) == new_schedule.end())
     {
-        throw runtime_error("Student registered in maximum number of UC's");
+        throw runtime_error("You are not enrolled in this UC");
+        return this->flag;
+    }
+    if (new_schedule.find(ucDestination) != new_schedule.end())
+    {
+        throw runtime_error("Student already registered in this UC");
         return this->flag;
     }
 
@@ -219,6 +195,40 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         throw runtime_error("Adding the student would affect the balance of classes in this UC");
         return this->flag;
     }
+    if(eligibleClasses.size() < 1){
+        throw runtime_error("This UC hasn't avaiable classes");
+        return this->flag;
+    }
+    ifstream read_file("../data/students_classes.csv");
+    string line;
+    queue<string> lines;
+
+
+    while (getline(read_file, line))
+    {
+        istringstream iss(line);
+        string StudentCode, StudentName, UcCode, classCode;
+
+        getline(getline(getline(getline(iss, StudentCode, ','), StudentName, ','), UcCode, ','), classCode, '\r');
+
+        if (StudentCode == studentCode && UcCode == ucOrigin)
+        {
+            this->flag = true;
+            continue;
+        }
+
+        lines.push(line);
+    }
+    read_file.close();
+
+    size_t count = lines.size();
+    ofstream write_file("../data/students_classes.csv");
+    for (int i = 0; i < count; i++)
+    {
+        write_file << lines.front() << endl;
+        lines.pop();
+    }
+    write_file.close();
 
     // StudentCode,StudentName,UcCode,ClassCode
 
@@ -229,7 +239,7 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         cerr << "Couldnt open file." << endl;
         return this->flag;
     }
-
+    cout << "Cheguei até aqui" << endl;
     outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses[0] << endl;
 
     outFile.close();
@@ -285,7 +295,7 @@ void Request::studentRequests(const string &studentCode)
 }
 bool Request::switchClass(std::string currentUc, std::string classOrigin, std::string classDestination)
 {
-
+    
     Script script;
     Uc uc = Uc(currentUc);
     Student newStudent = script.loadStudent(this->studentCode);

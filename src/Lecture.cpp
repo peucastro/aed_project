@@ -126,3 +126,14 @@ if(weekDay != other.getWeekDay()){
 }
 return startHour < other.getStartHour();
 }
+
+bool Lecture::overlay(Lecture &other){
+    if(weekDay != other.getWeekDay()) return false;
+
+    string o_type = other.getType();
+    if((type == "TP" && o_type == "TP") || (type == "PL" && o_type == "PL") || (type == "TP" && o_type == "PL") || (type == "PL" && o_type == "TP")){
+        if((startHour >= other.getStartHour()) && startHour < (other.getStartHour()+other.getDuration())) return true;
+    }
+    
+    return false;
+}
