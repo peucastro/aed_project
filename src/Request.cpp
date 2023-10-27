@@ -368,55 +368,55 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     write_log << id << ',' << type << ',' << studentCode << ',' << currentUc << ',' << classOrigin << ',' << classDestination << endl;
     write_log.close();
 
-
     return this->flag;
 }
 
 void Request::undoRequest(unsigned id)
 {
-    ifstream log("../requests_log.csv");
+    ifstream read_file("../requests_log.csv");
     string line;
-    while (getline(log, line))
+    while (getline(read_file, line))
     {
         istringstream iss(line);
         string idFromFile, typeFromFile, studentCodeFromFile;
-        getline(getline(getline(iss, idFromFile, ','), typeFromFile, ','), studentCode, '\r');
+        getline(getline(getline(iss, idFromFile, ','), typeFromFile, ','), studentCodeFromFile, ',');
         if (idFromFile == to_string(id))
         {
-            switch (typeFromFile[0])
-            {
-            case '1':
+            if (typeFromFile == "1")
             {
                 string ucCodeFromFile, classCodeFromFile;
                 getline(getline(iss, ucCodeFromFile, ','), classCodeFromFile, '\r');
-                // TODO
+                
+                Request(classCodeFromFile, '2').removeUc(ucCodeFromFile);
                 break;
             }
-            case '2':
+            else if (typeFromFile == "2")
             {
                 string ucCodeFromFile;
                 getline(iss, ucCodeFromFile, '\r');
-                // TODO
+
+                Request(ucCodeFromFile, '1').addUc(ucCodeFromFile);
                 break;
             }
-            case '3':
+            else if (typeFromFile == "3")
             {
                 string originFromFile, destinationFromFile, classCodeFromFile;
                 getline(getline(getline(iss, originFromFile, ','), destinationFromFile, ','), classCodeFromFile, '\r');
-                // TODO
+
+                Request(studentCode, '3').switchUc(destinationFromFile, originFromFile);
                 break;
             }
-            case '4':
+            else if (typeFromFile == "4")
             {
                 string ucCodeFromFile, originFromFile, destinationFromFile;
                 getline(getline(getline(iss, ucCodeFromFile, ','), originFromFile, ','), destinationFromFile, '\r');
-                // TODO
+
+                Request(studentCode, '4').switchClass(ucCodeFromFile, destinationFromFile, originFromFile);
                 break;
-            }
             }
         }
     }
 
-    if (log.eof())
+    if (read_file.eof())
         throw runtime_error("This request does not exist.");
 }
