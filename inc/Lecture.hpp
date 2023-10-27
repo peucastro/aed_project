@@ -13,15 +13,17 @@ public:
     void addStudent(Student &student);
     void removeStudent(const Student &student);
     std::vector<Student> getStudents();
-    std::string getWeekDay();
+    std::string getWeekDay() const;
     void setWeekDay(const std::string &weekDay);
-    double getStartHour();
+    double getStartHour() const;
     void setStartHour(const double &startHour);
-    double getDuration();
+    double getDuration() const;
     void setDuration(const double &duration);
-    std::string getType();
+    std::string getType() const;
     void setType(const std::string &type);
     bool operator==(Lecture &other);
+    bool operator<(const Lecture &other) const;
+    bool overlay(Lecture &other);
 
 private:
     Uc uc;

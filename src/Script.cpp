@@ -184,11 +184,11 @@ unordered_set<Student, Student::Hash> Script::studentsInYear(const std::string &
 }
 
 // Consult the schedule using the student code
-vector<Lecture> Script::getSchedule(const string &studentCode_)
+set<Lecture> Script::getSchedule(const string &studentCode_)
 {
     Script script;
     Student oneStudent_ = script.loadStudent(studentCode_);
-    vector<Lecture> result = {};
+    set<Lecture> result = {};
 
     ifstream file("../data/classes.csv");
     if (!file.is_open())
@@ -226,7 +226,7 @@ vector<Lecture> Script::getSchedule(const string &studentCode_)
         {
 
             Lecture lecture(UcCode, ClassCode, Weekday, StartHour, Duration, Type);
-            result.push_back(lecture);
+            result.insert(lecture);
         }
     }
 

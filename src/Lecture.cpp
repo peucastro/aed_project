@@ -59,7 +59,7 @@ vector<Student> Lecture::getStudents()
     return this->students;
 }
 
-string Lecture::getWeekDay()
+string Lecture::getWeekDay() const
 {
     return this->weekDay;
 }
@@ -69,7 +69,7 @@ void Lecture::setWeekDay(const string &weekDay)
     this->weekDay = weekDay;
 }
 
-double Lecture::getStartHour()
+double Lecture::getStartHour() const
 {
     return this->startHour;
 }
@@ -79,7 +79,7 @@ void Lecture::setStartHour(const double &startHour)
     this->startHour = startHour;
 }
 
-double Lecture::getDuration()
+double Lecture::getDuration() const
 {
     return this->duration;
 }
@@ -89,7 +89,7 @@ void Lecture::setDuration(const double &duration)
     this->duration = duration;
 }
 
-string Lecture::getType()
+string Lecture::getType() const
 {
     return this->type;
 }
@@ -107,4 +107,22 @@ bool Lecture::operator==(Lecture &other)
     }
     else
         return false;
+}
+
+bool Lecture::operator<(const Lecture &other) const
+{
+std::map<std::string, int> dayValues = {
+            {"Monday", 0},
+            {"Tuesday", 1},
+            {"Wednesday", 2},
+            {"Thursday", 3},
+            {"Friday", 4},
+            {"Saturday", 5},
+            {"Sunday", 6}
+        };
+
+if(weekDay != other.getWeekDay()){
+    return dayValues.at(weekDay) < dayValues.at(other.getWeekDay());
+}
+return startHour < other.getStartHour();
 }
