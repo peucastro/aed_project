@@ -17,8 +17,16 @@ void undo()
 
     Student student_new = Script().loadStudent("202030247");
     std::map<std::string, std::string> new_schedule = student_new.getSchedule();
-    std::cout << "HORARIO DEPOIS DO UNDO ADD UC: " << std::endl;
+    std::cout << "HORARIO DEPOIS DO UNDO 1: " << std::endl;
     for (std::pair<std::string, std::string> p : new_schedule)
+        std::cout << p.first << " - " << p.second << std::endl;
+
+    Request().undoRequest(1);
+
+    Student student_new2 = Script().loadStudent("202030247");
+    std::map<std::string, std::string> new_schedule2 = student_new2.getSchedule();
+    std::cout << "HORARIO DEPOIS DO UNDO 2: " << std::endl;
+    for (std::pair<std::string, std::string> p : new_schedule2)
         std::cout << p.first << " - " << p.second << std::endl;
 }
 
