@@ -19,6 +19,7 @@ public:
     std::vector<Student> studentsinClass(std::string ucCode_, std::string classCode_);
     std::unordered_set<Student, Student::Hash> studentsInYear(const std::string &year);
     int studentsInNUc(int number);
+    std::vector<std::pair<std::string, int>> ucsWithMostStudents();
 };
 
 #endif

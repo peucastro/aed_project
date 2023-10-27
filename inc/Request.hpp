@@ -3,7 +3,6 @@
 
 #include "../inc/Script.hpp"
 #include <queue>
-#include <set>
 #include <list>
 
 /*

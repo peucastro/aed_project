@@ -53,7 +53,7 @@ void Script::loadClasses(Uc &uc_)
         {
             if (Code == uc_.getUcCode())
             {
-                if (getline(stream, ClassCode,'\r'))
+                if (getline(stream, ClassCode, '\r'))
                 {
                     uc_.addClass(ClassCode);
                 }
@@ -90,6 +90,58 @@ void Script::studentsInLecture(Lecture &oneLecture_)
     }
 
     file.close();
+}
+
+// Consult the schedule using the student code
+set<Lecture> Script::getSchedule(const string &studentCode_)
+{
+    Script script;
+    Student oneStudent_ = script.loadStudent(studentCode_);
+    set<Lecture> result = {};
+
+    ifstream file("../data/classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+        return result;
+    }
+
+    string line;
+
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+        string ClassCode, UcCode, Weekday, strStarHour, strDuration, Type;
+        double StartHour, Duration;
+        // ClassCode,UcCode,Weekday,StartHour,Duration,Type;
+
+        getline(getline(getline(getline(getline(getline(iss, ClassCode, ','), UcCode, ','), Weekday, ','), strStarHour, ','), strDuration, ','), Type, '\r');
+
+        try
+        {
+            StartHour = stod(strStarHour);
+            Duration = stod(strDuration);
+        }
+        catch (const std::invalid_argument &e)
+        {
+            // primeira linha de classes.csv sempre irá dar um erro
+        }
+        catch (const std::out_of_range &e)
+        {
+            std::cerr << "Erro: Conversão fora do alcance. O número é muito grande ou muito pequeno." << std::endl;
+        }
+
+        if (oneStudent_.inClass(UcCode, ClassCode))
+        {
+
+            Lecture lecture(UcCode, ClassCode, Weekday, StartHour, Duration, Type);
+            result.insert(lecture);
+        }
+    }
+
+    file.close();
+
+    return result;
 }
 
 // Receives a Uc and returns all the students registered in that Uc
@@ -183,58 +235,6 @@ unordered_set<Student, Student::Hash> Script::studentsInYear(const std::string &
     return students;
 }
 
-// Consult the schedule using the student code
-set<Lecture> Script::getSchedule(const string &studentCode_)
-{
-    Script script;
-    Student oneStudent_ = script.loadStudent(studentCode_);
-    set<Lecture> result = {};
-
-    ifstream file("../data/classes.csv");
-    if (!file.is_open())
-    {
-        cout << "Failed to open the file." << endl;
-        return result;
-    }
-
-    string line;
-
-    while (getline(file, line))
-    {
-        istringstream iss(line);
-        string ClassCode, UcCode, Weekday, strStarHour, strDuration, Type;
-        double StartHour, Duration;
-        // ClassCode,UcCode,Weekday,StartHour,Duration,Type;
-
-        getline(getline(getline(getline(getline(getline(iss, ClassCode, ','), UcCode, ','), Weekday, ','), strStarHour, ','), strDuration, ','), Type, '\r');
-
-        try
-        {
-            StartHour = stod(strStarHour);
-            Duration = stod(strDuration);
-        }
-        catch (const std::invalid_argument &e)
-        {
-            // primeira linha de classes.csv sempre irá dar um erro
-        }
-        catch (const std::out_of_range &e)
-        {
-            std::cerr << "Erro: Conversão fora do alcance. O número é muito grande ou muito pequeno." << std::endl;
-        }
-
-        if (oneStudent_.inClass(UcCode, ClassCode))
-        {
-
-            Lecture lecture(UcCode, ClassCode, Weekday, StartHour, Duration, Type);
-            result.insert(lecture);
-        }
-    }
-
-    file.close();
-
-    return result;
-}
-
 // ADM 1 | Check how many students are e nrolled in at least N Ucs
 int Script::studentsInNUc(int number)
 {
@@ -269,4 +269,38 @@ int Script::studentsInNUc(int number)
     }
 
     return count;
+}
+
+// Consult the UCs with the greatest number of students
+vector<pair<string, int>> Script::ucsWithMostStudents()
+{
+    map<string, int> aux = {};
+
+    ifstream file("../data/students_classes.csv");
+    if (!file.is_open())
+    {
+        cout << "Failed to open the file." << endl;
+    }
+
+    string line;
+    getline(file, line);
+    while (getline(file, line))
+    {
+        istringstream iss(line);
+        string studentCode, studentName, ucCode, classCode;
+        getline(getline(getline(getline(iss, studentCode, ','), studentName, ','), ucCode, ','), classCode, '\r');
+
+        aux[ucCode]++;
+    }
+    file.close();
+
+    vector<pair<string, int>> result = {};
+
+    for (const pair<string, int> &p : aux)
+        result.push_back(p);
+
+    sort(result.begin(), result.end(), [](pair<string, int> p1, pair<string, int> p2) -> bool
+         { return p1.second > p2.second; });
+
+    return result;
 }
