@@ -272,13 +272,13 @@ void Request::studentRequests(const string &studentCode)
                 string ucOrigin_, ucDestination_, classCode_;
                 getline(getline(getline(iss, ucOrigin_, ','), ucDestination_, ','), classCode_, '\r');
                 cout << "Operation ID: " << id_ << " |  Student switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
-            } else if(type_=="4"){
-                string ucOrigin_,classOrigin_,classDestination_;
+            }
+            else if (type_ == "4")
+            {
+                string ucOrigin_, classOrigin_, classDestination_;
                 getline(getline(getline(iss, ucOrigin_, ','), classOrigin_, ','), classDestination_, '\r');
                 cout << "Operation ID: " << id_ << " |  Student switched from class " << classOrigin_ << "Of the UC " << ucOrigin_ << " to the class " << classDestination_ << endl;
-
-             }
-             
+            }
         }
     }
     read_file.close();
@@ -389,7 +389,7 @@ void Request::undoRequest(unsigned id)
             {
                 string ucCodeFromFile, classCodeFromFile;
                 getline(getline(iss, ucCodeFromFile, ','), classCodeFromFile, '\r');
-                
+
                 Request(studentCodeFromFile, '2').removeUc(ucCodeFromFile);
                 break;
             }
@@ -398,7 +398,7 @@ void Request::undoRequest(unsigned id)
                 string ucCodeFromFile;
                 getline(iss, ucCodeFromFile, '\r');
 
-                Request(this->studentCode, '1').addUc(ucCodeFromFile);
+                Request(studentCodeFromFile, '1').addUc(ucCodeFromFile);
                 break;
             }
             else if (typeFromFile == "3")
@@ -406,7 +406,7 @@ void Request::undoRequest(unsigned id)
                 string originFromFile, destinationFromFile, classCodeFromFile;
                 getline(getline(getline(iss, originFromFile, ','), destinationFromFile, ','), classCodeFromFile, '\r');
 
-                Request(studentCode, '3').switchUc(destinationFromFile, originFromFile);
+                Request(studentCodeFromFile, '3').switchUc(destinationFromFile, originFromFile);
                 break;
             }
             else if (typeFromFile == "4")
@@ -414,7 +414,7 @@ void Request::undoRequest(unsigned id)
                 string ucCodeFromFile, originFromFile, destinationFromFile;
                 getline(getline(getline(iss, ucCodeFromFile, ','), originFromFile, ','), destinationFromFile, '\r');
 
-                Request(this->studentCode, '4').switchClass(ucCodeFromFile, destinationFromFile, originFromFile);
+                Request(studentCodeFromFile, '4').switchClass(ucCodeFromFile, destinationFromFile, originFromFile);
                 break;
             }
         }
@@ -435,32 +435,31 @@ void Request::adminRequests()
 
         getline(getline(getline(iss, id_, ','), type_, ','), studentCode_, ',');
 
-            if (type_ == "1")
-            {
-                string ucCode_, classCode_;
-                getline(getline(iss, ucCode_, ','), classCode_, '\r');
-                cout << "Operation ID: " << id_ << " | Student " << studentCode_ <<" added the UC " << ucCode_ << " and entered the class " << classCode_ << endl;
-            }
-            else if (type_ == "2")
-            {
-                string ucCode_;
-                getline(iss, ucCode_, '\r');
-                cout << "Operation ID: " << id_ << " | Student " << studentCode_ <<" removed the UC " << ucCode_ << endl;
-            }
-            else if (type_ == "3")
-            {
-                string ucOrigin_, ucDestination_, classCode_;
-                getline(getline(getline(iss, ucOrigin_, ','), ucDestination_, ','), classCode_, '\r');
-                cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
-            } else if(type_=="4"){
+        if (type_ == "1")
+        {
+            string ucCode_, classCode_;
+            getline(getline(iss, ucCode_, ','), classCode_, '\r');
+            cout << "Operation ID: " << id_ << " | Student " << studentCode_ << " added the UC " << ucCode_ << " and entered the class " << classCode_ << endl;
+        }
+        else if (type_ == "2")
+        {
+            string ucCode_;
+            getline(iss, ucCode_, '\r');
+            cout << "Operation ID: " << id_ << " | Student " << studentCode_ << " removed the UC " << ucCode_ << endl;
+        }
+        else if (type_ == "3")
+        {
+            string ucOrigin_, ucDestination_, classCode_;
+            getline(getline(getline(iss, ucOrigin_, ','), ucDestination_, ','), classCode_, '\r');
+            cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from UC " << ucOrigin_ << " to the UC " << ucDestination_ << " and was added to the class " << classCode_ << endl;
+        }
+        else if (type_ == "4")
+        {
 
-                string ucOrigin_,classOrigin_,classDestination_;
-                getline(getline(getline(iss, ucOrigin_, ','), classOrigin_, ','), classDestination_, '\r');
-                cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from class " << classOrigin_ << "Of the UC " << ucOrigin_ << " to the class " << classDestination_ << endl;
-
-             }
-             
-        
+            string ucOrigin_, classOrigin_, classDestination_;
+            getline(getline(getline(iss, ucOrigin_, ','), classOrigin_, ','), classDestination_, '\r');
+            cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from class " << classOrigin_ << "Of the UC " << ucOrigin_ << " to the class " << classDestination_ << endl;
+        }
     }
     read_file.close();
 }
