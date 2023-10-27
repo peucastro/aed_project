@@ -387,7 +387,7 @@ void Request::undoRequest(unsigned id)
                 string ucCodeFromFile, classCodeFromFile;
                 getline(getline(iss, ucCodeFromFile, ','), classCodeFromFile, '\r');
                 
-                Request(classCodeFromFile, '2').removeUc(ucCodeFromFile);
+                Request(studentCodeFromFile, '2').removeUc(ucCodeFromFile);
                 break;
             }
             else if (typeFromFile == "2")
@@ -395,7 +395,7 @@ void Request::undoRequest(unsigned id)
                 string ucCodeFromFile;
                 getline(iss, ucCodeFromFile, '\r');
 
-                Request(ucCodeFromFile, '1').addUc(ucCodeFromFile);
+                Request(this->studentCode, '1').addUc(ucCodeFromFile);
                 break;
             }
             else if (typeFromFile == "3")
@@ -411,7 +411,7 @@ void Request::undoRequest(unsigned id)
                 string ucCodeFromFile, originFromFile, destinationFromFile;
                 getline(getline(getline(iss, ucCodeFromFile, ','), originFromFile, ','), destinationFromFile, '\r');
 
-                Request(studentCode, '4').switchClass(ucCodeFromFile, destinationFromFile, originFromFile);
+                Request(this->studentCode, '4').switchClass(ucCodeFromFile, destinationFromFile, originFromFile);
                 break;
             }
         }
