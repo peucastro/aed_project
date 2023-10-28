@@ -1,7 +1,6 @@
 #include "../inc/Script.hpp"
 using namespace std;
 
-// Receives a student code and returns all the that the student is enrolled in.
 Student Script::loadStudent(const string &studentCode)
 {
     Student student;
@@ -34,7 +33,8 @@ Student Script::loadStudent(const string &studentCode)
     return student;
 }
 
-list<Lecture> Script::loadLecture(string ucCode_, string classCode_){
+list<Lecture> Script::loadLecture(string ucCode_, string classCode_)
+{
     list<Lecture> result = {};
     ifstream file("../data/classes.csv");
     if (!file.is_open())
@@ -43,16 +43,13 @@ list<Lecture> Script::loadLecture(string ucCode_, string classCode_){
         return result;
     }
 
-    
     string line;
-
 
     while (getline(file, line))
     {
         istringstream iss(line);
         string ClassCode, UcCode, Weekday, strStarHour, strDuration, Type;
         double StartHour, Duration;
-        // ClassCode,UcCode,Weekday,StartHour,Duration,Type;
 
         getline(getline(getline(getline(getline(getline(iss, ClassCode, ','), UcCode, ','), Weekday, ','), strStarHour, ','), strDuration, ','), Type, '\r');
 
@@ -63,7 +60,6 @@ list<Lecture> Script::loadLecture(string ucCode_, string classCode_){
         }
         catch (const std::invalid_argument &e)
         {
-            // primeira linha de classes.csv sempre irá dar um erro
         }
         catch (const std::out_of_range &e)
         {
@@ -83,7 +79,6 @@ list<Lecture> Script::loadLecture(string ucCode_, string classCode_){
     return result;
 }
 
-// Receives an UC and adds all the Classes of that UC
 void Script::loadClasses(Uc &uc_)
 {
     ifstream file;
@@ -112,7 +107,6 @@ void Script::loadClasses(Uc &uc_)
     file.close();
 }
 
-// Receives a Lecture and adds all the students of that Lecture
 void Script::studentsInLecture(Lecture &oneLecture_)
 {
 
@@ -141,7 +135,6 @@ void Script::studentsInLecture(Lecture &oneLecture_)
     file.close();
 }
 
-// Consult the schedule using the student code
 set<Lecture> Script::getSchedule(const string &studentCode_)
 {
     Script script;
@@ -162,7 +155,6 @@ set<Lecture> Script::getSchedule(const string &studentCode_)
         istringstream iss(line);
         string ClassCode, UcCode, Weekday, strStarHour, strDuration, Type;
         double StartHour, Duration;
-        // ClassCode,UcCode,Weekday,StartHour,Duration,Type;
 
         getline(getline(getline(getline(getline(getline(iss, ClassCode, ','), UcCode, ','), Weekday, ','), strStarHour, ','), strDuration, ','), Type, '\r');
 
@@ -173,7 +165,6 @@ set<Lecture> Script::getSchedule(const string &studentCode_)
         }
         catch (const std::invalid_argument &e)
         {
-            // primeira linha de classes.csv sempre irá dar um erro
         }
         catch (const std::out_of_range &e)
         {
@@ -193,7 +184,6 @@ set<Lecture> Script::getSchedule(const string &studentCode_)
     return result;
 }
 
-// Receives a Uc and returns all the students registered in that Uc
 vector<Student> Script::studentsinUc(Uc &uc)
 {
     vector<Student> students;
@@ -224,7 +214,6 @@ vector<Student> Script::studentsinUc(Uc &uc)
     return students;
 }
 
-// Receives a class and returns all the students registered in that class
 vector<Student> Script::studentsinClass(string ucCode_, string classCode_)
 {
     vector<Student> students;
@@ -255,7 +244,6 @@ vector<Student> Script::studentsinClass(string ucCode_, string classCode_)
     return students;
 }
 
-// Receives a year and return all the students from that year
 unordered_set<Student, Student::Hash> Script::studentsInYear(const std::string &year)
 {
     unordered_set<Student, Student::Hash> students;
@@ -284,7 +272,6 @@ unordered_set<Student, Student::Hash> Script::studentsInYear(const std::string &
     return students;
 }
 
-// ADM 1 | Check how many students are e nrolled in at least N Ucs
 int Script::studentsInNUc(int number)
 {
     int result = 0;
@@ -320,7 +307,6 @@ int Script::studentsInNUc(int number)
     return count;
 }
 
-// Consult the UCs with the greatest number of students
 vector<pair<string, int>> Script::ucsWithMostStudents()
 {
     map<string, int> aux = {};

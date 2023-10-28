@@ -116,29 +116,32 @@ bool Request::addUc(string ucCodeDestination)
         return this->flag;
     }
 
-    if(eligibleClasses.size() < 1){
+    if (eligibleClasses.size() < 1)
+    {
         throw runtime_error("This UC hasn't avaiable classes");
         return this->flag;
     }
 
     bool check = false;
-    for(Lecture currentLecture : script.loadLecture(ucCodeDestination,eligibleClasses.front())){
-        for(Lecture studentLecture : script.getSchedule(studentCode)){
-        if(studentLecture.overlay(currentLecture)){
+    for (Lecture currentLecture : script.loadLecture(ucCodeDestination, eligibleClasses.front()))
+    {
+        for (Lecture studentLecture : script.getSchedule(studentCode))
+        {
+            if (studentLecture.overlay(currentLecture))
+            {
                 eligibleClasses.pop();
                 check = true;
                 break;
             }
         }
-        if(eligibleClasses.empty()){
+        if (eligibleClasses.empty())
+        {
             throw runtime_error("This UC will disturb the student's schedule");
             return this->flag;
         }
-        if(check) continue;        
+        if (check)
+            continue;
     }
-
-
-    // StudentCode,StudentName,UcCode,ClassCode
 
     ofstream outFile("../data/students_classes.csv", ios::app);
 
@@ -160,9 +163,8 @@ bool Request::addUc(string ucCodeDestination)
     return this->flag;
 }
 
-
 bool Request::switchUc(string ucOrigin, string ucDestination)
-{   
+{
     Script script;
     Student newStudent = script.loadStudent(this->studentCode);
 
@@ -214,31 +216,36 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         throw runtime_error("Adding the student would affect the balance of classes in this UC");
         return this->flag;
     }
-    if(eligibleClasses.size() < 1){
+    if (eligibleClasses.size() < 1)
+    {
         throw runtime_error("This UC hasn't avaiable classes");
         return this->flag;
     }
 
     bool check = false;
-    for(Lecture currentLecture : script.loadLecture(ucDestination,eligibleClasses.front())){
-        for(Lecture studentLecture : script.getSchedule(studentCode)){
-        if(studentLecture.overlay(currentLecture)){
+    for (Lecture currentLecture : script.loadLecture(ucDestination, eligibleClasses.front()))
+    {
+        for (Lecture studentLecture : script.getSchedule(studentCode))
+        {
+            if (studentLecture.overlay(currentLecture))
+            {
                 eligibleClasses.pop();
                 check = true;
                 break;
             }
         }
-        if(eligibleClasses.empty()){
+        if (eligibleClasses.empty())
+        {
             throw runtime_error("This UC will disturb the student's schedule");
             return this->flag;
         }
-        if(check) continue;        
+        if (check)
+            continue;
     }
 
     ifstream read_file("../data/students_classes.csv");
     string line;
     queue<string> lines;
-
 
     while (getline(read_file, line))
     {
@@ -265,8 +272,6 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         lines.pop();
     }
     write_file.close();
-
-    // StudentCode,StudentName,UcCode,ClassCode
 
     ofstream outFile("../data/students_classes.csv", ios::app);
 
@@ -331,7 +336,7 @@ void Request::studentRequests(const string &studentCode)
 }
 bool Request::switchClass(std::string currentUc, std::string classOrigin, std::string classDestination)
 {
-    
+
     Script script;
     Uc uc = Uc(currentUc);
     Student newStudent = script.loadStudent(this->studentCode);
@@ -372,17 +377,21 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     }
 
     bool check = false;
-    for(Lecture currentLecture : script.loadLecture(currentUc,classDestination)){
-        for(Lecture studentLecture : script.getSchedule(studentCode)){
-        if(studentLecture.overlay(currentLecture)){
+    for (Lecture currentLecture : script.loadLecture(currentUc, classDestination))
+    {
+        for (Lecture studentLecture : script.getSchedule(studentCode))
+        {
+            if (studentLecture.overlay(currentLecture))
+            {
                 check = true;
                 break;
             }
         }
-        if(check){
+        if (check)
+        {
             throw runtime_error("Adding this class would disturb the student's schedule");
             return this->flag;
-        }     
+        }
     }
 
     for (auto e : eligibleClasses)
