@@ -7,11 +7,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <set>
+#include <list>
 
 class Script
 {
 public:
     Student loadStudent(const std::string &studentCode);
+    std::list<Lecture> loadLecture(std::string ucCode_, std::string classCode_);
     void loadClasses(Uc &uc_);
     void studentsInLecture(Lecture &oneLecture_);
     std::set<Lecture> getSchedule(const std::string &studentCode);

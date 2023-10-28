@@ -133,6 +133,8 @@ bool Lecture::overlay(Lecture &other){
     string o_type = other.getType();
     if((type == "TP" && o_type == "TP") || (type == "PL" && o_type == "PL") || (type == "TP" && o_type == "PL") || (type == "PL" && o_type == "TP")){
         if((startHour >= other.getStartHour()) && startHour < (other.getStartHour()+other.getDuration())) return true;
+        if((startHour < other.getStartHour()) && (startHour + duration) > other.getStartHour()) return true;
+        if(startHour==other.getStartHour()) return true;
     }
     
     return false;

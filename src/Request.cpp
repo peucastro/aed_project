@@ -85,7 +85,7 @@ bool Request::addUc(string ucCodeDestination)
     int max = 0;
     int min = 100;
 
-    vector<string> eligibleClasses = {};
+    queue<string> eligibleClasses = {};
     for (string currClass : destination.getClasses())
     {
         int classSize = script.studentsinClass(destination.getUcCode(), currClass).size();
@@ -100,7 +100,7 @@ bool Request::addUc(string ucCodeDestination)
 
         if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
         {
-            eligibleClasses.push_back(currClass);
+            eligibleClasses.push(currClass);
         }
     }
 
@@ -120,6 +120,24 @@ bool Request::addUc(string ucCodeDestination)
         throw runtime_error("This UC hasn't avaiable classes");
         return this->flag;
     }
+
+    bool check = false;
+    for(Lecture currentLecture : script.loadLecture(ucCodeDestination,eligibleClasses.front())){
+        for(Lecture studentLecture : script.getSchedule(studentCode)){
+        if(studentLecture.overlay(currentLecture)){
+                eligibleClasses.pop();
+                check = true;
+                break;
+            }
+        }
+        if(eligibleClasses.empty()){
+            throw runtime_error("This UC will disturb the student's schedule");
+            return this->flag;
+        }
+        if(check) continue;        
+    }
+
+
     // StudentCode,StudentName,UcCode,ClassCode
 
     ofstream outFile("../data/students_classes.csv", ios::app);
@@ -130,17 +148,18 @@ bool Request::addUc(string ucCodeDestination)
         return this->flag;
     }
 
-    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses[0] << endl;
+    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
 
     outFile.close();
 
     ofstream write_log("../requests_log.csv", ios::app);
-    write_log << id << ',' << type << ',' << studentCode << ',' << destination.getUcCode() << ',' << eligibleClasses[0] << endl;
+    write_log << id << ',' << type << ',' << studentCode << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
     write_log.close();
 
     this->flag = true;
     return this->flag;
 }
+
 
 bool Request::switchUc(string ucOrigin, string ucDestination)
 {   
@@ -165,7 +184,7 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
     int max = 0;
     int min = 100;
 
-    vector<string> eligibleClasses = {};
+    queue<string> eligibleClasses = {};
     for (string currClass : destination.getClasses())
     {
         int classSize = script.studentsinClass(destination.getUcCode(), currClass).size();
@@ -180,7 +199,7 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
 
         if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
         {
-            eligibleClasses.push_back(currClass);
+            eligibleClasses.push(currClass);
         }
     }
 
@@ -199,6 +218,23 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         throw runtime_error("This UC hasn't avaiable classes");
         return this->flag;
     }
+
+    bool check = false;
+    for(Lecture currentLecture : script.loadLecture(ucDestination,eligibleClasses.front())){
+        for(Lecture studentLecture : script.getSchedule(studentCode)){
+        if(studentLecture.overlay(currentLecture)){
+                eligibleClasses.pop();
+                check = true;
+                break;
+            }
+        }
+        if(eligibleClasses.empty()){
+            throw runtime_error("This UC will disturb the student's schedule");
+            return this->flag;
+        }
+        if(check) continue;        
+    }
+
     ifstream read_file("../data/students_classes.csv");
     string line;
     queue<string> lines;
@@ -240,12 +276,12 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         return this->flag;
     }
     cout << "Cheguei até aqui" << endl;
-    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses[0] << endl;
+    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
 
     outFile.close();
 
     ofstream write_log("../requests_log.csv", ios::app);
-    write_log << id << ',' << type << ',' << studentCode << ',' << ucOrigin << ',' << destination.getUcCode() << ',' << eligibleClasses[0] << endl;
+    write_log << id << ',' << type << ',' << studentCode << ',' << ucOrigin << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
     write_log.close();
 
     this->flag = true;
@@ -333,6 +369,20 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
     {
         throw runtime_error("Adding the student would affect the balance of classes in this UC");
         return this->flag;
+    }
+
+    bool check = false;
+    for(Lecture currentLecture : script.loadLecture(currentUc,classDestination)){
+        for(Lecture studentLecture : script.getSchedule(studentCode)){
+        if(studentLecture.overlay(currentLecture)){
+                check = true;
+                break;
+            }
+        }
+        if(check){
+            throw runtime_error("Adding this class would disturb the student's schedule");
+            return this->flag;
+        }     
     }
 
     for (auto e : eligibleClasses)

@@ -21,11 +21,13 @@ void addUcRequestTest()
     std::cout << "HORARIO NOVO: " << std::endl;
     for (std::pair<std::string, std::string> p : new_schedule)
         std::cout << p.first << " - " << p.second << std::endl;
+
 }
 
 int main(){
     try{
         addUcRequestTest();
+
         std::cout << std::endl << "Compilação finalizada, analisar resultados acima" << std::endl;
     }catch(const std::runtime_error &ex){
         std::cerr << "Erro: " << ex.what() << std::endl;
