@@ -80,68 +80,10 @@ bool Request::addUc(string ucCodeDestination)
         return this->flag;
     }
 
-    Uc destination(ucCodeDestination);
-    script.loadClasses(destination);
     int max = 0;
     int min = 100;
-
     queue<string> eligibleClasses = {};
-    for (string currClass : destination.getClasses())
-    {
-        int classSize = script.studentsinClass(destination.getUcCode(), currClass).size();
-        if (classSize + 1 > max)
-        {
-            max = classSize + 1;
-        }
-        else if (classSize + 1 < min)
-        {
-            min = classSize + 1;
-        }
-
-        if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
-        {
-            eligibleClasses.push(currClass);
-        }
-    }
-
-    if (max > MAXIMO)
-    {
-        throw runtime_error("All classes with maximum occupancy");
-        return this->flag;
-    }
-
-    if ((max - min) > 4)
-    {
-        throw runtime_error("Adding the student would affect the balance of classes in this UC");
-        return this->flag;
-    }
-
-    if (eligibleClasses.size() < 1)
-    {
-        throw runtime_error("This UC hasn't avaiable classes");
-        return this->flag;
-    }
-
-    bool check = false;
-    for (Lecture currentLecture : script.loadLecture(ucCodeDestination, eligibleClasses.front()))
-    {
-        for (Lecture studentLecture : script.getSchedule(studentCode))
-        {
-            if (studentLecture.overlay(currentLecture))
-            {
-                eligibleClasses.pop();
-                check = true;
-                break;
-            }
-        }
-        if (eligibleClasses.empty())
-        {
-            throw runtime_error("This UC will disturb the student's schedule");
-            return this->flag;
-        }
-        if (check)
-            continue;
-    }
+    if(!classesCheck(ucCodeDestination, eligibleClasses)) return this->flag;
 
     ofstream outFile("../data/students_classes.csv", ios::app);
 
@@ -151,12 +93,12 @@ bool Request::addUc(string ucCodeDestination)
         return this->flag;
     }
 
-    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
+    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << ucCodeDestination << ',' << eligibleClasses.front() << endl;
 
     outFile.close();
 
     ofstream write_log("../requests_log.csv", ios::app);
-    write_log << id << ',' << type << ',' << studentCode << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
+    write_log << id << ',' << type << ',' << studentCode << ',' << ucCodeDestination << ',' << eligibleClasses.front() << endl;
     write_log.close();
 
     this->flag = true;
@@ -181,67 +123,10 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         return this->flag;
     }
 
-    Uc destination(ucDestination);
-    script.loadClasses(destination);
     int max = 0;
     int min = 100;
-
     queue<string> eligibleClasses = {};
-    for (string currClass : destination.getClasses())
-    {
-        int classSize = script.studentsinClass(destination.getUcCode(), currClass).size();
-        if (classSize + 1 > max)
-        {
-            max = classSize + 1;
-        }
-        else if (classSize + 1 < min)
-        {
-            min = classSize + 1;
-        }
-
-        if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
-        {
-            eligibleClasses.push(currClass);
-        }
-    }
-
-    if (max > MAXIMO)
-    {
-        throw runtime_error("All classes with maximum occupancy");
-        return this->flag;
-    }
-
-    if ((max - min) > 4)
-    {
-        throw runtime_error("Adding the student would affect the balance of classes in this UC");
-        return this->flag;
-    }
-    if (eligibleClasses.size() < 1)
-    {
-        throw runtime_error("This UC hasn't avaiable classes");
-        return this->flag;
-    }
-
-    bool check = false;
-    for (Lecture currentLecture : script.loadLecture(ucDestination, eligibleClasses.front()))
-    {
-        for (Lecture studentLecture : script.getSchedule(studentCode))
-        {
-            if (studentLecture.overlay(currentLecture))
-            {
-                eligibleClasses.pop();
-                check = true;
-                break;
-            }
-        }
-        if (eligibleClasses.empty())
-        {
-            throw runtime_error("This UC will disturb the student's schedule");
-            return this->flag;
-        }
-        if (check)
-            continue;
-    }
+    if(!classesCheck(ucDestination, eligibleClasses)) return this->flag;
 
     ifstream read_file("../data/students_classes.csv");
     string line;
@@ -280,13 +165,12 @@ bool Request::switchUc(string ucOrigin, string ucDestination)
         cerr << "Couldnt open file." << endl;
         return this->flag;
     }
-    cout << "Cheguei até aqui" << endl;
-    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
+    outFile << newStudent.getstudentCode() << ',' << newStudent.getstudentName() << ',' << ucDestination << ',' << eligibleClasses.front() << endl;
 
     outFile.close();
 
     ofstream write_log("../requests_log.csv", ios::app);
-    write_log << id << ',' << type << ',' << studentCode << ',' << ucOrigin << ',' << destination.getUcCode() << ',' << eligibleClasses.front() << endl;
+    write_log << id << ',' << type << ',' << studentCode << ',' << ucOrigin << ',' << ucDestination << ',' << eligibleClasses.front() << endl;
     write_log.close();
 
     this->flag = true;
@@ -338,69 +222,18 @@ bool Request::switchClass(std::string currentUc, std::string classOrigin, std::s
 {
 
     Script script;
-    Uc uc = Uc(currentUc);
     Student newStudent = script.loadStudent(this->studentCode);
-    script.loadClasses(uc);
     int max = 0;
     int min = 100;
-    vector<string> eligibleClasses = {};
+    queue<string> eligibleClasses = {};
+    if(!classesCheck(currentUc, eligibleClasses)) return this->flag;
 
-    for (string currClass : uc.getClasses())
-    {
-
-        int classSize = script.studentsinClass(uc.getUcCode(), currClass).size();
-        if (classSize + 1 > max)
-        {
-            max = classSize + 1;
-        }
-        else if (classSize + 1 < min)
-        {
-            min = classSize + 1;
-        }
-
-        if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
-        {
-            eligibleClasses.push_back(currClass);
-        }
-    }
-
-    if (max > MAXIMO)
-    {
-        throw runtime_error("All classes with maximum occupancy");
-        return this->flag;
-    }
-
-    if ((max - min) > 4)
-    {
-        throw runtime_error("Adding the student would affect the balance of classes in this UC");
-        return this->flag;
-    }
-
-    bool check = false;
-    for (Lecture currentLecture : script.loadLecture(currentUc, classDestination))
-    {
-        for (Lecture studentLecture : script.getSchedule(studentCode))
-        {
-            if (studentLecture.overlay(currentLecture))
-            {
-                check = true;
-                break;
-            }
-        }
-        if (check)
-        {
-            throw runtime_error("Adding this class would disturb the student's schedule");
-            return this->flag;
-        }
-    }
-
-    for (auto e : eligibleClasses)
-    {
-        if (e == classDestination)
-        {
+    while(!eligibleClasses.empty()){
+        if(eligibleClasses.front()==classDestination){
             this->flag = true;
             break;
         }
+        eligibleClasses.pop();
     }
     if (!(this->flag))
     {
@@ -531,4 +364,70 @@ void Request::adminRequests()
         }
     }
     read_file.close();
+}
+
+bool Request::classesCheck(std::string ucDestination, std::queue<std::string> &eligibleClasses)
+{
+    Script script;
+    Uc destination = Uc(ucDestination);
+    script.loadClasses(destination);
+    int max = 0;
+    int min = 100;
+
+    for (string currClass : destination.getClasses())
+    {
+        int classSize = script.studentsinClass(destination.getUcCode(), currClass).size();
+        if (classSize + 1 > max)
+        {
+            max = classSize + 1;
+        }
+        else if (classSize + 1 < min)
+        {
+            min = classSize + 1;
+        }
+
+        if (classSize + 1 <= MAXIMO && (max - classSize - 1) <= 4)
+        {
+            eligibleClasses.push(currClass);
+        }
+    }
+
+    if (max > MAXIMO)
+    {
+        throw runtime_error("All classes with maximum occupancy");
+        return this->flag;
+    }
+
+    if ((max - min) > 4)
+    {
+        throw runtime_error("Adding the student would affect the balance of classes in this UC");
+        return this->flag;
+    }
+    if (eligibleClasses.size() < 1)
+    {
+        throw runtime_error("This UC hasn't avaiable classes");
+        return this->flag;
+    }
+
+    bool check = false;
+    for (Lecture currentLecture : script.loadLecture(ucDestination, eligibleClasses.front()))
+    {
+        for (Lecture studentLecture : script.getSchedule(studentCode))
+        {
+            if (studentLecture.overlay(currentLecture))
+            {
+                eligibleClasses.pop();
+                check = true;
+                break;
+            }
+        }
+        if (eligibleClasses.empty())
+        {
+            throw runtime_error("This UC will disturb the student's schedule");
+            return this->flag;
+        }
+        if (check)
+            continue;
+    }
+    return true;
 }

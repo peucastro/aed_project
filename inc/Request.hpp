@@ -70,6 +70,7 @@ public:
      */
     void undoRequest(unsigned id);
 
+    bool classesCheck(std::string uc, std::queue<std::string> &eligibleClasses);
 private:
     /** Unique ID of the request. */
     unsigned id;
