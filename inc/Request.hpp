@@ -70,7 +70,24 @@ public:
      */
     void undoRequest(unsigned id);
 
+    /**
+     * @brief Checks the eligibility of available classes for a student's UC request.
+     *
+     * It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.
+     *
+     * @param ucDestination The UC code for which the student is requesting enrollment.
+     * @param eligibleClasses A queue containing eligible class codes for the student's request.
+     *
+     * @return true if the student can be assigned to a class, false otherwise.
+     *
+     * @throw std::runtime_error if any of the following conditions are met:
+     * - All classes in the UC have reached maximum occupancy.
+     * - Adding the student would disturb the balance of class occupancy in this UC.
+     * - There are no available classes in this UC.
+     * - Enrolling in a class would conflict with the student's existing schedule.
+     */
     bool classesCheck(std::string uc, std::queue<std::string> &eligibleClasses);
+
 private:
     /** Unique ID of the request. */
     unsigned id;

@@ -1,0 +1,760 @@
+\doxysection{Request Class Reference}
+\hypertarget{classRequest}{}\label{classRequest}\index{Request@{Request}}
+
+
+Represents a request to perform various operations related to student enrollments.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classRequest}{Request} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRequest_aaf2589b455dc2e93c9e4e5e17da86fd4}{Request}} (std\+::string \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{student\+Code}}, char \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}})
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classRequest}{Request} class to create a new request. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRequest_a4b08ad75b75dd10abd4e3dd99241c750}{add\+Uc}} (std\+::string uc\+Code\+Destination)
+\begin{DoxyCompactList}\small\item\em Adds a student to a specified course and class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRequest_a262bfb8a03d06f273b685293dc21e947}{remove\+Uc}} (std\+::string uc\+Code)
+\begin{DoxyCompactList}\small\item\em Removes a student from a specified course. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRequest_a1606678b0871ff8ab20242409691db67}{switch\+Uc}} (std\+::string uc\+Origin, std\+::string uc\+Destination)
+\begin{DoxyCompactList}\small\item\em Switches a student from one course to another, preserving their schedule. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRequest_adc6cf3d4251bd24f7b016ee4712b6b2b}{switch\+Class}} (std\+::string uc, std\+::string class\+Origin, std\+::string class\+Destination)
+\begin{DoxyCompactList}\small\item\em Switches a student from one class to another within the same course. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRequest_a6b774fa113d6ede2e3b43dc8ccca9069}{student\+Requests}} (const std\+::string \&\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{student\+Code}})
+\begin{DoxyCompactList}\small\item\em Displays the list of requests for a specific student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRequest_a80d4e21c54cbd3f1a59463023e7f027f}{admin\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Displays all admin requests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRequest_a2800a59f0f6040ce4a7e24d8c58d29ef}{undo\+Request}} (unsigned \mbox{\hyperlink{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e}{id}})
+\begin{DoxyCompactList}\small\item\em Undoes a specific request by its ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}{classes\+Check}} (std\+::string uc, std\+::queue$<$ std\+::string $>$ \&eligible\+Classes)
+\begin{DoxyCompactList}\small\item\em Checks the eligibility of available classes for a student\textquotesingle{}s UC request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e}{id}}
+\item 
+std\+::string \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{student\+Code}}
+\item 
+char \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}}
+\item 
+bool \mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a request to perform various operations related to student enrollments. 
+
+\doxylink{classRequest}{Request} class provides methods for adding, removing, and switching courses and classes for students. 
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRequest_afaf8d8928de7ffff8a3767589489bd33}\label{classRequest_afaf8d8928de7ffff8a3767589489bd33} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for the \doxylink{classRequest}{Request} class. 
+
+
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{\};}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_aaf2589b455dc2e93c9e4e5e17da86fd4}\label{classRequest_aaf2589b455dc2e93c9e4e5e17da86fd4} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}\item[{std\+::string}]{student\+Code,  }\item[{char}]{type }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classRequest}{Request} class to create a new request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Code} & The student\textquotesingle{}s unique code. \\
+\hline
+{\em type} & The type of request (1\+: Add \doxylink{classUc}{Uc}, 2\+: Remove \doxylink{classUc}{Uc}, 3\+: Switch \doxylink{classUc}{Uc}, 4\+: Switch Class). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRequest_a4b08ad75b75dd10abd4e3dd99241c750}\label{classRequest_a4b08ad75b75dd10abd4e3dd99241c750} 
+\index{Request@{Request}!addUc@{addUc}}
+\index{addUc@{addUc}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{addUc()}{addUc()}}
+{\footnotesize\ttfamily bool Request\+::add\+Uc (\begin{DoxyParamCaption}\item[{std\+::string}]{uc\+Code\+Destination }\end{DoxyParamCaption})}
+
+
+
+Adds a student to a specified course and class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code\+Destination} & The code of the course to add the student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the student is successfully added, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classScript}{Script}}\ script;}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ newStudent\ =\ script.\mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{loadStudent}}(this-\/>\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}});}
+\DoxyCodeLine{00070\ \ \ \ \ map<std::string,\ std::string>\ new\_schedule\ =\ newStudent.\mbox{\hyperlink{classStudent_a3433c9a897202d4561352eb96410d8b8}{getSchedule}}();}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_schedule.find(ucCodeDestination)\ !=\ new\_schedule.end())}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Student\ already\ registered\ in\ this\ UC"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (newStudent.\mbox{\hyperlink{classStudent_a3433c9a897202d4561352eb96410d8b8}{getSchedule}}().size()\ >=\ 7)}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Student\ registered\ in\ maximum\ number\ of\ UC's"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 100;}
+\DoxyCodeLine{00085\ \ \ \ \ queue<string>\ eligibleClasses\ =\ \{\};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}{classesCheck}}(ucCodeDestination,\ eligibleClasses))\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ ofstream\ outFile(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}},\ ios::app);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outFile.is\_open())}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Couldnt\ open\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ outFile\ <<\ newStudent.\mbox{\hyperlink{classStudent_a150b531f3957ce9cb0cdf4ed1d2a5cd8}{getstudentCode}}()\ <<\ \textcolor{charliteral}{','}\ <<\ newStudent.\mbox{\hyperlink{classStudent_aeac3f8d392149967ca42711ab8d50fb1}{getstudentName}}()\ <<\ \textcolor{charliteral}{','}\ <<\ ucCodeDestination\ <<\ \textcolor{charliteral}{','}\ <<\ eligibleClasses.front()\ <<\ endl;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ outFile.close();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ ofstream\ write\_log(\textcolor{stringliteral}{"{}../requests\_log.csv"{}},\ ios::app);}
+\DoxyCodeLine{00101\ \ \ \ \ write\_log\ <<\ \textcolor{keywordtype}{id}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ <<\ \textcolor{charliteral}{','}\ <<\ ucCodeDestination\ <<\ \textcolor{charliteral}{','}\ <<\ eligibleClasses.front()\ <<\ endl;}
+\DoxyCodeLine{00102\ \ \ \ \ write\_log.close();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_a80d4e21c54cbd3f1a59463023e7f027f}\label{classRequest_a80d4e21c54cbd3f1a59463023e7f027f} 
+\index{Request@{Request}!adminRequests@{adminRequests}}
+\index{adminRequests@{adminRequests}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{adminRequests()}{adminRequests()}}
+{\footnotesize\ttfamily void Request\+::admin\+Requests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays all admin requests. 
+
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00329}{329}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00330\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../requests\_log.csv"{}});}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ id\_,\ type\_,\ studentCode\_;}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ id\_,\ \textcolor{charliteral}{','}),\ type\_,\ \textcolor{charliteral}{','}),\ studentCode\_,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}1"{}})}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCode\_,\ classCode\_;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(iss,\ ucCode\_,\ \textcolor{charliteral}{','}),\ classCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ Student\ "{}}\ <<\ studentCode\_\ <<\ \textcolor{stringliteral}{"{}\ added\ the\ UC\ "{}}\ <<\ ucCode\_\ <<\ \textcolor{stringliteral}{"{}\ and\ entered\ the\ class\ "{}}\ <<\ classCode\_\ <<\ endl;}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}2"{}})}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCode\_;}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ getline(iss,\ ucCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ Student\ "{}}\ <<\ studentCode\_\ <<\ \textcolor{stringliteral}{"{}\ removed\ the\ UC\ "{}}\ <<\ ucCode\_\ <<\ endl;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}3"{}})}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucOrigin\_,\ ucDestination\_,\ classCode\_;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ ucOrigin\_,\ \textcolor{charliteral}{','}),\ ucDestination\_,\ \textcolor{charliteral}{','}),\ classCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ \ Student\ "{}}\ <<\ studentCode\_\ <<\ \textcolor{stringliteral}{"{}\ switched\ from\ UC\ "{}}\ <<\ ucOrigin\_\ <<\ \textcolor{stringliteral}{"{}\ to\ the\ UC\ "{}}\ <<\ ucDestination\_\ <<\ \textcolor{stringliteral}{"{}\ and\ was\ added\ to\ the\ class\ "{}}\ <<\ classCode\_\ <<\ endl;}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}4"{}})}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucOrigin\_,\ classOrigin\_,\ classDestination\_;}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ ucOrigin\_,\ \textcolor{charliteral}{','}),\ classOrigin\_,\ \textcolor{charliteral}{','}),\ classDestination\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ \ Student\ "{}}\ <<\ studentCode\_\ <<\ \textcolor{stringliteral}{"{}\ switched\ from\ class\ "{}}\ <<\ classOrigin\_\ <<\ \textcolor{stringliteral}{"{}Of\ the\ UC\ "{}}\ <<\ ucOrigin\_\ <<\ \textcolor{stringliteral}{"{}\ to\ the\ class\ "{}}\ <<\ classDestination\_\ <<\ endl;}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \ \ \ \ read\_file.close();}
+\DoxyCodeLine{00367\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}\label{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2} 
+\index{Request@{Request}!classesCheck@{classesCheck}}
+\index{classesCheck@{classesCheck}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{classesCheck()}{classesCheck()}}
+{\footnotesize\ttfamily bool Request\+::classes\+Check (\begin{DoxyParamCaption}\item[{std\+::string}]{uc,  }\item[{std\+::queue$<$ std\+::string $>$ \&}]{eligible\+Classes }\end{DoxyParamCaption})}
+
+
+
+Checks the eligibility of available classes for a student\textquotesingle{}s UC request. 
+
+It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Destination} & The UC code for which the student is requesting enrollment. \\
+\hline
+{\em eligible\+Classes} & A queue containing eligible class codes for the student\textquotesingle{}s request.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the student can be assigned to a class, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if any of the following conditions are met\+:
+\begin{DoxyItemize}
+\item All classes in the UC have reached maximum occupancy.
+\item Adding the student would disturb the balance of class occupancy in this UC.
+\item There are no available classes in this UC.
+\item Enrolling in a class would conflict with the student\textquotesingle{}s existing schedule. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00369}{369}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00370\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \mbox{\hyperlink{classScript}{Script}}\ script;}
+\DoxyCodeLine{00372\ \ \ \ \ \mbox{\hyperlink{classUc}{Uc}}\ destination\ =\ \mbox{\hyperlink{classUc}{Uc}}(ucDestination);}
+\DoxyCodeLine{00373\ \ \ \ \ script.\mbox{\hyperlink{classScript_a99e51f3f465d51e1f2b5e35c6afb3f7f}{loadClasses}}(destination);}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 100;}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{string}\ currClass\ :\ destination.getClasses())}
+\DoxyCodeLine{00378\ \ \ \ \ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ classSize\ =\ script.\mbox{\hyperlink{classScript_aa7457bd0bf843a7e3be49dbdc6c584c4}{studentsinClass}}(destination.\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}(),\ currClass).size();}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (classSize\ +\ 1\ >\ max)}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ max\ =\ classSize\ +\ 1;}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (classSize\ +\ 1\ <\ min)}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ min\ =\ classSize\ +\ 1;}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (classSize\ +\ 1\ <=\ MAXIMO\ \&\&\ (max\ -\/\ classSize\ -\/\ 1)\ <=\ 4)}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ eligibleClasses.push(currClass);}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{if}\ (max\ >\ MAXIMO)}
+\DoxyCodeLine{00396\ \ \ \ \ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}All\ classes\ with\ maximum\ occupancy"{}});}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00399\ \ \ \ \ \}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordflow}{if}\ ((max\ -\/\ min)\ >\ 4)}
+\DoxyCodeLine{00402\ \ \ \ \ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Adding\ the\ student\ would\ affect\ the\ balance\ of\ classes\ in\ this\ UC"{}});}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00405\ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{if}\ (eligibleClasses.size()\ <\ 1)}
+\DoxyCodeLine{00407\ \ \ \ \ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}This\ UC\ hasn't\ avaiable\ classes"{}});}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00410\ \ \ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{bool}\ check\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classLecture}{Lecture}}\ currentLecture\ :\ script.loadLecture(ucDestination,\ eligibleClasses.front()))}
+\DoxyCodeLine{00414\ \ \ \ \ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classLecture}{Lecture}}\ studentLecture\ :\ script.getSchedule(\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}))}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (studentLecture.overlay(currentLecture))}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eligibleClasses.pop();}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eligibleClasses.empty())}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}This\ UC\ will\ disturb\ the\ student's\ schedule"{}});}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (check)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00433\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_a262bfb8a03d06f273b685293dc21e947}\label{classRequest_a262bfb8a03d06f273b685293dc21e947} 
+\index{Request@{Request}!removeUc@{removeUc}}
+\index{removeUc@{removeUc}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{removeUc()}{removeUc()}}
+{\footnotesize\ttfamily bool Request\+::remove\+Uc (\begin{DoxyParamCaption}\item[{std\+::string}]{uc\+Code }\end{DoxyParamCaption})}
+
+
+
+Removes a student from a specified course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code} & The code of the course to remove the student from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the student is successfully removed, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00024\ \ \ \ \ queue<string>\ lines;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (StudentCode\ ==\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ \&\&\ UcCode\ ==\ ucCode)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ lines.push(line);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ read\_file.close();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}})}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ ofstream\ write\_log(\textcolor{stringliteral}{"{}../requests\_log.csv"{}},\ ios::app);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ write\_log\ <<\ \textcolor{keywordtype}{id}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ <<\ \textcolor{charliteral}{','}\ <<\ ucCode\ <<\ endl;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ write\_log.close();}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}You\ are\ not\ enrolled\ at\ this\ Uc."{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ count\ =\ lines.size();}
+\DoxyCodeLine{00055\ \ \ \ \ ofstream\ write\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ write\_file\ <<\ lines.front()\ <<\ endl;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ lines.pop();}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ write\_file.close();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_a6b774fa113d6ede2e3b43dc8ccca9069}\label{classRequest_a6b774fa113d6ede2e3b43dc8ccca9069} 
+\index{Request@{Request}!studentRequests@{studentRequests}}
+\index{studentRequests@{studentRequests}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{studentRequests()}{studentRequests()}}
+{\footnotesize\ttfamily void Request\+::student\+Requests (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{student\+Code }\end{DoxyParamCaption})}
+
+
+
+Displays the list of requests for a specific student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Code} & The student\textquotesingle{}s unique code. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00181\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../requests\_log.csv"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ id\_,\ type\_,\ studentCode\_;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ id\_,\ \textcolor{charliteral}{','}),\ type\_,\ \textcolor{charliteral}{','}),\ studentCode\_,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (studentCode\_\ ==\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}})}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}1"{}})}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCode\_,\ classCode\_;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(iss,\ ucCode\_,\ \textcolor{charliteral}{','}),\ classCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ Student\ added\ the\ UC\ "{}}\ <<\ ucCode\_\ <<\ \textcolor{stringliteral}{"{}\ and\ entered\ the\ class\ "{}}\ <<\ classCode\_\ <<\ endl;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}2"{}})}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCode\_;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(iss,\ ucCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ Student\ removed\ the\ UC\ "{}}\ <<\ ucCode\_\ <<\ endl;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}3"{}})}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucOrigin\_,\ ucDestination\_,\ classCode\_;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ ucOrigin\_,\ \textcolor{charliteral}{','}),\ ucDestination\_,\ \textcolor{charliteral}{','}),\ classCode\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ \ Student\ switched\ from\ UC\ "{}}\ <<\ ucOrigin\_\ <<\ \textcolor{stringliteral}{"{}\ to\ the\ UC\ "{}}\ <<\ ucDestination\_\ <<\ \textcolor{stringliteral}{"{}\ and\ was\ added\ to\ the\ class\ "{}}\ <<\ classCode\_\ <<\ endl;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\_\ ==\ \textcolor{stringliteral}{"{}4"{}})}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucOrigin\_,\ classOrigin\_,\ classDestination\_;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ ucOrigin\_,\ \textcolor{charliteral}{','}),\ classOrigin\_,\ \textcolor{charliteral}{','}),\ classDestination\_,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Operation\ ID:\ "{}}\ <<\ id\_\ <<\ \textcolor{stringliteral}{"{}\ |\ \ Student\ switched\ from\ class\ "{}}\ <<\ classOrigin\_\ <<\ \textcolor{stringliteral}{"{}Of\ the\ UC\ "{}}\ <<\ ucOrigin\_\ <<\ \textcolor{stringliteral}{"{}\ to\ the\ class\ "{}}\ <<\ classDestination\_\ <<\ endl;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ read\_file.close();}
+\DoxyCodeLine{00220\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_adc6cf3d4251bd24f7b016ee4712b6b2b}\label{classRequest_adc6cf3d4251bd24f7b016ee4712b6b2b} 
+\index{Request@{Request}!switchClass@{switchClass}}
+\index{switchClass@{switchClass}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{switchClass()}{switchClass()}}
+{\footnotesize\ttfamily bool Request\+::switch\+Class (\begin{DoxyParamCaption}\item[{std\+::string}]{uc,  }\item[{std\+::string}]{class\+Origin,  }\item[{std\+::string}]{class\+Destination }\end{DoxyParamCaption})}
+
+
+
+Switches a student from one class to another within the same course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc} & The course code. \\
+\hline
+{\em class\+Origin} & The original class code. \\
+\hline
+{\em class\+Destination} & The destination class code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the student\textquotesingle{}s class is successfully switched, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00221}{221}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00222\ \{}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classScript}{Script}}\ script;}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ newStudent\ =\ script.\mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{loadStudent}}(this-\/>\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}});}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 100;}
+\DoxyCodeLine{00228\ \ \ \ \ queue<string>\ eligibleClasses\ =\ \{\};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}{classesCheck}}(currentUc,\ eligibleClasses))\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{while}(!eligibleClasses.empty())\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(eligibleClasses.front()==classDestination)\{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ eligibleClasses.pop();}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}))}
+\DoxyCodeLine{00239\ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}The\ selected\ UC\ is\ unavaiable"{}});}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00246\ \ \ \ \ queue<string>\ lines;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00248\ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (StudentCode\ ==\ this-\/>\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ \&\&\ UcCode\ ==\ currentUc\ \&\&\ classCode\ ==\ classOrigin)}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ lines.push(line);}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ read\_file.close();}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ count\ =\ lines.size();}
+\DoxyCodeLine{00263\ \ \ \ \ ofstream\ write\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)}
+\DoxyCodeLine{00265\ \ \ \ \ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ write\_file\ <<\ lines.front()\ <<\ endl;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ lines.pop();}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ write\_file\ <<\ this-\/>\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ <<\ \textcolor{charliteral}{','}\ <<\ newStudent.\mbox{\hyperlink{classStudent_aeac3f8d392149967ca42711ab8d50fb1}{getstudentName}}()\ <<\ \textcolor{charliteral}{','}\ <<\ currentUc\ <<\ \textcolor{charliteral}{','}\ <<\ classDestination\ <<\ \textcolor{charliteral}{'\(\backslash\)r'};}
+\DoxyCodeLine{00270\ \ \ \ \ write\_file.close();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ ofstream\ write\_log(\textcolor{stringliteral}{"{}../requests\_log.csv"{}},\ ios::app);}
+\DoxyCodeLine{00273\ \ \ \ \ write\_log\ <<\ \textcolor{keywordtype}{id}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ <<\ \textcolor{charliteral}{','}\ <<\ currentUc\ <<\ \textcolor{charliteral}{','}\ <<\ classOrigin\ <<\ \textcolor{charliteral}{','}\ <<\ classDestination\ <<\ endl;}
+\DoxyCodeLine{00274\ \ \ \ \ write\_log.close();}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_a1606678b0871ff8ab20242409691db67}\label{classRequest_a1606678b0871ff8ab20242409691db67} 
+\index{Request@{Request}!switchUc@{switchUc}}
+\index{switchUc@{switchUc}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{switchUc()}{switchUc()}}
+{\footnotesize\ttfamily bool Request\+::switch\+Uc (\begin{DoxyParamCaption}\item[{std\+::string}]{uc\+Origin,  }\item[{std\+::string}]{uc\+Destination }\end{DoxyParamCaption})}
+
+
+
+Switches a student from one course to another, preserving their schedule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Origin} & The original course code. \\
+\hline
+{\em uc\+Destination} & The destination course code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the student\textquotesingle{}s course is successfully switched, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classScript}{Script}}\ script;}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ newStudent\ =\ script.\mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{loadStudent}}(this-\/>\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ map<std::string,\ std::string>\ new\_schedule\ =\ newStudent.\mbox{\hyperlink{classStudent_a3433c9a897202d4561352eb96410d8b8}{getSchedule}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_schedule.find(ucOrigin)\ ==\ new\_schedule.end())}
+\DoxyCodeLine{00116\ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}You\ are\ not\ enrolled\ in\ this\ UC"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_schedule.find(ucDestination)\ !=\ new\_schedule.end())}
+\DoxyCodeLine{00121\ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}Student\ already\ registered\ in\ this\ UC"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ 100;}
+\DoxyCodeLine{00128\ \ \ \ \ queue<string>\ eligibleClasses\ =\ \{\};}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}{classesCheck}}(ucDestination,\ eligibleClasses))\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00133\ \ \ \ \ queue<string>\ lines;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (StudentCode\ ==\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ \&\&\ UcCode\ ==\ ucOrigin)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ lines.push(line);}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ read\_file.close();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ count\ =\ lines.size();}
+\DoxyCodeLine{00153\ \ \ \ \ ofstream\ write\_file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ write\_file\ <<\ lines.front()\ <<\ endl;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ lines.pop();}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ write\_file.close();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ ofstream\ outFile(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}},\ ios::app);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outFile.is\_open())}
+\DoxyCodeLine{00164\ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Couldnt\ open\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ outFile\ <<\ newStudent.\mbox{\hyperlink{classStudent_a150b531f3957ce9cb0cdf4ed1d2a5cd8}{getstudentCode}}()\ <<\ \textcolor{charliteral}{','}\ <<\ newStudent.\mbox{\hyperlink{classStudent_aeac3f8d392149967ca42711ab8d50fb1}{getstudentName}}()\ <<\ \textcolor{charliteral}{','}\ <<\ ucDestination\ <<\ \textcolor{charliteral}{','}\ <<\ eligibleClasses.front()\ <<\ endl;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ outFile.close();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ ofstream\ write\_log(\textcolor{stringliteral}{"{}../requests\_log.csv"{}},\ ios::app);}
+\DoxyCodeLine{00173\ \ \ \ \ write\_log\ <<\ \textcolor{keywordtype}{id}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}}\ <<\ \textcolor{charliteral}{','}\ <<\ \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{studentCode}}\ <<\ \textcolor{charliteral}{','}\ <<\ ucOrigin\ <<\ \textcolor{charliteral}{','}\ <<\ ucDestination\ <<\ \textcolor{charliteral}{','}\ <<\ eligibleClasses.front()\ <<\ endl;}
+\DoxyCodeLine{00174\ \ \ \ \ write\_log.close();}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classRequest_a8643f6b95a2003e32487e916c9a41475}{flag}};}
+\DoxyCodeLine{00178\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRequest_a2800a59f0f6040ce4a7e24d8c58d29ef}\label{classRequest_a2800a59f0f6040ce4a7e24d8c58d29ef} 
+\index{Request@{Request}!undoRequest@{undoRequest}}
+\index{undoRequest@{undoRequest}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{undoRequest()}{undoRequest()}}
+{\footnotesize\ttfamily void Request\+::undo\+Request (\begin{DoxyParamCaption}\item[{unsigned}]{id }\end{DoxyParamCaption})}
+
+
+
+Undoes a specific request by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the request to undo. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Request_8cpp_source_l00279}{279}} of file \mbox{\hyperlink{Request_8cpp_source}{Request.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ ifstream\ read\_file(\textcolor{stringliteral}{"{}../requests\_log.csv"{}});}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(read\_file,\ line))}
+\DoxyCodeLine{00284\ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ idFromFile,\ typeFromFile,\ studentCodeFromFile;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ idFromFile,\ \textcolor{charliteral}{','}),\ typeFromFile,\ \textcolor{charliteral}{','}),\ studentCodeFromFile,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idFromFile\ ==\ to\_string(\textcolor{keywordtype}{id}))}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (typeFromFile\ ==\ \textcolor{stringliteral}{"{}1"{}})}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCodeFromFile,\ classCodeFromFile;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(iss,\ ucCodeFromFile,\ \textcolor{charliteral}{','}),\ classCodeFromFile,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}}(studentCodeFromFile,\ \textcolor{charliteral}{'2'}).removeUc(ucCodeFromFile);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (typeFromFile\ ==\ \textcolor{stringliteral}{"{}2"{}})}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCodeFromFile;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(iss,\ ucCodeFromFile,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}}(studentCodeFromFile,\ \textcolor{charliteral}{'1'}).addUc(ucCodeFromFile);}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (typeFromFile\ ==\ \textcolor{stringliteral}{"{}3"{}})}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ originFromFile,\ destinationFromFile,\ classCodeFromFile;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ originFromFile,\ \textcolor{charliteral}{','}),\ destinationFromFile,\ \textcolor{charliteral}{','}),\ classCodeFromFile,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}}(studentCodeFromFile,\ \textcolor{charliteral}{'3'}).switchUc(destinationFromFile,\ originFromFile);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (typeFromFile\ ==\ \textcolor{stringliteral}{"{}4"{}})}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ucCodeFromFile,\ originFromFile,\ destinationFromFile;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(iss,\ ucCodeFromFile,\ \textcolor{charliteral}{','}),\ originFromFile,\ \textcolor{charliteral}{','}),\ destinationFromFile,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}}(studentCodeFromFile,\ \textcolor{charliteral}{'4'}).switchClass(ucCodeFromFile,\ destinationFromFile,\ originFromFile);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{if}\ (read\_file.eof())}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ runtime\_error(\textcolor{stringliteral}{"{}This\ request\ does\ not\ exist."{}});}
+\DoxyCodeLine{00327\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classRequest_a8643f6b95a2003e32487e916c9a41475}\label{classRequest_a8643f6b95a2003e32487e916c9a41475} 
+\index{Request@{Request}!flag@{flag}}
+\index{flag@{flag}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily bool Request\+::flag = false\hspace{0.3cm}{\ttfamily [private]}}
+
+A flag indicating the success status of the request. 
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+\Hypertarget{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e}\label{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e} 
+\index{Request@{Request}!id@{id}}
+\index{id@{id}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily unsigned Request\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+Unique ID of the request. 
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+\Hypertarget{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}\label{classRequest_a586f33f4ba7c8a937fa57f5de11c8031} 
+\index{Request@{Request}!studentCode@{studentCode}}
+\index{studentCode@{studentCode}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{studentCode}{studentCode}}
+{\footnotesize\ttfamily std\+::string Request\+::student\+Code\hspace{0.3cm}{\ttfamily [private]}}
+
+\doxylink{classStudent}{Student}\textquotesingle{}s unique code. 
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+\Hypertarget{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}\label{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041} 
+\index{Request@{Request}!type@{type}}
+\index{type@{type}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily char Request\+::type\hspace{0.3cm}{\ttfamily [private]}}
+
+Type of request (1\+: Add \doxylink{classUc}{Uc}, 2\+: Remove \doxylink{classUc}{Uc}, 3\+: Switch \doxylink{classUc}{Uc}, 4\+: Switch Class). 
+
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00099}{99}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Request.\+hpp\item 
+src/Request.\+cpp\end{DoxyCompactItemize}

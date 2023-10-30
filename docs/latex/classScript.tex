@@ -1,0 +1,613 @@
+\doxysection{Script Class Reference}
+\hypertarget{classScript}{}\label{classScript}\index{Script@{Script}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStudent}{Student}} \mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{load\+Student}} (const std\+::string \&student\+Code)
+\begin{DoxyCompactList}\small\item\em Loads a student based on the student code. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ \mbox{\hyperlink{classScript_a0493f1b8cb577cb3ae94351e0ca04cbe}{load\+Lecture}} (std\+::string uc\+Code\+\_\+, std\+::string class\+Code\+\_\+)
+\begin{DoxyCompactList}\small\item\em Loads a list of lectures for a specific UC and class code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScript_a99e51f3f465d51e1f2b5e35c6afb3f7f}{load\+Classes}} (\mbox{\hyperlink{classUc}{Uc}} \&uc\+\_\+)
+\begin{DoxyCompactList}\small\item\em Loads classes into a \doxylink{classUc}{Uc} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScript_a98b13e523e4421414e968ec125b5ad01}{students\+In\+Lecture}} (\mbox{\hyperlink{classLecture}{Lecture}} \&one\+Lecture\+\_\+)
+\begin{DoxyCompactList}\small\item\em Populates a lecture with students who are enrolled in it. \end{DoxyCompactList}\item 
+std\+::set$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ \mbox{\hyperlink{classScript_ac36adfcd9d25dcaf8810e27c1499a066}{get\+Schedule}} (const std\+::string \&student\+Code)
+\begin{DoxyCompactList}\small\item\em Gets the schedule of lectures for a student based on their student code. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classScript_af7d993ef35de5729f002289c8b89ae3d}{studentsin\+Uc}} (\mbox{\hyperlink{classUc}{Uc}} \&uc)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific UC. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classScript_aa7457bd0bf843a7e3be49dbdc6c584c4}{studentsin\+Class}} (std\+::string uc\+Code\+\_\+, std\+::string class\+Code\+\_\+)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific class. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{structStudent_1_1Hash}{Student\+::\+Hash}} $>$ \mbox{\hyperlink{classScript_a70fa28baae6891cc57f9d8189e82b1a3}{students\+In\+Year}} (const std\+::string \&year)
+\begin{DoxyCompactList}\small\item\em Retrieves a set of students based on their enrollment year. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScript_af841346bf9e5caeb287d29b831328fbf}{students\+In\+NUc}} (int number)
+\begin{DoxyCompactList}\small\item\em Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ \mbox{\hyperlink{classScript_a87838ab2eee310066f1c4a685f4c18e1}{ucs\+With\+Most\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a list of UCs with the most students, along with the number of students in each UC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{Script_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{Script_8hpp_source}{Script.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classScript_ac36adfcd9d25dcaf8810e27c1499a066}\label{classScript_ac36adfcd9d25dcaf8810e27c1499a066} 
+\index{Script@{Script}!getSchedule@{getSchedule}}
+\index{getSchedule@{getSchedule}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getSchedule()}{getSchedule()}}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ Script\+::get\+Schedule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{student\+Code }\end{DoxyParamCaption})}
+
+
+
+Gets the schedule of lectures for a student based on their student code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Code\+\_\+} & The student code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of \doxylink{classLecture}{Lecture} objects representing the student\textquotesingle{}s schedule.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{classScript}{Script}}\ script;}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ oneStudent\_\ =\ script.\mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{loadStudent}}(studentCode\_);}
+\DoxyCodeLine{00142\ \ \ \ \ set<Lecture>\ result\ =\ \{\};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/classes.csv"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ClassCode,\ UcCode,\ Weekday,\ strStarHour,\ strDuration,\ Type;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ StartHour,\ Duration;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(getline(getline(iss,\ ClassCode,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ Weekday,\ \textcolor{charliteral}{','}),\ strStarHour,\ \textcolor{charliteral}{','}),\ strDuration,\ \textcolor{charliteral}{','}),\ Type,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ StartHour\ =\ stod(strStarHour);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ Duration\ =\ stod(strDuration);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::invalid\_argument\ \&e)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::out\_of\_range\ \&e)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erro:\ Conversão\ fora\ do\ alcance.\ O\ número\ é\ muito\ grande\ ou\ muito\ pequeno."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (oneStudent\_.\mbox{\hyperlink{classStudent_a6d1888373c941aa13e6fd1a49f5d017c}{inClass}}(UcCode,\ ClassCode))}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLecture}{Lecture}}\ lecture(UcCode,\ ClassCode,\ Weekday,\ StartHour,\ Duration,\ Type);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ result.insert(lecture);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ file.close();}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_a99e51f3f465d51e1f2b5e35c6afb3f7f}\label{classScript_a99e51f3f465d51e1f2b5e35c6afb3f7f} 
+\index{Script@{Script}!loadClasses@{loadClasses}}
+\index{loadClasses@{loadClasses}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{loadClasses()}{loadClasses()}}
+{\footnotesize\ttfamily void Script\+::load\+Classes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUc}{Uc}} \&}]{uc\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Loads classes into a \doxylink{classUc}{Uc} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+\_\+} & The \doxylink{classUc}{Uc} object to load classes into.\\
+\hline
+\end{DoxyParams}
+Time complexity\+: O(\+N), where N is the number of lines in the classes\+\_\+per\+\_\+uc.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ ifstream\ file;}
+\DoxyCodeLine{00085\ \ \ \ \ file.open(\textcolor{stringliteral}{"{}../data/classes\_per\_uc.csv"{}},\ std::ios::in);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}not\ open"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ istringstream\ stream(line);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ Code,\ ClassCode;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getline(stream,\ Code,\ \textcolor{charliteral}{','}))}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Code\ ==\ uc\_.\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}())}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (getline(stream,\ ClassCode,\ \textcolor{charliteral}{'\(\backslash\)r'}))}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uc\_.\mbox{\hyperlink{classUc_a5bfbb0dc5ebf2c8f10823d9ab1d631d8}{addClass}}(ClassCode);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ file.close();}
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_a0493f1b8cb577cb3ae94351e0ca04cbe}\label{classScript_a0493f1b8cb577cb3ae94351e0ca04cbe} 
+\index{Script@{Script}!loadLecture@{loadLecture}}
+\index{loadLecture@{loadLecture}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{loadLecture()}{loadLecture()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ Script\+::load\+Lecture (\begin{DoxyParamCaption}\item[{std\+::string}]{uc\+Code\+\_\+,  }\item[{std\+::string}]{class\+Code\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Loads a list of lectures for a specific UC and class code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code\+\_\+} & The UC code. \\
+\hline
+{\em class\+Code\+\_\+} & The class code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of loaded \doxylink{classLecture}{Lecture} objects.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ list<Lecture>\ result\ =\ \{\};}
+\DoxyCodeLine{00039\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/classes.csv"{}});}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ ClassCode,\ UcCode,\ Weekday,\ strStarHour,\ strDuration,\ Type;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ StartHour,\ Duration;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(getline(getline(iss,\ ClassCode,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ Weekday,\ \textcolor{charliteral}{','}),\ strStarHour,\ \textcolor{charliteral}{','}),\ strDuration,\ \textcolor{charliteral}{','}),\ Type,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ StartHour\ =\ stod(strStarHour);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Duration\ =\ stod(strDuration);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::invalid\_argument\ \&e)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::out\_of\_range\ \&e)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erro:\ Conversão\ fora\ do\ alcance.\ O\ número\ é\ muito\ grande\ ou\ muito\ pequeno."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ucCode\_\ ==\ UcCode\ \&\&\ classCode\_\ ==\ ClassCode)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLecture}{Lecture}}\ lecture(UcCode,\ ClassCode,\ Weekday,\ StartHour,\ Duration,\ Type);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(lecture);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ file.close();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_acb8810db66aa71002633c9c728a6c399}\label{classScript_acb8810db66aa71002633c9c728a6c399} 
+\index{Script@{Script}!loadStudent@{loadStudent}}
+\index{loadStudent@{loadStudent}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{loadStudent()}{loadStudent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStudent}{Student}} Script\+::load\+Student (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{student\+Code }\end{DoxyParamCaption})}
+
+
+
+Loads a student based on the student code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Code} & The student code to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loaded \doxylink{classStudent}{Student} object.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ student;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ student;}
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00016\ \ \ \ \ getline(file,\ line);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ studentCodeFromFile,\ studentNameFromFile,\ ucCodeFromFile,\ classCodefromFile;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ studentCodeFromFile,\ \textcolor{charliteral}{','}),\ studentNameFromFile,\ \textcolor{charliteral}{','}),\ ucCodeFromFile,\ \textcolor{charliteral}{','}),\ classCodefromFile,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (studentCodeFromFile\ ==\ studentCode)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ student.\mbox{\hyperlink{classStudent_aa020d9990ad3703da50308ec6ba38dc1}{setstudentCode}}(studentCodeFromFile);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ student.\mbox{\hyperlink{classStudent_a20e7c1d601cc9ce4db04ab8115fc2f26}{setstudentName}}(studentNameFromFile);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ student.\mbox{\hyperlink{classStudent_a2842b772a9fdfdf7f1c1851558a4448a}{addClass}}(pair\{ucCodeFromFile,\ classCodefromFile\});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ file.close();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ student;}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_aa7457bd0bf843a7e3be49dbdc6c584c4}\label{classScript_aa7457bd0bf843a7e3be49dbdc6c584c4} 
+\index{Script@{Script}!studentsinClass@{studentsinClass}}
+\index{studentsinClass@{studentsinClass}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{studentsinClass()}{studentsinClass()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ Script\+::studentsin\+Class (\begin{DoxyParamCaption}\item[{std\+::string}]{uc\+Code\+\_\+,  }\item[{std\+::string}]{class\+Code\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of students enrolled in a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code\+\_\+} & The UC code. \\
+\hline
+{\em class\+Code\+\_\+} & The class code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{classStudent}{Student} objects.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ vector<Student>\ students;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00223\ \ \ \ \ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00230\ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UcCode\ ==\ ucCode\_\ \&\&\ classCode\ ==\ classCode\_)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ student\{StudentCode,\ StudentName\};}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ students.push\_back(student);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ file.close();}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{return}\ students;}
+\DoxyCodeLine{00245\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_a98b13e523e4421414e968ec125b5ad01}\label{classScript_a98b13e523e4421414e968ec125b5ad01} 
+\index{Script@{Script}!studentsInLecture@{studentsInLecture}}
+\index{studentsInLecture@{studentsInLecture}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{studentsInLecture()}{studentsInLecture()}}
+{\footnotesize\ttfamily void Script\+::students\+In\+Lecture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLecture}{Lecture}} \&}]{one\+Lecture\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Populates a lecture with students who are enrolled in it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em one\+Lecture\+\_\+} & The lecture to populate with students.\\
+\hline
+\end{DoxyParams}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((UcCode\ ==\ oneLecture\_.\mbox{\hyperlink{classLecture_a61c6cd59ec40b18e7db1de7b020da3e7}{getUc}}().\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}())\ \&\&\ (classCode\ ==\ oneLecture\_.\mbox{\hyperlink{classLecture_a4fd3cfc6654b3a74c01a85f9ee950737}{getClassCode}}()))}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ student(StudentCode,\ StudentName);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ oneLecture\_.\mbox{\hyperlink{classLecture_a6b355298ef1d9636947c99938ec5a167}{addStudent}}(student);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ file.close();}
+\DoxyCodeLine{00136\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_af841346bf9e5caeb287d29b831328fbf}\label{classScript_af841346bf9e5caeb287d29b831328fbf} 
+\index{Script@{Script}!studentsInNUc@{studentsInNUc}}
+\index{studentsInNUc@{studentsInNUc}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{studentsInNUc()}{studentsInNUc()}}
+{\footnotesize\ttfamily int Script\+::students\+In\+NUc (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})}
+
+
+
+Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The minimum number of UCs for a student to be counted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The count of students meeting the criteria.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00275}{275}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00276\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 0;}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{int}\ aux\ =\ 0;}
+\DoxyCodeLine{00279\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00281\ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ unordered\_map<string,\ unordered\_map<string,\ bool>>\ studentUCs;}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))}
+\DoxyCodeLine{00289\ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ studentCode,\ studentName,\ ucCode,\ classCode;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ studentCode,\ \textcolor{charliteral}{','}),\ studentName,\ \textcolor{charliteral}{','}),\ ucCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ studentUCs[studentCode][ucCode]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&student\ :\ studentUCs)}
+\DoxyCodeLine{00300\ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (student.second.size()\ >=\ number)}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00308\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_af7d993ef35de5729f002289c8b89ae3d}\label{classScript_af7d993ef35de5729f002289c8b89ae3d} 
+\index{Script@{Script}!studentsinUc@{studentsinUc}}
+\index{studentsinUc@{studentsinUc}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{studentsinUc()}{studentsinUc()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ Script\+::studentsin\+Uc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUc}{Uc}} \&}]{uc }\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of students enrolled in a specific UC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc} & The \doxylink{classUc}{Uc} object representing the UC. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{classStudent}{Student} objects.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ vector<Student>\ students;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00193\ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00200\ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (UcCode\ ==\ uc.\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}())}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ student\{StudentCode,\ StudentName\};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ students.push\_back(student);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ file.close();}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ students;}
+\DoxyCodeLine{00215\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_a70fa28baae6891cc57f9d8189e82b1a3}\label{classScript_a70fa28baae6891cc57f9d8189e82b1a3} 
+\index{Script@{Script}!studentsInYear@{studentsInYear}}
+\index{studentsInYear@{studentsInYear}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{studentsInYear()}{studentsInYear()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{structStudent_1_1Hash}{Student\+::\+Hash}} $>$ Script\+::students\+In\+Year (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{year }\end{DoxyParamCaption})}
+
+
+
+Retrieves a set of students based on their enrollment year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year for which to retrieve students. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An unordered set of \doxylink{classStudent}{Student} objects.
+\end{DoxyReturn}
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00248\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ unordered\_set<Student,\ Student::Hash>\ students;}
+\DoxyCodeLine{00250\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00252\ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00258\ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 4)\ ==\ year)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ StudentCode,\ StudentName,\ UcCode,\ classCode;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ StudentCode,\ \textcolor{charliteral}{','}),\ StudentName,\ \textcolor{charliteral}{','}),\ UcCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStudent}{Student}}\ student\{StudentCode,\ StudentName\};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ students.insert(student);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ file.close();}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{return}\ students;}
+\DoxyCodeLine{00273\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classScript_a87838ab2eee310066f1c4a685f4c18e1}\label{classScript_a87838ab2eee310066f1c4a685f4c18e1} 
+\index{Script@{Script}!ucsWithMostStudents@{ucsWithMostStudents}}
+\index{ucsWithMostStudents@{ucsWithMostStudents}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{ucsWithMostStudents()}{ucsWithMostStudents()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, int $>$ $>$ Script\+::ucs\+With\+Most\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves a list of UCs with the most students, along with the number of students in each UC. 
+
+\begin{DoxyReturn}{Returns}
+A vector of pairs, where the first element is the UC code, and the second element is the number of students.
+\end{DoxyReturn}
+Time complexity\+: O(\+N log N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
+Definition at line \mbox{\hyperlink{Script_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00311\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ map<string,\ int>\ aux\ =\ \{\};}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ ifstream\ file(\textcolor{stringliteral}{"{}../data/students\_classes.csv"{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00316\ \ \ \ \ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ the\ file."{}}\ <<\ endl;}
+\DoxyCodeLine{00318\ \ \ \ \ \}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00321\ \ \ \ \ getline(file,\ line);}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))}
+\DoxyCodeLine{00323\ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ studentCode,\ studentName,\ ucCode,\ classCode;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ getline(getline(getline(getline(iss,\ studentCode,\ \textcolor{charliteral}{','}),\ studentName,\ \textcolor{charliteral}{','}),\ ucCode,\ \textcolor{charliteral}{','}),\ classCode,\ \textcolor{charliteral}{'\(\backslash\)r'});}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ aux[ucCode]++;}
+\DoxyCodeLine{00329\ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ file.close();}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ vector<pair<string,\ int>>\ result\ =\ \{\};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ pair<string,\ int>\ \&p\ :\ aux)}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ sort(result.begin(),\ result.end(),\ [](pair<string,\ int>\ p1,\ pair<string,\ int>\ p2)\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \{\ return\ p1.second\ >\ p2.second;\ \});}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00341\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Script.\+hpp\item 
+src/Script.\+cpp\end{DoxyCompactItemize}

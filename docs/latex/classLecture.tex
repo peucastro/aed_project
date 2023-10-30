@@ -1,0 +1,696 @@
+\doxysection{Lecture Class Reference}
+\hypertarget{classLecture}{}\label{classLecture}\index{Lecture@{Lecture}}
+
+
+Represents a lecture.  
+
+
+
+
+{\ttfamily \#include $<$Lecture.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLecture_aebf11d51f4f0ded35f9ccd2c851e613a}{Lecture}} (const std\+::string \&uc\+Code)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classLecture}{Lecture} with a Uc\+Code. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLecture_ae9f09bbfbfa028d509712c189ab35324}{Lecture}} (const std\+::string \&uc\+Code, const std\+::string \&\mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{class\+Code}}, const std\+::string \&\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{week\+Day}}, const double \&\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{start\+Hour}}, const double \&\mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}}, const std\+::string \&\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}})
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classLecture}{Lecture} with specific details. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUc}{Uc}} \mbox{\hyperlink{classLecture_a61c6cd59ec40b18e7db1de7b020da3e7}{get\+Uc}} ()
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{classUc}{Uc} associated with this lecture. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLecture_a4fd3cfc6654b3a74c01a85f9ee950737}{get\+Class\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Get the class code of the lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_add86d6ea55509e25daf3b4d693003f8c}{set\+Uc}} (const \mbox{\hyperlink{classUc}{Uc}} \&\mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}})
+\begin{DoxyCompactList}\small\item\em Set the \doxylink{classUc}{Uc} object associated with this lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_a6b355298ef1d9636947c99938ec5a167}{add\+Student}} (\mbox{\hyperlink{classStudent}{Student}} \&student)
+\begin{DoxyCompactList}\small\item\em Add a student to the lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_a76f96e263fc8a05f0cd4129cd23dbf3b}{remove\+Student}} (const \mbox{\hyperlink{classStudent}{Student}} \&student)
+\begin{DoxyCompactList}\small\item\em Remove a student from the lecture. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classLecture_af6bf5db9da4fa37912345445d2e9d2fe}{get\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Get a vector of students enrolled in the lecture. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLecture_ab238c1a0f20db4d5cd802bddb5be4996}{get\+Week\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Get the day of the week when the lecture occurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_a5997d69d6624b452a0d6baab4bf6a7d5}{set\+Week\+Day}} (const std\+::string \&\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{week\+Day}})
+\begin{DoxyCompactList}\small\item\em Set the day of the week when the lecture occurs. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{get\+Start\+Hour}} () const
+\begin{DoxyCompactList}\small\item\em Get the starting hour of the lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_a154ef0c7ef3432af0c78e424a57db2d2}{set\+Start\+Hour}} (const double \&\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{start\+Hour}})
+\begin{DoxyCompactList}\small\item\em Set the starting hour of the lecture. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLecture_aabcd34c3dc60ef878348e8548869324e}{get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em Get the duration of the lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_af34b08ae673e96bdbf833b36d2829d45}{set\+Duration}} (const double \&\mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}})
+\begin{DoxyCompactList}\small\item\em Set the duration of the lecture. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLecture_ade7ae3443cbdfbe1afaa9b36b2762a0d}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the type of the lecture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLecture_aee97ea1758abd32bbe3fd9bca7ae7347}{set\+Type}} (const std\+::string \&\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}})
+\begin{DoxyCompactList}\small\item\em Set the type of the lecture. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLecture_a87e2fce680b5e4477e4120f903d1691a}{operator==}} (\mbox{\hyperlink{classLecture}{Lecture}} \&other)
+\begin{DoxyCompactList}\small\item\em Overloaded equality operator to compare two lectures for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLecture_a1f12366443359172d4dad0593fd5fbaa}{operator$<$}} (const \mbox{\hyperlink{classLecture}{Lecture}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two lectures to determine their order. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLecture_a0b15345938ae001dbee23dab648b8ab7}{overlay}} (\mbox{\hyperlink{classLecture}{Lecture}} \&other)
+\begin{DoxyCompactList}\small\item\em Check if this lecture\textquotesingle{}s time slot overlaps with another lecture\textquotesingle{}s time slot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUc}{Uc}} \mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}}
+\item 
+std\+::string \mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{class\+Code}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}
+\item 
+std\+::string \mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{week\+Day}}
+\item 
+double \mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{start\+Hour}}
+\item 
+double \mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}}
+\item 
+std\+::string \mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLecture_aebf11d51f4f0ded35f9ccd2c851e613a}\label{classLecture_aebf11d51f4f0ded35f9ccd2c851e613a} 
+\index{Lecture@{Lecture}!Lecture@{Lecture}}
+\index{Lecture@{Lecture}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{Lecture()}{Lecture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Lecture\+::\+Lecture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Code }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classLecture}{Lecture} with a Uc\+Code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code} & The Uc\+Code associated with the lecture. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLecture_ae9f09bbfbfa028d509712c189ab35324}\label{classLecture_ae9f09bbfbfa028d509712c189ab35324} 
+\index{Lecture@{Lecture}!Lecture@{Lecture}}
+\index{Lecture@{Lecture}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{Lecture()}{Lecture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Lecture\+::\+Lecture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Code,  }\item[{const std\+::string \&}]{class\+Code,  }\item[{const std\+::string \&}]{week\+Day,  }\item[{const double \&}]{start\+Hour,  }\item[{const double \&}]{duration,  }\item[{const std\+::string \&}]{type }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classLecture}{Lecture} with specific details. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Code} & The Uc\+Code associated with the lecture. \\
+\hline
+{\em class\+Code} & The class code. \\
+\hline
+{\em week\+Day} & The day of the week when the lecture occurs. \\
+\hline
+{\em start\+Hour} & The starting hour of the lecture. \\
+\hline
+{\em duration} & The duration of the lecture. \\
+\hline
+{\em type} & The type of lecture. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}}(ucCode)}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}}.\mbox{\hyperlink{classUc_a196c8d2312ead0e5366d26739b82f74b}{setUcCode}}(ucCode);}
+\DoxyCodeLine{00011\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}}.\mbox{\hyperlink{classUc_a5bfbb0dc5ebf2c8f10823d9ab1d631d8}{addClass}}(\mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{classCode}});}
+\DoxyCodeLine{00012\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{classCode}}\ =\ \mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{classCode}};}
+\DoxyCodeLine{00013\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}}\ =\ \mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}};}
+\DoxyCodeLine{00014\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ =\ \mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}};}
+\DoxyCodeLine{00015\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}}\ =\ \mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}};}
+\DoxyCodeLine{00016\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ =\ \mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}};}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLecture_a6b355298ef1d9636947c99938ec5a167}\label{classLecture_a6b355298ef1d9636947c99938ec5a167} 
+\index{Lecture@{Lecture}!addStudent@{addStudent}}
+\index{addStudent@{addStudent}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{addStudent()}{addStudent()}}
+{\footnotesize\ttfamily void Lecture\+::add\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStudent}{Student}} \&}]{student }\end{DoxyParamCaption})}
+
+
+
+Add a student to the lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student to add. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.begin();\ it\ !=\ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.end();\ it++)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ student)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00039\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.push\_back(student);}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a4fd3cfc6654b3a74c01a85f9ee950737}\label{classLecture_a4fd3cfc6654b3a74c01a85f9ee950737} 
+\index{Lecture@{Lecture}!getClassCode@{getClassCode}}
+\index{getClassCode@{getClassCode}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getClassCode()}{getClassCode()}}
+{\footnotesize\ttfamily string Lecture\+::get\+Class\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the class code of the lecture. 
+
+\begin{DoxyReturn}{Returns}
+The class code as a string. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a1c0772c0175a638c4c8325d6162ca596}{classCode}};}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_aabcd34c3dc60ef878348e8548869324e}\label{classLecture_aabcd34c3dc60ef878348e8548869324e} 
+\index{Lecture@{Lecture}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily double Lecture\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the duration of the lecture. 
+
+\begin{DoxyReturn}{Returns}
+The duration as a double. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}};}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a8655f119753b3342f46c560085114ec6}\label{classLecture_a8655f119753b3342f46c560085114ec6} 
+\index{Lecture@{Lecture}!getStartHour@{getStartHour}}
+\index{getStartHour@{getStartHour}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getStartHour()}{getStartHour()}}
+{\footnotesize\ttfamily double Lecture\+::get\+Start\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the starting hour of the lecture. 
+
+\begin{DoxyReturn}{Returns}
+The start hour as a double. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_af6bf5db9da4fa37912345445d2e9d2fe}\label{classLecture_af6bf5db9da4fa37912345445d2e9d2fe} 
+\index{Lecture@{Lecture}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ Lecture\+::get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a vector of students enrolled in the lecture. 
+
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{classStudent}{Student} objects. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}};}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_ade7ae3443cbdfbe1afaa9b36b2762a0d}\label{classLecture_ade7ae3443cbdfbe1afaa9b36b2762a0d} 
+\index{Lecture@{Lecture}!getType@{getType}}
+\index{getType@{getType}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily string Lecture\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the type of the lecture. 
+
+\begin{DoxyReturn}{Returns}
+The type as a string. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}};}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a61c6cd59ec40b18e7db1de7b020da3e7}\label{classLecture_a61c6cd59ec40b18e7db1de7b020da3e7} 
+\index{Lecture@{Lecture}!getUc@{getUc}}
+\index{getUc@{getUc}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getUc()}{getUc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUc}{Uc}} Lecture\+::get\+Uc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \doxylink{classUc}{Uc} associated with this lecture. 
+
+\begin{DoxyReturn}{Returns}
+The \doxylink{classUc}{Uc} object. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}};}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_ab238c1a0f20db4d5cd802bddb5be4996}\label{classLecture_ab238c1a0f20db4d5cd802bddb5be4996} 
+\index{Lecture@{Lecture}!getWeekDay@{getWeekDay}}
+\index{getWeekDay@{getWeekDay}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{getWeekDay()}{getWeekDay()}}
+{\footnotesize\ttfamily string Lecture\+::get\+Week\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the day of the week when the lecture occurs. 
+
+\begin{DoxyReturn}{Returns}
+The week day as a string. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}};}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a1f12366443359172d4dad0593fd5fbaa}\label{classLecture_a1f12366443359172d4dad0593fd5fbaa} 
+\index{Lecture@{Lecture}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Lecture\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLecture}{Lecture}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare two lectures to determine their order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The lecture to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this lecture is less than the other, otherwise false. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \{}
+\DoxyCodeLine{00114\ std::map<std::string,\ int>\ dayValues\ =\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Monday"{}},\ 0\},}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Tuesday"{}},\ 1\},}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Wednesday"{}},\ 2\},}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Thursday"{}},\ 3\},}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Friday"{}},\ 4\},}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Saturday"{}},\ 5\},}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Sunday"{}},\ 6\}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}}\ !=\ other.\mbox{\hyperlink{classLecture_ab238c1a0f20db4d5cd802bddb5be4996}{getWeekDay}}())\{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ dayValues.at(\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}})\ <\ dayValues.at(other.\mbox{\hyperlink{classLecture_ab238c1a0f20db4d5cd802bddb5be4996}{getWeekDay}}());}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ <\ other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}();}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a87e2fce680b5e4477e4120f903d1691a}\label{classLecture_a87e2fce680b5e4477e4120f903d1691a} 
+\index{Lecture@{Lecture}!operator==@{operator==}}
+\index{operator==@{operator==}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Lecture\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLecture}{Lecture}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Overloaded equality operator to compare two lectures for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The lecture to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the lectures are equal, otherwise false. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ ((this-\/>\mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}}.\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}()\ ==\ other.\mbox{\hyperlink{classLecture_a61c6cd59ec40b18e7db1de7b020da3e7}{getUc}}().\mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}())\ \&\&\ (this-\/>classCode\ ==\ other.\mbox{\hyperlink{classLecture_a4fd3cfc6654b3a74c01a85f9ee950737}{getClassCode}}()))}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00110\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a0b15345938ae001dbee23dab648b8ab7}\label{classLecture_a0b15345938ae001dbee23dab648b8ab7} 
+\index{Lecture@{Lecture}!overlay@{overlay}}
+\index{overlay@{overlay}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{overlay()}{overlay()}}
+{\footnotesize\ttfamily bool Lecture\+::overlay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLecture}{Lecture}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Check if this lecture\textquotesingle{}s time slot overlaps with another lecture\textquotesingle{}s time slot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other lecture to check for overlap. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there is an overlap, otherwise false. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}}\ !=\ other.\mbox{\hyperlink{classLecture_ab238c1a0f20db4d5cd802bddb5be4996}{getWeekDay}}())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{string}\ o\_type\ =\ other.\mbox{\hyperlink{classLecture_ade7ae3443cbdfbe1afaa9b36b2762a0d}{getType}}();}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ ==\ \textcolor{stringliteral}{"{}TP"{}}\ \&\&\ o\_type\ ==\ \textcolor{stringliteral}{"{}TP"{}})\ ||\ (\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ ==\ \textcolor{stringliteral}{"{}PL"{}}\ \&\&\ o\_type\ ==\ \textcolor{stringliteral}{"{}PL"{}})\ ||\ (\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ ==\ \textcolor{stringliteral}{"{}TP"{}}\ \&\&\ o\_type\ ==\ \textcolor{stringliteral}{"{}PL"{}})\ ||\ (\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ ==\ \textcolor{stringliteral}{"{}PL"{}}\ \&\&\ o\_type\ ==\ \textcolor{stringliteral}{"{}TP"{}}))\{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ >=\ other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}())\ \&\&\ \mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ <\ (other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}()+other.\mbox{\hyperlink{classLecture_aabcd34c3dc60ef878348e8548869324e}{getDuration}}()))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ <\ other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}())\ \&\&\ (\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ +\ \mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}})\ >\ other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}==other.\mbox{\hyperlink{classLecture_a8655f119753b3342f46c560085114ec6}{getStartHour}}())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00141\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a76f96e263fc8a05f0cd4129cd23dbf3b}\label{classLecture_a76f96e263fc8a05f0cd4129cd23dbf3b} 
+\index{Lecture@{Lecture}!removeStudent@{removeStudent}}
+\index{removeStudent@{removeStudent}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{removeStudent()}{removeStudent()}}
+{\footnotesize\ttfamily void Lecture\+::remove\+Student (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{student }\end{DoxyParamCaption})}
+
+
+
+Remove a student from the lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student to remove. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ mark;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.size();\ i++)}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.at(i)\ ==\ student)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ mark\ =\ i;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.begin();}
+\DoxyCodeLine{00053\ \ \ \ \ advance(it,\ mark);}
+\DoxyCodeLine{00054\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a73d8a903d4282e3736cc05b9479803a7}{students}}.erase(it);}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_af34b08ae673e96bdbf833b36d2829d45}\label{classLecture_af34b08ae673e96bdbf833b36d2829d45} 
+\index{Lecture@{Lecture}!setDuration@{setDuration}}
+\index{setDuration@{setDuration}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{setDuration()}{setDuration()}}
+{\footnotesize\ttfamily void Lecture\+::set\+Duration (\begin{DoxyParamCaption}\item[{const double \&}]{duration }\end{DoxyParamCaption})}
+
+
+
+Set the duration of the lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & The duration to set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}}\ =\ \mbox{\hyperlink{classLecture_a556570c11631f9b8068fcb82d3aa97f5}{duration}};}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a154ef0c7ef3432af0c78e424a57db2d2}\label{classLecture_a154ef0c7ef3432af0c78e424a57db2d2} 
+\index{Lecture@{Lecture}!setStartHour@{setStartHour}}
+\index{setStartHour@{setStartHour}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{setStartHour()}{setStartHour()}}
+{\footnotesize\ttfamily void Lecture\+::set\+Start\+Hour (\begin{DoxyParamCaption}\item[{const double \&}]{start\+Hour }\end{DoxyParamCaption})}
+
+
+
+Set the starting hour of the lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Hour} & The start hour to set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}}\ =\ \mbox{\hyperlink{classLecture_a0e69aa2e557d66eb900b5377292d479e}{startHour}};}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_aee97ea1758abd32bbe3fd9bca7ae7347}\label{classLecture_aee97ea1758abd32bbe3fd9bca7ae7347} 
+\index{Lecture@{Lecture}!setType@{setType}}
+\index{setType@{setType}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Lecture\+::set\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type }\end{DoxyParamCaption})}
+
+
+
+Set the type of the lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type to set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}}\ =\ \mbox{\hyperlink{classLecture_a551c3b32009c9f99834ef61622a1acf3}{type}};}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_add86d6ea55509e25daf3b4d693003f8c}\label{classLecture_add86d6ea55509e25daf3b4d693003f8c} 
+\index{Lecture@{Lecture}!setUc@{setUc}}
+\index{setUc@{setUc}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{setUc()}{setUc()}}
+{\footnotesize\ttfamily void Lecture\+::set\+Uc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUc}{Uc}} \&}]{uc }\end{DoxyParamCaption})}
+
+
+
+Set the \doxylink{classUc}{Uc} object associated with this lecture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc} & The \doxylink{classUc}{Uc} object to set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ this-\/>uc\ =\ \mbox{\hyperlink{classLecture_a208a11bb714edb7617d7b6310609ffb4}{uc}};}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLecture_a5997d69d6624b452a0d6baab4bf6a7d5}\label{classLecture_a5997d69d6624b452a0d6baab4bf6a7d5} 
+\index{Lecture@{Lecture}!setWeekDay@{setWeekDay}}
+\index{setWeekDay@{setWeekDay}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{setWeekDay()}{setWeekDay()}}
+{\footnotesize\ttfamily void Lecture\+::set\+Week\+Day (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{week\+Day }\end{DoxyParamCaption})}
+
+
+
+Set the day of the week when the lecture occurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em week\+Day} & The week day to set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Lecture_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{Lecture_8cpp_source}{Lecture.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ this-\/>\mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}}\ =\ \mbox{\hyperlink{classLecture_acbae467edc1dfb09950f1630b9270621}{weekDay}};}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLecture_a1c0772c0175a638c4c8325d6162ca596}\label{classLecture_a1c0772c0175a638c4c8325d6162ca596} 
+\index{Lecture@{Lecture}!classCode@{classCode}}
+\index{classCode@{classCode}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{classCode}{classCode}}
+{\footnotesize\ttfamily std\+::string Lecture\+::class\+Code\hspace{0.3cm}{\ttfamily [private]}}
+
+The class code of the lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_a556570c11631f9b8068fcb82d3aa97f5}\label{classLecture_a556570c11631f9b8068fcb82d3aa97f5} 
+\index{Lecture@{Lecture}!duration@{duration}}
+\index{duration@{duration}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily double Lecture\+::duration\hspace{0.3cm}{\ttfamily [private]}}
+
+The duration of the lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_a0e69aa2e557d66eb900b5377292d479e}\label{classLecture_a0e69aa2e557d66eb900b5377292d479e} 
+\index{Lecture@{Lecture}!startHour@{startHour}}
+\index{startHour@{startHour}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{startHour}{startHour}}
+{\footnotesize\ttfamily double Lecture\+::start\+Hour\hspace{0.3cm}{\ttfamily [private]}}
+
+The starting hour of the lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_a73d8a903d4282e3736cc05b9479803a7}\label{classLecture_a73d8a903d4282e3736cc05b9479803a7} 
+\index{Lecture@{Lecture}!students@{students}}
+\index{students@{students}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{students}{students}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStudent}{Student}}$>$ Lecture\+::students\hspace{0.3cm}{\ttfamily [private]}}
+
+The list of students enrolled in the lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_a551c3b32009c9f99834ef61622a1acf3}\label{classLecture_a551c3b32009c9f99834ef61622a1acf3} 
+\index{Lecture@{Lecture}!type@{type}}
+\index{type@{type}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily std\+::string Lecture\+::type\hspace{0.3cm}{\ttfamily [private]}}
+
+The type of lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_a208a11bb714edb7617d7b6310609ffb4}\label{classLecture_a208a11bb714edb7617d7b6310609ffb4} 
+\index{Lecture@{Lecture}!uc@{uc}}
+\index{uc@{uc}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{uc}{uc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUc}{Uc}} Lecture\+::uc\hspace{0.3cm}{\ttfamily [private]}}
+
+The \doxylink{classUc}{Uc} associated with the lecture. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+\Hypertarget{classLecture_acbae467edc1dfb09950f1630b9270621}\label{classLecture_acbae467edc1dfb09950f1630b9270621} 
+\index{Lecture@{Lecture}!weekDay@{weekDay}}
+\index{weekDay@{weekDay}!Lecture@{Lecture}}
+\doxysubsubsection{\texorpdfstring{weekDay}{weekDay}}
+{\footnotesize\ttfamily std\+::string Lecture\+::week\+Day\hspace{0.3cm}{\ttfamily [private]}}
+
+The day of the week when the lecture occurs. 
+
+Definition at line \mbox{\hyperlink{Lecture_8hpp_source_l00147}{147}} of file \mbox{\hyperlink{Lecture_8hpp_source}{Lecture.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Lecture.\+hpp\item 
+src/Lecture.\+cpp\end{DoxyCompactItemize}
