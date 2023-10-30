@@ -24,7 +24,7 @@ Student Script::loadStudent(const string &studentCode)
         {
             student.setstudentCode(studentCodeFromFile);
             student.setstudentName(studentNameFromFile);
-            student.addClass(pair{ucCodeFromFile, classCodefromFile});
+            student.addClass(pair<string, string>{ucCodeFromFile, classCodefromFile});
         }
     }
 
