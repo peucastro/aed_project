@@ -10,6 +10,7 @@
 
 int main()
 {
-    App();
+    App app;
+    app.mainMenu();
     return 0;
 }
