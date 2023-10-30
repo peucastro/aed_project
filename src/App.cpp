@@ -18,14 +18,16 @@ App::App()
 
 void App::mainMenu()
 {
+    cout << "=================================================================================================" << endl;
     cout << "Welcome to the L.EIC Schedule Management System" << endl
          << endl;
 
     int option;
     cout << "Enter your option:" << endl
          << "[1] Student" << endl
-         << "[2] Administratot" << endl;
+         << "[2] Administrator" << endl;
     cin >> option;
+    cout << "=================================================================================================" << endl;
 
     clearScreen();
 
@@ -34,6 +36,7 @@ void App::mainMenu()
     case 1:
     {
         string studentCode;
+        cout << "=================================================================================================" << endl;
         cout << "Enter your student code: " << endl, cin >> studentCode;
         studentMenu(studentCode);
         break;
@@ -41,6 +44,7 @@ void App::mainMenu()
     case 2:
     {
         string login, pass;
+        cout << "=================================================================================================" << endl;
         cout << "Enter your login: ", cin >> login, cout << endl;
         cout << "Enter your password: ", cin >> pass, cout << endl;
 
@@ -58,6 +62,7 @@ void App::mainMenu()
 
 void App::studentMenu(string studentCode)
 {
+    cout << "=================================================================================================" << endl;
     cout << "Student menu" << endl
          << endl;
 
@@ -72,6 +77,8 @@ void App::studentMenu(string studentCode)
          << "[5] Undo a request" << endl
          << "[6] Consult your requests" << endl
          << "[0] Go back to the main menu" << endl;
+
+         cout << "=================================================================================================" << endl;
     cin >> option;
 
     clearScreen();
@@ -80,6 +87,8 @@ void App::studentMenu(string studentCode)
     {
     case 1:
     {
+        clearScreen();
+        consultSchedule();
     }
     case 2:
     {
@@ -110,6 +119,7 @@ void App::adminMenu()
          << endl;
 
     int option;
+    
     cout << "Enter your option: " << endl
          << "[1] Consult Uc" << endl       // consultar ucs com mais estudantes, turmas da uc
          << "[2] Consult students" << endl // consultar o n de estudantes em pelo menos n ucs, turma, ano e uc
@@ -170,4 +180,15 @@ void App::consultUcSt()
         mainMenu();
     }
     }
+}
+void App::consultSchedule(){
+    cout << "=================================================================================================" << endl;
+    for(auto schedule : student.getSchedule()){
+        for(Lecture lecture : Script().loadLecture(schedule.first,schedule.second)){
+
+            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
+        
+        }
+    }
+    cout << "=================================================================================================" << endl;
 }
