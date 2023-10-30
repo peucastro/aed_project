@@ -19,6 +19,7 @@ public:
     void mainMenu();
     void studentMenu(std::string studentCode);
     void adminMenu();
+    void consultUcSt();
 
 private:
     Student student;

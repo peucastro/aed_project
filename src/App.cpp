@@ -68,6 +68,7 @@ void App::studentMenu(string studentCode)
     }
     case 2:
     {
+        consultUcSt();
     }
     case 3:
     {
@@ -80,6 +81,10 @@ void App::studentMenu(string studentCode)
     }
     case 6:
     {
+    }
+    case 0:
+    {
+        mainMenu();
     }
     }
 }
@@ -108,6 +113,46 @@ void App::adminMenu()
     }
     case 3:
     {
+    }
+    }
+}
+
+void App::consultUcSt()
+{
+    cout << "Enter your option: " << endl
+         << "[1] Consult the Uc's and classes enrolled" << endl
+         << "[2] Consult all classes in a Uc" << endl << endl
+         << "[0] Go back to student menu" << endl << endl;
+    int option; cin >> option;
+
+    switch (option)
+    {
+    case 1:
+    {
+        map<string, string> old_schedule = this->student.getSchedule();
+        int num=0;
+        for (pair<string, string> p : old_schedule){
+        num++;
+        cout << p.first << " - " << p.second << endl;
+        cout << endl;}
+        cout << "You are enrolled in " << num << " Uc's." << endl;
+    }
+    case 2:
+    {
+        string uc, sortmethod;
+        cout << "Enter uc code: ", cin >> uc, cout << endl << endl;
+        Uc ucConsult = Uc(uc);
+        cout << "Sort Method:" << endl
+        << "[1] Ascending order" << endl
+        << "[2] Descending order" << endl;
+        cin >> sortmethod;
+
+        ucConsult.printClasses(sortmethod);
+
+    }
+    case 0:
+    {
+        mainMenu();
     }
     }
 }
