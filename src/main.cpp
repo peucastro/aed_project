@@ -5,7 +5,9 @@
 #include "../inc/Request.hpp"
 #include "../inc/App.hpp"
 
-// g++ -o main main.cpp Uc.cpp Student.cpp Lecture.cpp Script.cpp Request.cpp App.cpp
+
+//g++ -o main main.cpp Uc.cpp Lecture.cpp Student.cpp Script.cpp Request.cpp App.cpp
+
 
 int main()
 {

@@ -1,4 +1,5 @@
 #include "../inc/App.hpp"
+#include <iomanip>
 using namespace std;
 
 void clearScreen()
@@ -226,8 +227,8 @@ void App::consultUcSt()
         for (pair<string, string> p : old_schedule)
         {
             num++;
-            cout << p.first << " - " << p.second << endl;
-            cout << endl;
+            cout << "|" <<p.first << " - " << p.second << "|" <<endl;
+            cout << "|" << setw(19) << "|" <<endl;
         }
         cout << endl
              << "You are enrolled in " << num << " Uc's." << endl;
@@ -258,6 +259,10 @@ void App::consultUcSt()
         cout << "Enter uc code: ", cin >> uc, cout << endl
                                                    << endl;
         Uc ucConsult = Uc(uc);
+        if(ucConsult.classesCount()==0){
+            cout << "Invalid UC code, please try again: " << endl;
+            consultUcSt();
+        }
         script.loadClasses(ucConsult);
         cout << "Sort Method:" << endl
              << "[1] Ascending order" << endl
@@ -387,12 +392,20 @@ void App::consultUcAdm()
 void App::consultSchedule()
 {
     cout << "=================================================================================================" << endl;
-    for (auto schedule : this->student.getSchedule())
-    {
-        for (Lecture lecture : Script().loadLecture(schedule.first, schedule.second))
-        {
-            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
+    set<Lecture> studentLectures;
+    for(auto schedule : this->student.getSchedule()){
+        for(Lecture lecture : Script().loadLecture(schedule.first,schedule.second)){
+            studentLectures.insert(lecture);
         }
+    }
+
+    for(Lecture lecture : studentLectures){
+        cout << "UC: " << std::setw(8) << lecture.getUc().getUcCode() << "|"
+         << " Class: " << std::setw(4) << lecture.getClassCode() << "|"
+         << " Day: " << std::setw(9) << lecture.getWeekDay() << "|"
+         << " Begin: " << std::setw(5) << lecture.getStartHour() << "|"
+         << " Ends: " << std::setw(4) << lecture.getDuration() + lecture.getStartHour() << "|"
+         << " Type: " << lecture.getType() << std::endl;
     }
     cout << "=================================================================================================" << endl
          << endl

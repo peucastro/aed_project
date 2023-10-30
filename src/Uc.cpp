@@ -1,4 +1,5 @@
 #include "../inc/Uc.hpp"
+#include <iomanip>
 using namespace std;
 
 Uc::Uc()
@@ -31,15 +32,18 @@ void Uc::addClass(const string &UcClass)
 }
 
 void Uc::printClasses(const string &SortMethod)
-{
+{   
+    cout << "=================================================================================================" << endl;
     if (SortMethod == "1") {
-        for (const string &turma : UcClasses)
-            cout << turma << endl;
+        for (const string &turma : UcClasses){
+            cout << "|" << turma << "|" << endl;
+        }
     } else if (SortMethod == "2") {
         stack<string> reverse;
         for(const string &turma : UcClasses) reverse.push(turma);
         while(!reverse.empty()){
-            cout << reverse.top() << endl;
+
+            cout << "|" <<reverse.top() << endl;
             reverse.pop();
         }
     } else {
