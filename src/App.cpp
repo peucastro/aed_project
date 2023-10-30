@@ -158,6 +158,7 @@ void App::adminMenu()
     {
     case 1:
     {
+        consultUcAdm();
         break;
     }
     case 2:
@@ -295,6 +296,94 @@ void App::consultUcSt()
     }
 }
 
+void App::consultUcAdm()
+{
+    cout << "=================================================================================================" << endl;
+    cout << "Enter your option: " << endl
+         << "[1] Consult the Uc's with most students" << endl
+         << "[2] Consult all classes in a Uc" << endl
+         << endl
+         << "[0] Go back to the Administrator menu" << endl
+         << "=================================================================================================" << endl
+         << endl;
+    int option;
+    cout << "-> ", cin >> option;
+
+    clearScreen();
+
+    switch (option)
+    {
+    case 1:
+    {
+        cout << "=================================================================================================" << endl
+             << "Uc's with most students:" << endl
+             << endl;
+        vector<pair<string, int>> vec = Script().ucsWithMostStudents();
+        for (const pair<string, int> &p : vec)
+            cout << p.first << " - " << p.second << endl;
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 2:
+    {
+        Script script;
+        string uc, sortmethod;
+        cout << "Enter uc code: ", cin >> uc, cout << endl
+                                                   << endl;
+        Uc ucConsult = Uc(uc);
+        script.loadClasses(ucConsult);
+        cout << "Sort Method:" << endl
+             << "[1] Ascending order" << endl
+             << "[2] Descending order" << endl
+             << endl;
+        cin >> sortmethod;
+
+        clearScreen();
+        cout << "=================================================================================================" << endl
+             << "All classes at " << uc << ':' << endl;
+        ucConsult.printClasses(sortmethod);
+        cout << "=================================================================================================" << endl
+             << endl;
+        cout << "[0] Go back to the Student menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 0:
+    {
+        adminMenu();
+        break;
+    }
+    }
+}
+
 void App::consultSchedule()
 {
     cout << "=================================================================================================" << endl;
@@ -306,6 +395,7 @@ void App::consultSchedule()
         }
     }
     cout << "=================================================================================================" << endl
+         << endl
          << endl;
 
     cout << "[0] Go back to the Student menu" << endl;
