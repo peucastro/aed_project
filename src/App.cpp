@@ -255,5 +255,12 @@ void App::consultSchedule()
             std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
         }
     }
+
+    string back;
+        cout << "Press 0 to go back to student menu: ", cin >> back, cout << endl;
+        if(back == "0"){
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+        }
     cout << "=================================================================================================" << endl;
 }
