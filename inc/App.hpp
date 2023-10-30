@@ -19,6 +19,9 @@ public:
     void mainMenu();
     void studentMenu(std::string studentCode);
     void adminMenu();
+
+private:
+    Student student;
 };
 
 #endif

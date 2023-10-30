@@ -46,6 +46,8 @@ void App::studentMenu(string studentCode)
     cout << "Student menu" << endl
          << endl;
 
+    this->student = Script().loadStudent(studentCode);
+
     int option;
     cout << "Enter your option: " << endl
          << "[1] Consult your schedule" << endl
@@ -53,7 +55,8 @@ void App::studentMenu(string studentCode)
          << "[3] Consult students" << endl // consultar os estudantes em turma, ano e uc
          << "[4] Make a request" << endl   // tipo do request
          << "[5] Undo a request" << endl
-         << "[6] Consult your requests" << endl;
+         << "[6] Consult your requests" << endl
+         << "[0] Go back to the main menu" << endl;
     cin >> option;
 
     clearScreen();
