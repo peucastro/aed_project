@@ -18,6 +18,7 @@ App::App()
 
 void App::mainMenu()
 {
+    cout << "=================================================================================================" << endl;
     cout << "Welcome to the L.EIC Schedule Management System" << endl
          << endl;
 
@@ -25,6 +26,8 @@ void App::mainMenu()
     cout << "Enter your option:" << endl
          << "[1] Student" << endl
          << "[2] Administrator" << endl;
+    cout << "=================================================================================================" << endl
+         << endl;
     cin >> option;
 
     clearScreen();
@@ -34,6 +37,7 @@ void App::mainMenu()
     case 1:
     {
         string studentCode;
+        cout << "=================================================================================================" << endl;
         cout << "Enter your student code: " << endl, cin >> studentCode;
         clearScreen();
         studentMenu(studentCode);
@@ -42,11 +46,15 @@ void App::mainMenu()
     case 2:
     {
         string login, pass;
+        cout << "=================================================================================================" << endl;
         cout << "Enter your login: ", cin >> login, cout << endl;
         cout << "Enter your password: ", cin >> pass, cout << endl;
         clearScreen();
         if (login == "adm" && pass == "123")
+        {
+            clearScreen();
             adminMenu();
+        }
         else
         {
             cout << "Wrong credentials, try again" << endl;
@@ -59,6 +67,7 @@ void App::mainMenu()
 
 void App::studentMenu(string studentCode)
 {
+    cout << "=================================================================================================" << endl;
     cout << "Student menu" << endl
          << endl;
 
@@ -73,6 +82,8 @@ void App::studentMenu(string studentCode)
          << "[5] Undo a request" << endl
          << "[6] Consult your requests" << endl
          << "[0] Go back to the main menu" << endl;
+
+    cout << "=================================================================================================" << endl;
     cin >> option;
 
     clearScreen();
@@ -81,9 +92,12 @@ void App::studentMenu(string studentCode)
     {
     case 1:
     {
+        clearScreen();
+        consultSchedule();
     }
     case 2:
     {
+        clearScreen();
         consultUcSt();
     }
     case 3:
@@ -100,6 +114,7 @@ void App::studentMenu(string studentCode)
     }
     case 0:
     {
+        clearScreen();
         mainMenu();
     }
     }
@@ -107,14 +122,17 @@ void App::studentMenu(string studentCode)
 
 void App::adminMenu()
 {
+    cout << "=================================================================================================" << endl;
     cout << "Administrator menu" << endl
          << endl;
 
     int option;
+
     cout << "Enter your option: " << endl
          << "[1] Consult Uc" << endl       // consultar ucs com mais estudantes, turmas da uc
          << "[2] Consult students" << endl // consultar o n de estudantes em pelo menos n ucs, turma, ano e uc
          << "[3] Consult requests" << endl;
+    cout << "=================================================================================================" << endl;
     cin >> option;
 
     clearScreen();
@@ -123,12 +141,35 @@ void App::adminMenu()
     {
     case 1:
     {
+        break;
     }
     case 2:
     {
+        break;
     }
     case 3:
     {
+        clearScreen();
+        cout << "=================================================================================================" << endl;
+        cout << "All requests listed:" << endl
+             << endl;
+        Request().adminRequests();
+        cout << "=================================================================================================" << endl
+             << endl;
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Wrong option, try again" << endl
+                     << endl;
+        }
     }
     }
 }
@@ -137,20 +178,26 @@ void App::consultUcSt()
 {
     cout << "Enter your option: " << endl
          << "[1] Consult the Uc's and classes enrolled" << endl
-         << "[2] Consult all classes in a Uc" << endl << endl
-         << "[0] Go back to student menu" << endl << endl;
-    int option; cin >> option;
+         << "[2] Consult all classes in a Uc" << endl
+         << endl
+         << "[0] Go back to student menu" << endl
+         << endl;
+    int option;
+    cin >> option;
 
     switch (option)
     {
     case 1:
     {
+        clearScreen();
         map<string, string> old_schedule = this->student.getSchedule();
-        int num=0;
-        for (pair<string, string> p : old_schedule){
-        num++;
-        cout << p.first << " - " << p.second << endl;
-        cout << endl;}
+        int num = 0;
+        for (pair<string, string> p : old_schedule)
+        {
+            num++;
+            cout << p.first << " - " << p.second << endl;
+            cout << endl;
+        }
         cout << "You are enrolled in " << num << " Uc's." << endl;
 
         string back;
@@ -163,19 +210,20 @@ void App::consultUcSt()
     }
     case 2:
     {
+        clearScreen();
         Script script;
         string uc, sortmethod, back;
-        cout << "Enter uc code: ", cin >> uc, cout << endl << endl;
+        cout << "Enter uc code: ", cin >> uc, cout << endl
+                                                   << endl;
         Uc ucConsult = Uc(uc);
         script.loadClasses(ucConsult);
         cout << "Sort Method:" << endl
-        << "[1] Ascending order" << endl
-        << "[2] Descending order" << endl << endl;
+             << "[1] Ascending order" << endl
+             << "[2] Descending order" << endl << endl;
         cin >> sortmethod;
 
 
         ucConsult.printClasses(sortmethod);
-
         cout << "Press 0 to go back to student menu: ", cin >> back, cout << endl;
         if(back == "0"){
             clearScreen();
@@ -190,4 +238,17 @@ void App::consultUcSt()
         break;
     }
     }
+}
+void App::consultSchedule()
+{
+    cout << "=================================================================================================" << endl;
+    for (auto schedule : student.getSchedule())
+    {
+        for (Lecture lecture : Script().loadLecture(schedule.first, schedule.second))
+        {
+
+            std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
+        }
+    }
+    cout << "=================================================================================================" << endl;
 }

@@ -1,7 +1,7 @@
 #include "../inc/Script.hpp"
 #include <stdexcept>
 
-// g++ - o LoadLectureTest LoadLectureTests.cpp../ src / Uc.cpp../ src / Lecture.cpp../ src / Student.cpp../ src / Script.cpp
+// g++ -o LoadLectureTest LoadLectureTests.cpp ../src/Uc.cpp ../src/Lecture.cpp ../src/Student.cpp ../src/Script.cpp
 
 void loadLectureTest()
 {
