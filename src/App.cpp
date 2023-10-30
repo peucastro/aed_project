@@ -67,6 +67,7 @@ void App::mainMenu()
 
 void App::studentMenu(string studentCode)
 {
+    
     this->student = Script().loadStudent(studentCode);
     if(this->student.getstudentName() == "NO_NAME"){
         cout << "Invalid student code, please try again: " << endl;
