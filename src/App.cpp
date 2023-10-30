@@ -67,11 +67,15 @@ void App::mainMenu()
 
 void App::studentMenu(string studentCode)
 {
+    this->student = Script().loadStudent(studentCode);
+    if(this->student.getstudentName() == "NO_NAME"){
+        cout << "Invalid student code, please try again: " << endl;
+        mainMenu();
+    }
+
     cout << "=================================================================================================" << endl;
     cout << "Student menu" << endl
          << endl;
-
-    this->student = Script().loadStudent(studentCode);
 
     int option;
     cout << "Enter your option: " << endl
@@ -179,12 +183,13 @@ void App::adminMenu()
 
 void App::consultUcSt()
 {
+    cout << "=================================================================================================" << endl;
     cout << "Enter your option: " << endl
          << "[1] Consult the Uc's and classes enrolled" << endl
          << "[2] Consult all classes in a Uc" << endl
          << endl
          << "[0] Go back to student menu" << endl
-         << endl;
+         << "=================================================================================================" << endl;
     int option;
     cin >> option;
 
