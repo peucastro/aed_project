@@ -94,11 +94,13 @@ void App::studentMenu(string studentCode)
     {
         clearScreen();
         consultSchedule();
+        break;
     }
     case 2:
     {
         clearScreen();
         consultUcSt();
+        break;
     }
     case 3:
     {
@@ -116,6 +118,7 @@ void App::studentMenu(string studentCode)
     {
         clearScreen();
         mainMenu();
+        break;
     }
     }
 }
@@ -242,10 +245,8 @@ void App::consultUcSt()
 void App::consultSchedule()
 {
     cout << "=================================================================================================" << endl;
-    for (auto schedule : student.getSchedule())
-    {
-        for (Lecture lecture : Script().loadLecture(schedule.first, schedule.second))
-        {
+    for(auto schedule : this->student.getSchedule()){
+        for(Lecture lecture : Script().loadLecture(schedule.first,schedule.second)){
 
             std::cout << lecture.getUc().getUcCode() << "-" << lecture.getClassCode() << "-" << lecture.getWeekDay() << "-" << lecture.getStartHour() << "-" << lecture.getDuration() << "-" << lecture.getType() << std::endl;
         }

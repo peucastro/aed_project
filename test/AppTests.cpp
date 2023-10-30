@@ -2,11 +2,11 @@
 
 using namespace std;
 
-//gg++ -o AppTests AppTests.cpp ../src/Uc.cpp ../src/Lecture.cpp ../src/Student.cpp ../src/Script.cpp ../src/Request.cpp ../src/App.cpp
+//g++ -o AppTests AppTests.cpp ../src/Uc.cpp ../src/Lecture.cpp ../src/Student.cpp ../src/Script.cpp ../src/Request.cpp ../src/App.cpp
 
 
 void consultScheduletest(){
-    App().adminMenu();
+    App();
 }
 
 int main(){
