@@ -1,6 +1,21 @@
 #include "../inc/App.hpp"
 using namespace std;
 
+void clearScreen()
+{
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif
+}
+
+App::App()
+{
+    clearScreen();
+    mainMenu();
+}
+
 void App::mainMenu()
 {
     cout << "Welcome to the L.EIC Schedule Management System" << endl

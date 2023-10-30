@@ -1,0 +1,67 @@
+\doxysection{Uc.\+hpp}
+\hypertarget{Uc_8hpp_source}{}\label{Uc_8hpp_source}\index{inc/Uc.hpp@{inc/Uc.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ AED\_PROJECT\_UC\_H}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ AED\_PROJECT\_UC\_H}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00009}00009\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00014}\mbox{\hyperlink{classUc}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUc}{Uc}}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{classUc_a80ef0956e158a516d36be2a27e0d1281}{Uc}}();}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00019}00019\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00024}\mbox{\hyperlink{classUc_aa9aa080974c6106ef75ca88706108b19}{00024}}\ \ \ \ \ \mbox{\hyperlink{classUc_aa9aa080974c6106ef75ca88706108b19}{Uc}}(\textcolor{keyword}{const}\ std::string\ \&UcCode);}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00025}00025\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00030}00030\ \ \ \ \ std::string\ \mbox{\hyperlink{classUc_a633ef57e70835ffad02718d7d4b26973}{getUcCode}}();}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00031}00031\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUc_a196c8d2312ead0e5366d26739b82f74b}{setUcCode}}(\textcolor{keyword}{const}\ std::string\ \&UcCode);}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00037}00037\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUc_a5bfbb0dc5ebf2c8f10823d9ab1d631d8}{addClass}}(\textcolor{keyword}{const}\ std::string\ \&UcClass);}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00043}00043\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUc_a9d58bd9a63dfde444de3711400bce727}{printClasses}}(\textcolor{keyword}{const}\ std::string\ \&SortMethod);}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00049}00049\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUc_af8b26e6ae7c58d5b555fa6fec38361e4}{classesCount}}();}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00055}00055\ }
+
+
+
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00060}00060\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classUc_aa62915670950e7362acb862afe829634}{getClasses}}();}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00062}00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{/*\ The\ code\ associated\ with\ this\ Uc.\ */}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00064}00064\ \ \ \ \ std::string\ UcCode;}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{/*\ The\ list\ of\ classes\ within\ this\ Uc.\ */}}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00067}00067\ \ \ \ \ std::vector<std::string>\ UcClasses;}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00068}00068\ \};}
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{Uc_8hpp_source_l00070}00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

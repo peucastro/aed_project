@@ -1,0 +1,50 @@
+\doxysection{Student\+::Hash Struct Reference}
+\hypertarget{structStudent_1_1Hash}{}\label{structStudent_1_1Hash}\index{Student::Hash@{Student::Hash}}
+
+
+\doxylink{structStudent_1_1Hash}{Hash} function for \doxylink{classStudent}{Student} objects.  
+
+
+
+
+{\ttfamily \#include $<$Student.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structStudent_1_1Hash_a6ed629dfadba1d7d01e9c60e84cee80d}{operator()}} (const \mbox{\hyperlink{classStudent}{Student}} \&student) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structStudent_1_1Hash}{Hash} function for \doxylink{classStudent}{Student} objects. 
+
+Definition at line \mbox{\hyperlink{Student_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{Student_8hpp_source}{Student.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structStudent_1_1Hash_a6ed629dfadba1d7d01e9c60e84cee80d}\label{structStudent_1_1Hash_a6ed629dfadba1d7d01e9c60e84cee80d} 
+\index{Student::Hash@{Student::Hash}!operator()@{operator()}}
+\index{operator()@{operator()}!Student::Hash@{Student::Hash}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Student\+::\+Hash\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStudent}{Student}} \&}]{student }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{Student_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{Student_8hpp_source}{Student.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Combine\ the\ hash\ values\ of\ studentCode\ and\ studentName\ to\ create\ a\ unique\ hash\ for\ each\ student.}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::hash<std::string>\{\}(student.\mbox{\hyperlink{classStudent_ad8d4daaef3038ebf901c20fed7057acb}{studentCode}})\ \string^}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::hash<std::string>\{\}(student.\mbox{\hyperlink{classStudent_a894584fff0d6e1efb165cdd01e21b5c4}{studentName}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/Student.\+hpp\end{DoxyCompactItemize}

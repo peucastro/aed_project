@@ -1,0 +1,119 @@
+\doxysection{App.\+cpp}
+\hypertarget{App_8cpp_source}{}\label{App_8cpp_source}\index{src/App.cpp@{src/App.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../inc/App.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00002}00002\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00004}00004\ \textcolor{keywordtype}{void}\ App::mainMenu()}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00006}00006\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Welcome\ to\ the\ L.EIC\ Schedule\ Management\ System"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00010}00010\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[1]\ Student"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[2]\ Administratot"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00013}00013\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00015}00015\ \ \ \ \ clearScreen();}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ studentCode;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ student\ code:\ "{}}\ <<\ endl,\ cin\ >>\ studentCode;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ studentMenu(studentCode);}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ login,\ pass;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ login:\ "{}},\ cin\ >>\ login,\ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ password:\ "{}},\ cin\ >>\ pass,\ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (login\ ==\ \textcolor{stringliteral}{"{}adm"{}}\ \&\&\ pass\ ==\ \textcolor{stringliteral}{"{}123"{}})}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ adminMenu();}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ credentials,\ try\ again"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ mainMenu();}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00044}00044\ \textcolor{keywordtype}{void}\ App::studentMenu(\textcolor{keywordtype}{string}\ studentCode)}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00046}00046\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Student\ menu"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00049}00049\ \ \ \ \ this-\/>student\ =\ \mbox{\hyperlink{classScript}{Script}}().\mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{loadStudent}}(studentCode);}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00052}00052\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:\ "{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[1]\ Consult\ your\ schedule"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[2]\ Consult\ Uc"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[3]\ Consult\ students"{}}\ <<\ endl\ \textcolor{comment}{//\ consultar\ os\ estudantes\ em\ turma,\ ano\ e\ uc}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[4]\ Make\ a\ request"{}}\ <<\ endl\ \ \ \textcolor{comment}{//\ tipo\ do\ request}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[5]\ Undo\ a\ request"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[6]\ Consult\ your\ requests"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[0]\ Go\ back\ to\ the\ main\ menu"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00060}00060\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00062}00062\ \ \ \ \ clearScreen();}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00067}00067\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00070}00070\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00087}00087\ \textcolor{keywordtype}{void}\ App::adminMenu()}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00089}00089\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Administrator\ menu"{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{int}\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00093}00093\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ your\ option:\ "{}}\ <<\ endl}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[1]\ Consult\ Uc"{}}\ <<\ endl\ \ \ \ \ \ \ \textcolor{comment}{//\ consultar\ ucs\ com\ mais\ estudantes,\ turmas\ da\ uc}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[2]\ Consult\ students"{}}\ <<\ endl\ \textcolor{comment}{//\ consultar\ o\ n\ de\ estudantes\ em\ pelo\ menos\ n\ ucs,\ turma,\ ano\ e\ uc}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}[3]\ Consult\ requests"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00097}00097\ \ \ \ \ cin\ >>\ option;}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00099}00099\ \ \ \ \ clearScreen();}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00107}00107\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{App_8cpp_source_l00113}00113\ \}}
+
+\end{DoxyCode}
