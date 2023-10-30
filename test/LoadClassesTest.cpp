@@ -10,7 +10,7 @@ void printClasses()
     script.loadClasses(uc);
     std::cout << "Número de turmas da Uc: " << uc.classesCount() << std::endl;
 
-    uc.printClasses("3");
+    uc.printClasses("2");
 }
 
 int main()

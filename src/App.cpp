@@ -24,7 +24,7 @@ void App::mainMenu()
     int option;
     cout << "Enter your option:" << endl
          << "[1] Student" << endl
-         << "[2] Administratot" << endl;
+         << "[2] Administrator" << endl;
     cin >> option;
 
     clearScreen();
@@ -35,6 +35,7 @@ void App::mainMenu()
     {
         string studentCode;
         cout << "Enter your student code: " << endl, cin >> studentCode;
+        clearScreen();
         studentMenu(studentCode);
         break;
     }
@@ -43,7 +44,7 @@ void App::mainMenu()
         string login, pass;
         cout << "Enter your login: ", cin >> login, cout << endl;
         cout << "Enter your password: ", cin >> pass, cout << endl;
-
+        clearScreen();
         if (login == "adm" && pass == "123")
             adminMenu();
         else
@@ -151,23 +152,42 @@ void App::consultUcSt()
         cout << p.first << " - " << p.second << endl;
         cout << endl;}
         cout << "You are enrolled in " << num << " Uc's." << endl;
+
+        string back;
+        cout << "Press 0 to go back to student menu: ", cin >> back, cout << endl;
+        if(back == "0"){
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+        }
+        break;
     }
     case 2:
     {
-        string uc, sortmethod;
+        Script script;
+        string uc, sortmethod, back;
         cout << "Enter uc code: ", cin >> uc, cout << endl << endl;
         Uc ucConsult = Uc(uc);
+        script.loadClasses(ucConsult);
         cout << "Sort Method:" << endl
         << "[1] Ascending order" << endl
-        << "[2] Descending order" << endl;
+        << "[2] Descending order" << endl << endl;
         cin >> sortmethod;
+
 
         ucConsult.printClasses(sortmethod);
 
+        cout << "Press 0 to go back to student menu: ", cin >> back, cout << endl;
+        if(back == "0"){
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+        }
+        break;
     }
     case 0:
     {
-        mainMenu();
+        clearScreen();
+        studentMenu(this->student.getstudentCode());
+        break;
     }
     }
 }
