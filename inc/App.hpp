@@ -19,6 +19,7 @@ public:
     void consultSchedule();
     void consultStudents();
     void consultStudentsAdmin();
+    void makeRequest();
 
 private:
     Student student;

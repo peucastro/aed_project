@@ -41,7 +41,7 @@ void App::mainMenu()
     {
         string studentCode;
         cout << "=================================================================================================" << endl;
-        cout << "Enter your student code: " << endl, cin >> studentCode;
+        cout << "Enter your student code: " << endl; cout << "-> ", cin >> studentCode;
         clearScreen();
         studentMenu(studentCode);
         break;
@@ -122,6 +122,8 @@ void App::studentMenu(string studentCode)
     }
     case 4:
     {
+        makeRequest();
+        break;
     }
     case 5:
     {
@@ -689,4 +691,126 @@ void App::consultStudentsAdmin(){
             break;
         }
     }
+}
+
+void App::makeRequest(){
+    cout << "=================================================================================================" << endl;
+    cout << "Enter your option: " << endl
+         << "[1] Enroll in a new Uc" << endl
+         << "[2] Disenroll from a Uc" << endl
+         << "[3] Switch Uc" << endl
+         << "[4] Switch classes"
+         << endl << endl
+         << "[0] Go back to the student menu" << endl
+         << "=================================================================================================" << endl
+         << endl;
+         cout << "-> ";
+    char option;
+    cin >> option;
+    
+    switch(option){
+        case '1':
+        {
+            clearScreen();
+            Request adduc = Request(this->student.getstudentCode(), option);
+            string ucCodeDestination;
+
+            map<string, string> old_schedule = this->student.getSchedule();
+            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+            for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+
+            cout << "Enter the code for the UC you want to enroll: ", cin >> ucCodeDestination; cout << endl;
+            adduc.addUc(ucCodeDestination);
+
+            Student newStudent = Script().loadStudent(this->student.getstudentCode());
+            map<string, string> new_schedule = newStudent.getSchedule();
+            cout << "======================== NEW SCHEDULE ============================ " << endl;
+            for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+
+            int back;
+            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
+            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+        }
+        case '2':
+        {
+            clearScreen();
+            Request removeuc = Request(this->student.getstudentCode(), option);
+            string ucCode;
+
+            map<string, string> old_schedule = this->student.getSchedule();
+            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+            for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            cout << "Enter the code for the UC you want to disenroll: ", cin >> ucCode; cout << endl;
+            removeuc.removeUc(ucCode);
+
+            Student newStudent = Script().loadStudent(this->student.getstudentCode());
+            map<string, string> new_schedule = newStudent.getSchedule();
+            cout << "======================== NEW SCHEDULE ============================" << endl;
+            for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            int back;
+            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
+            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+        }
+        case '3':
+        {
+            clearScreen();
+            Request switchuc = Request(this->student.getstudentCode(), option);
+            string ucOrigin, ucDestination;
+
+            map<string, string> old_schedule = this->student.getSchedule();
+            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+            for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            cout << "Enter the code for the UC you want to disenroll: ", cin >> ucOrigin; cout << endl;
+            cout << "Enter the code for the UC you want to enroll: ", cin >> ucDestination; cout << endl;
+            switchuc.switchUc(ucOrigin, ucDestination);
+
+            Student newStudent = Script().loadStudent(this->student.getstudentCode());
+            map<string, string> new_schedule = newStudent.getSchedule();
+            cout << "======================== NEW SCHEDULE ============================" << endl;
+            for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            int back;
+            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
+            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+        }
+        case '4':
+        {
+            clearScreen();
+            Request switchclass = Request(this->student.getstudentCode(), option);
+            string uc, classOrigin, classDestination;
+
+            map<string, string> old_schedule = this->student.getSchedule();
+            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+            for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            cout << "Enter the code for the UC you want to switch classes: ", cin >> uc; cout << endl;
+            cout << "Enter the code for the class you want to disenroll: ", cin >> classOrigin; cout << endl;
+            cout << "Enter the code for the class you want to enroll: ", cin >> classDestination; cout << endl;
+            switchclass.switchClass(uc, classOrigin, classDestination);
+
+            Student newStudent = Script().loadStudent(this->student.getstudentCode());
+            map<string, string> new_schedule = newStudent.getSchedule();
+            cout << "======================== NEW SCHEDULE ============================" << endl;
+            for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+            cout << "==================================================================" << endl << endl;
+            int back;
+            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
+            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+        }
+    }
+    clearScreen();
+
 }
