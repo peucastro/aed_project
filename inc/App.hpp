@@ -17,6 +17,8 @@ public:
     void consultUcSt();
     void consultUcAdm();
     void consultSchedule();
+    void consultStudents();
+    void consultStudentsAdmin();
 
 private:
     Student student;

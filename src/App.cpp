@@ -117,6 +117,8 @@ void App::studentMenu(string studentCode)
     }
     case 3:
     {
+        consultStudents();
+        break;
     }
     case 4:
     {
@@ -164,6 +166,7 @@ void App::adminMenu()
     }
     case 2:
     {
+        consultStudentsAdmin();
         break;
     }
     case 3:
@@ -259,11 +262,11 @@ void App::consultUcSt()
         cout << "Enter uc code: ", cin >> uc, cout << endl
                                                    << endl;
         Uc ucConsult = Uc(uc);
+        script.loadClasses(ucConsult);
         if(ucConsult.classesCount()==0){
             cout << "Invalid UC code, please try again: " << endl;
             consultUcSt();
         }
-        script.loadClasses(ucConsult);
         cout << "Sort Method:" << endl
              << "[1] Ascending order" << endl
              << "[2] Descending order" << endl
@@ -425,5 +428,265 @@ void App::consultSchedule()
         else
             cout << "Invalid option, try again" << endl
                  << endl;
+    }
+}
+
+void App::consultStudents(){
+    cout << "=================================================================================================" << endl;
+    cout << "Enter your option: " << endl
+         << "[1] Consult students by year" << endl
+         << "[2] Consult students by UC" << endl
+         << "[3] Consult students by class" << endl
+         << endl
+         << "[0] Go back to the student menu" << endl
+         << "=================================================================================================" << endl
+         << endl;
+    int option;
+    cout << "-> ", cin >> option;
+    switch(option){
+        case 1: {
+            clearScreen();
+            string year;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the year: " << endl;
+            cout << "-> ", cin >> year;
+            for(Student student : Script().studentsInYear(year)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) <<"|" << endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Student menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    studentMenu(this->student.getstudentCode());
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 2: {
+            clearScreen();
+            string uc;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the UC code: " << endl;
+            cout << "-> ", cin >> uc;
+            Uc uc_(uc);
+            for(Student student : Script().studentsinUc(uc_)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Student menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    studentMenu(this->student.getstudentCode());
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 3: {
+            clearScreen();
+            string classCode, ucCode;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the UC code: " << endl;
+            cout << "-> ", cin >> ucCode;
+            cout << "Enter the class code: " << endl;
+            cout << "-> ", cin >> classCode;
+            for(Student student : Script().studentsinClass(ucCode,classCode)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Student menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    studentMenu(this->student.getstudentCode());
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 0: {
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+            break;
+        }
+    }
+
+}
+
+void App::consultStudentsAdmin(){
+    // consultar o n de estudantes em pelo menos n ucs, turma, ano e uc
+
+    cout << "=================================================================================================" << endl;
+    cout << "Enter your option: " << endl
+         << "[1] Consult students by year" << endl
+         << "[2] Consult students by UC" << endl
+         << "[3] Consult students by class" << endl
+         << "[4] Consult the number of students registered in at lest N UC's"
+         << endl
+         << "[0] Go back to the student menu" << endl
+         << "=================================================================================================" << endl
+         << endl;
+    int option;
+    cout << "-> ", cin >> option;
+    switch(option){
+        case 1: {
+            clearScreen();
+            string year;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the year: " << endl;
+            cout << "-> ", cin >> year;
+            for(Student student : Script().studentsInYear(year)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) <<"|" << endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Admin menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    adminMenu();
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 2: {
+            clearScreen();
+            string uc;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the UC code: " << endl;
+            cout << "-> ", cin >> uc;
+            Uc uc_(uc);
+            for(Student student : Script().studentsinUc(uc_)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Admin menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    adminMenu();
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 3: {
+            clearScreen();
+            string classCode, ucCode;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the UC code: " << endl;
+            cout << "-> ", cin >> ucCode;
+            cout << "Enter the class code: " << endl;
+            cout << "-> ", cin >> classCode;
+            for(Student student : Script().studentsinClass(ucCode,classCode)){
+                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
+                }
+            cout << "=================================================================================================" << endl
+            << endl
+            << endl;
+            
+            cout << "[0] Go back to the Admin menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    adminMenu();
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 4: {
+            clearScreen();
+            int n;
+            cout << "=================================================================================================" << endl;
+            cout << "Enter the number of UC's: " << endl;
+            cout << "-> ", cin >> n;
+            cout << endl
+             << "There are " << Script().studentsInNUc(n) << " students registered in at least " << n <<" Uc's." << endl;
+            cout << "=================================================================================================" << endl
+             << endl;
+           
+            
+            cout << "[0] Go back to the Admin menu" << endl;
+
+            while (true)
+            {
+                cout << "-> ", cin >> option;
+                if (option == 0)
+                {
+                    clearScreen();
+                    adminMenu();
+                }
+                else
+                    cout << "Invalid option, try again" << endl
+                     << endl;
+            }
+            break;
+        }
+        case 0: {
+            clearScreen();
+            adminMenu();
+            break;
+        }
     }
 }

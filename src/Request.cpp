@@ -360,7 +360,7 @@ void Request::adminRequests()
 
             string ucOrigin_, classOrigin_, classDestination_;
             getline(getline(getline(iss, ucOrigin_, ','), classOrigin_, ','), classDestination_, '\r');
-            cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from class " << classOrigin_ << "Of the UC " << ucOrigin_ << " to the class " << classDestination_ << endl;
+            cout << "Operation ID: " << id_ << " |  Student " << studentCode_ << " switched from class " << classOrigin_ << " of the UC " << ucOrigin_ << " to the class " << classDestination_ << endl;
         }
     }
     read_file.close();
