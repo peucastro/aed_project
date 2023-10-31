@@ -41,7 +41,8 @@ void App::mainMenu()
     {
         string studentCode;
         cout << "=================================================================================================" << endl;
-        cout << "Enter your student code: " << endl; cout << "-> ", cin >> studentCode;
+        cout << "Enter your student code: " << endl;
+        cout << "-> ", cin >> studentCode;
         clearScreen();
         studentMenu(studentCode);
         break;
@@ -127,9 +128,13 @@ void App::studentMenu(string studentCode)
     }
     case 5:
     {
+        undoRequest();
+        break;
     }
     case 6:
     {
+        consultRequests();
+        break;
     }
     case 0:
     {
@@ -232,15 +237,16 @@ void App::consultUcSt()
         for (pair<string, string> p : old_schedule)
         {
             num++;
-            cout << "|" <<p.first << " - " << p.second << "|" <<endl;
-            cout << "|" << setw(19) << "|" <<endl;
+            cout << "|" << p.first << " - " << p.second << "|" << endl;
+            cout << "|" << setw(19) << "|" << endl;
         }
         cout << endl
              << "You are enrolled in " << num << " Uc's." << endl;
         cout << "=================================================================================================" << endl
              << endl;
 
-        cout << "[0] Go back to the Student menu" << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl;
 
         while (true)
         {
@@ -261,18 +267,21 @@ void App::consultUcSt()
         clearScreen();
         Script script;
         string uc, sortmethod;
-        cout << "Enter uc code: ", cin >> uc, cout << endl
-                                                   << endl;
+        cout << "Enter the uc code: " << endl
+             << "-> ",
+            cin >> uc, cout << endl;
+
         Uc ucConsult = Uc(uc);
         script.loadClasses(ucConsult);
-        if(ucConsult.classesCount()==0){
+        if (ucConsult.classesCount() == 0)
+        {
             cout << "Invalid UC code, please try again: " << endl;
             consultUcSt();
         }
         cout << "Sort Method:" << endl
              << "[1] Ascending order" << endl
              << "[2] Descending order" << endl
-             << endl;
+             << "-> ";
         cin >> sortmethod;
 
         clearScreen();
@@ -281,7 +290,8 @@ void App::consultUcSt()
         ucConsult.printClasses(sortmethod);
         cout << "=================================================================================================" << endl
              << endl;
-        cout << "[0] Go back to the Student menu" << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl;
 
         while (true)
         {
@@ -334,7 +344,8 @@ void App::consultUcAdm()
         cout << "=================================================================================================" << endl
              << endl
              << endl;
-        cout << "[0] Go back to the Administrator menu" << endl;
+        cout << "[0] Go back to the Administrator menu" << endl
+             << endl;
 
         while (true)
         {
@@ -354,15 +365,18 @@ void App::consultUcAdm()
     {
         Script script;
         string uc, sortmethod;
-        cout << "Enter uc code: ", cin >> uc, cout << endl
-                                                   << endl;
+        cout << "Enter uc code:" << endl
+             << "-> ",
+            cin >> uc, cout << endl;
+
         Uc ucConsult = Uc(uc);
         script.loadClasses(ucConsult);
+
         cout << "Sort Method:" << endl
              << "[1] Ascending order" << endl
              << "[2] Descending order" << endl
-             << endl;
-        cin >> sortmethod;
+             << "-> ";
+        cin >> sortmethod, cout << endl;
 
         clearScreen();
         cout << "=================================================================================================" << endl
@@ -370,7 +384,8 @@ void App::consultUcAdm()
         ucConsult.printClasses(sortmethod);
         cout << "=================================================================================================" << endl
              << endl;
-        cout << "[0] Go back to the Student menu" << endl;
+        cout << "[0] Go back to the Administrator menu" << endl
+             << endl;
 
         while (true)
         {
@@ -396,27 +411,31 @@ void App::consultUcAdm()
 
 void App::consultSchedule()
 {
-    cout << "=================================================================================================" << endl;
+    cout << "=================================================================================================" << endl
+         << this->student.getstudentName() << "'s schedule:" << endl;
     set<Lecture> studentLectures;
-    for(auto schedule : this->student.getSchedule()){
-        for(Lecture lecture : Script().loadLecture(schedule.first,schedule.second)){
+    for (auto schedule : this->student.getSchedule())
+    {
+        for (Lecture lecture : Script().loadLecture(schedule.first, schedule.second))
+        {
             studentLectures.insert(lecture);
         }
     }
 
-    for(Lecture lecture : studentLectures){
+    for (Lecture lecture : studentLectures)
+    {
         cout << "UC: " << std::setw(8) << lecture.getUc().getUcCode() << "|"
-         << " Class: " << std::setw(4) << lecture.getClassCode() << "|"
-         << " Day: " << std::setw(9) << lecture.getWeekDay() << "|"
-         << " Begin: " << std::setw(5) << lecture.getStartHour() << "|"
-         << " Ends: " << std::setw(4) << lecture.getDuration() + lecture.getStartHour() << "|"
-         << " Type: " << lecture.getType() << std::endl;
+             << " Class: " << std::setw(4) << lecture.getClassCode() << "|"
+             << " Day: " << std::setw(9) << lecture.getWeekDay() << "|"
+             << " Begin: " << std::setw(5) << lecture.getStartHour() << "|"
+             << " Ends: " << std::setw(4) << lecture.getDuration() + lecture.getStartHour() << "|"
+             << " Type: " << lecture.getType() << std::endl;
     }
     cout << "=================================================================================================" << endl
-         << endl
          << endl;
 
-    cout << "[0] Go back to the Student menu" << endl;
+    cout << "[0] Go back to the Student menu" << endl
+         << endl;
 
     int option;
     while (true)
@@ -433,7 +452,8 @@ void App::consultSchedule()
     }
 }
 
-void App::consultStudents(){
+void App::consultStudents()
+{
     cout << "=================================================================================================" << endl;
     cout << "Enter your option: " << endl
          << "[1] Consult students by year" << endl
@@ -445,111 +465,121 @@ void App::consultStudents(){
          << endl;
     int option;
     cout << "-> ", cin >> option;
-    switch(option){
-        case 1: {
-            clearScreen();
-            string year;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the year: " << endl;
-            cout << "-> ", cin >> year;
-            for(Student student : Script().studentsInYear(year)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) <<"|" << endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Student menu" << endl;
+    switch (option)
+    {
+    case 1:
+    {
+        clearScreen();
+        string year;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the year: " << endl;
+        cout << "-> ", cin >> year;
+        for (Student student : Script().studentsInYear(year))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
+        }
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
 
-            while (true)
-            {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    studentMenu(this->student.getstudentCode());
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
-            }
-            break;
-        }
-        case 2: {
-            clearScreen();
-            string uc;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the UC code: " << endl;
-            cout << "-> ", cin >> uc;
-            Uc uc_(uc);
-            for(Student student : Script().studentsinUc(uc_)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Student menu" << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl;
 
-            while (true)
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
             {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    studentMenu(this->student.getstudentCode());
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
             }
-            break;
-        }
-        case 3: {
-            clearScreen();
-            string classCode, ucCode;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the UC code: " << endl;
-            cout << "-> ", cin >> ucCode;
-            cout << "Enter the class code: " << endl;
-            cout << "-> ", cin >> classCode;
-            for(Student student : Script().studentsinClass(ucCode,classCode)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Student menu" << endl;
-
-            while (true)
-            {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    studentMenu(this->student.getstudentCode());
-                }
-                else
-                    cout << "Invalid option, try again" << endl
+            else
+                cout << "Invalid option, try again" << endl
                      << endl;
-            }
-            break;
         }
-        case 0: {
-            clearScreen();
-            studentMenu(this->student.getstudentCode());
-            break;
-        }
+        break;
     }
+    case 2:
+    {
+        clearScreen();
+        string uc;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the UC code: " << endl;
+        cout << "-> ", cin >> uc;
+        Uc uc_(uc);
+        for (Student student : Script().studentsinUc(uc_))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
+        }
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
 
+        cout << "[0] Go back to the Student menu" << endl
+             << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 3:
+    {
+        clearScreen();
+        string classCode, ucCode;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the UC code: " << endl;
+        cout << "-> ", cin >> ucCode;
+        cout << "Enter the class code: " << endl;
+        cout << "-> ", cin >> classCode;
+        for (Student student : Script().studentsinClass(ucCode, classCode))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
+        }
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
+
+        cout << "[0] Go back to the Student menu" << endl
+             << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 0:
+    {
+        clearScreen();
+        studentMenu(this->student.getstudentCode());
+        break;
+    }
+    }
 }
 
-void App::consultStudentsAdmin(){
-    // consultar o n de estudantes em pelo menos n ucs, turma, ano e uc
+void App::consultStudentsAdmin()
+{
 
     cout << "=================================================================================================" << endl;
     cout << "Enter your option: " << endl
@@ -558,265 +588,410 @@ void App::consultStudentsAdmin(){
          << "[3] Consult students by class" << endl
          << "[4] Consult the number of students registered in at lest N UC's"
          << endl
-         << "[0] Go back to the student menu" << endl
+         << "[0] Go back to the Administrator menu" << endl
          << "=================================================================================================" << endl
          << endl;
     int option;
     cout << "-> ", cin >> option;
-    switch(option){
-        case 1: {
-            clearScreen();
-            string year;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the year: " << endl;
-            cout << "-> ", cin >> year;
-            for(Student student : Script().studentsInYear(year)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) <<"|" << endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Admin menu" << endl;
-
-            while (true)
-            {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    adminMenu();
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
-            }
-            break;
+    switch (option)
+    {
+    case 1:
+    {
+        clearScreen();
+        string year;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the year: " << endl;
+        cout << "-> ", cin >> year;
+        for (Student student : Script().studentsInYear(year))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
         }
-        case 2: {
-            clearScreen();
-            string uc;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the UC code: " << endl;
-            cout << "-> ", cin >> uc;
-            Uc uc_(uc);
-            for(Student student : Script().studentsinUc(uc_)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Admin menu" << endl;
-
-            while (true)
-            {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    adminMenu();
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
-            }
-            break;
-        }
-        case 3: {
-            clearScreen();
-            string classCode, ucCode;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the UC code: " << endl;
-            cout << "-> ", cin >> ucCode;
-            cout << "Enter the class code: " << endl;
-            cout << "-> ", cin >> classCode;
-            for(Student student : Script().studentsinClass(ucCode,classCode)){
-                cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
-                << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size())<<"|"<< endl;
-                }
-            cout << "=================================================================================================" << endl
-            << endl
-            << endl;
-            
-            cout << "[0] Go back to the Admin menu" << endl;
-
-            while (true)
-            {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    adminMenu();
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
-            }
-            break;
-        }
-        case 4: {
-            clearScreen();
-            int n;
-            cout << "=================================================================================================" << endl;
-            cout << "Enter the number of UC's: " << endl;
-            cout << "-> ", cin >> n;
-            cout << endl
-             << "There are " << Script().studentsInNUc(n) << " students registered in at least " << n <<" Uc's." << endl;
-            cout << "=================================================================================================" << endl
+        cout << "=================================================================================================" << endl
+             << endl
              << endl;
-           
-            
-            cout << "[0] Go back to the Admin menu" << endl;
 
-            while (true)
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
             {
-                cout << "-> ", cin >> option;
-                if (option == 0)
-                {
-                    clearScreen();
-                    adminMenu();
-                }
-                else
-                    cout << "Invalid option, try again" << endl
-                     << endl;
+                clearScreen();
+                adminMenu();
             }
-            break;
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
         }
-        case 0: {
-            clearScreen();
-            adminMenu();
-            break;
+        break;
+    }
+    case 2:
+    {
+        clearScreen();
+        string uc;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the UC code: " << endl;
+        cout << "-> ", cin >> uc;
+        Uc uc_(uc);
+        for (Student student : Script().studentsinUc(uc_))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
         }
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
+
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 3:
+    {
+        clearScreen();
+        string classCode, ucCode;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the UC code: " << endl;
+        cout << "-> ", cin >> ucCode;
+        cout << "Enter the class code: " << endl;
+        cout << "-> ", cin >> classCode;
+        for (Student student : Script().studentsinClass(ucCode, classCode))
+        {
+            cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
+                 << " Name: " << std::setw(3) << student.getstudentName() << setw(40 - student.getstudentName().size()) << "|" << endl;
+        }
+        cout << "=================================================================================================" << endl
+             << endl
+             << endl;
+
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 4:
+    {
+        clearScreen();
+        int n;
+        cout << "=================================================================================================" << endl;
+        cout << "Enter the number of UC's: " << endl;
+        cout << "-> ", cin >> n;
+        cout << endl
+             << "There are " << Script().studentsInNUc(n) << " students registered in at least " << n << " Uc's." << endl;
+        cout << "=================================================================================================" << endl
+             << endl;
+
+        cout << "[0] Go back to the Administrator menu" << endl;
+
+        while (true)
+        {
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                adminMenu();
+            }
+            else
+                cout << "Invalid option, try again" << endl
+                     << endl;
+        }
+        break;
+    }
+    case 0:
+    {
+        clearScreen();
+        adminMenu();
+        break;
+    }
     }
 }
 
-void App::makeRequest(){
+void App::makeRequest()
+{
     cout << "=================================================================================================" << endl;
     cout << "Enter your option: " << endl
          << "[1] Enroll in a new Uc" << endl
          << "[2] Disenroll from a Uc" << endl
          << "[3] Switch Uc" << endl
          << "[4] Switch classes"
-         << endl << endl
-         << "[0] Go back to the student menu" << endl
+         << endl
+         << endl
+         << "[0] Go back to the Student menu" << endl
          << "=================================================================================================" << endl
          << endl;
-         cout << "-> ";
+    cout << "-> ";
     char option;
     cin >> option;
-    
-    switch(option){
-        case '1':
+
+    switch (option)
+    {
+    case '1':
+    {
+        clearScreen();
+        Request adduc = Request(this->student.getstudentCode(), option);
+        string ucCodeDestination;
+
+        map<string, string> old_schedule = this->student.getSchedule();
+        cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+        for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+
+        cout << "Enter the code for the UC you want to enroll: ", cin >> ucCodeDestination;
+        cout << endl;
+        adduc.addUc(ucCodeDestination);
+
+        Student newStudent = Script().loadStudent(this->student.getstudentCode());
+        map<string, string> new_schedule = newStudent.getSchedule();
+        cout << "======================== NEW SCHEDULE ============================ " << endl;
+        for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+
+        cout << "[0] Go back to the Student menu" << endl
+             << endl
+             << "-> ";
+        while (true)
         {
-            clearScreen();
-            Request adduc = Request(this->student.getstudentCode(), option);
-            string ucCodeDestination;
-
-            map<string, string> old_schedule = this->student.getSchedule();
-            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
-            for (pair<string, string> p : old_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-
-            cout << "Enter the code for the UC you want to enroll: ", cin >> ucCodeDestination; cout << endl;
-            adduc.addUc(ucCodeDestination);
-
-            Student newStudent = Script().loadStudent(this->student.getstudentCode());
-            map<string, string> new_schedule = newStudent.getSchedule();
-            cout << "======================== NEW SCHEDULE ============================ " << endl;
-            for (pair<string, string> p : new_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-
-            int back;
-            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
-            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+                break;
+            }
+            else
+            {
+                cout << "Wrong option, try again" << endl
+                     << endl;
+            }
         }
-        case '2':
+    }
+    case '2':
+    {
+        clearScreen();
+        Request removeuc = Request(this->student.getstudentCode(), option);
+        string ucCode;
+
+        map<string, string> old_schedule = this->student.getSchedule();
+        cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+        for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "Enter the code for the UC you want to disenroll: ", cin >> ucCode;
+        cout << endl;
+        removeuc.removeUc(ucCode);
+
+        Student newStudent = Script().loadStudent(this->student.getstudentCode());
+        map<string, string> new_schedule = newStudent.getSchedule();
+        cout << "======================== NEW SCHEDULE ============================" << endl;
+        for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl
+             << "-> ";
+        while (true)
         {
-            clearScreen();
-            Request removeuc = Request(this->student.getstudentCode(), option);
-            string ucCode;
-
-            map<string, string> old_schedule = this->student.getSchedule();
-            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
-            for (pair<string, string> p : old_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            cout << "Enter the code for the UC you want to disenroll: ", cin >> ucCode; cout << endl;
-            removeuc.removeUc(ucCode);
-
-            Student newStudent = Script().loadStudent(this->student.getstudentCode());
-            map<string, string> new_schedule = newStudent.getSchedule();
-            cout << "======================== NEW SCHEDULE ============================" << endl;
-            for (pair<string, string> p : new_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            int back;
-            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
-            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+                break;
+            }
+            else
+            {
+                cout << "Wrong option, try again" << endl
+                     << endl;
+            }
         }
-        case '3':
+    }
+    case '3':
+    {
+        clearScreen();
+        Request switchuc = Request(this->student.getstudentCode(), option);
+        string ucOrigin, ucDestination;
+
+        map<string, string> old_schedule = this->student.getSchedule();
+        cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+        for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "Enter the code for the UC you want to disenroll: ", cin >> ucOrigin;
+        cout << endl;
+        cout << "Enter the code for the UC you want to enroll: ", cin >> ucDestination;
+        cout << endl;
+        switchuc.switchUc(ucOrigin, ucDestination);
+
+        Student newStudent = Script().loadStudent(this->student.getstudentCode());
+        map<string, string> new_schedule = newStudent.getSchedule();
+        cout << "======================== NEW SCHEDULE ============================" << endl;
+        for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl
+             << "-> ";
+        while (true)
         {
-            clearScreen();
-            Request switchuc = Request(this->student.getstudentCode(), option);
-            string ucOrigin, ucDestination;
-
-            map<string, string> old_schedule = this->student.getSchedule();
-            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
-            for (pair<string, string> p : old_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            cout << "Enter the code for the UC you want to disenroll: ", cin >> ucOrigin; cout << endl;
-            cout << "Enter the code for the UC you want to enroll: ", cin >> ucDestination; cout << endl;
-            switchuc.switchUc(ucOrigin, ucDestination);
-
-            Student newStudent = Script().loadStudent(this->student.getstudentCode());
-            map<string, string> new_schedule = newStudent.getSchedule();
-            cout << "======================== NEW SCHEDULE ============================" << endl;
-            for (pair<string, string> p : new_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            int back;
-            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
-            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+                break;
+            }
+            else
+            {
+                cout << "Wrong option, try again" << endl
+                     << endl;
+            }
         }
-        case '4':
+    }
+    case '4':
+    {
+        clearScreen();
+        Request switchclass = Request(this->student.getstudentCode(), option);
+        string uc, classOrigin, classDestination;
+
+        map<string, string> old_schedule = this->student.getSchedule();
+        cout << "======================== CURRENT SCHEDULE ======================== " << endl;
+        for (pair<string, string> p : old_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "Enter the code for the UC you want to switch classes: ", cin >> uc;
+        cout << endl;
+        cout << "Enter the code for the class you want to disenroll: ", cin >> classOrigin;
+        cout << endl;
+        cout << "Enter the code for the class you want to enroll: ", cin >> classDestination;
+        cout << endl;
+        switchclass.switchClass(uc, classOrigin, classDestination);
+
+        Student newStudent = Script().loadStudent(this->student.getstudentCode());
+        map<string, string> new_schedule = newStudent.getSchedule();
+        cout << "======================== NEW SCHEDULE ============================" << endl;
+        for (pair<string, string> p : new_schedule)
+            cout << p.first << " - " << p.second << endl;
+        cout << "==================================================================" << endl
+             << endl;
+        cout << "[0] Go back to the Student menu" << endl
+             << endl
+             << "-> ";
+        while (true)
         {
-            clearScreen();
-            Request switchclass = Request(this->student.getstudentCode(), option);
-            string uc, classOrigin, classDestination;
-
-            map<string, string> old_schedule = this->student.getSchedule();
-            cout << "======================== CURRENT SCHEDULE ======================== " << endl;
-            for (pair<string, string> p : old_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            cout << "Enter the code for the UC you want to switch classes: ", cin >> uc; cout << endl;
-            cout << "Enter the code for the class you want to disenroll: ", cin >> classOrigin; cout << endl;
-            cout << "Enter the code for the class you want to enroll: ", cin >> classDestination; cout << endl;
-            switchclass.switchClass(uc, classOrigin, classDestination);
-        
-            Student newStudent = Script().loadStudent(this->student.getstudentCode());
-            map<string, string> new_schedule = newStudent.getSchedule();
-            cout << "======================== NEW SCHEDULE ============================" << endl;
-            for (pair<string, string> p : new_schedule)
-            cout << p.first << " - " << p.second << endl;
-            cout << "==================================================================" << endl << endl;
-            int back;
-            cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
-            if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+            cout << "-> ", cin >> option;
+            if (option == 0)
+            {
+                clearScreen();
+                studentMenu(this->student.getstudentCode());
+                break;
+            }
+            else
+            {
+                cout << "Wrong option, try again" << endl
+                     << endl;
+            }
         }
-        case '0':
+    }
+    case '0':
+    {
+        clearScreen();
+        studentMenu(this->student.getstudentCode());
+        break;
+    }
+    }
+    clearScreen();
+}
+
+void App::undoRequest()
+{
+    unsigned req_id;
+    cout << "=================================================================================================" << endl
+         << "Enter the request ID you want to undo: " << endl;
+    cout << "-> ", cin >> req_id, cout << endl;
+
+    Request().undoRequest(req_id);
+    cout << "=================================================================================================" << endl
+         << endl;
+
+    int option;
+    cout << "[0] Go back to the Student menu" << endl
+         << endl
+         << "-> ";
+    while (true)
+    {
+        cout << "-> ", cin >> option;
+        if (option == 0)
         {
             clearScreen();
             studentMenu(this->student.getstudentCode());
             break;
         }
+        else
+        {
+            cout << "Wrong option, try again" << endl
+                 << endl;
+        }
     }
-    clearScreen();
+}
 
+void App::consultRequests()
+{
+    cout << "=================================================================================================" << endl
+         << this->student.getstudentName() << "'s requests:" << endl;
+    Request().studentRequests(this->student.getstudentCode());
+    cout << "=================================================================================================" << endl
+         << "[0] Go back to the Student menu" << endl
+         << endl
+         << "-> ";
+
+    int option;
+    while (true)
+    {
+        cout << "-> ", cin >> option;
+        if (option == 0)
+        {
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+            break;
+        }
+        else
+        {
+            cout << "Wrong option, try again" << endl
+                 << endl;
+        }
+    }
 }

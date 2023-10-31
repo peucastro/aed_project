@@ -33,7 +33,6 @@ void Uc::addClass(const string &UcClass)
 
 void Uc::printClasses(const string &SortMethod)
 {   
-    cout << "=================================================================================================" << endl;
     if (SortMethod == "1") {
         for (const string &turma : UcClasses){
             cout << "|" << turma << "|" << endl;

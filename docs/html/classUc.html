@@ -140,11 +140,11 @@ Private Attributes</h2></td></tr>
 
 <p>Default constructor for the <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00004">4</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{</div>
-<div class="line"><span class="lineno">    6</span>    UcCode = <span class="stringliteral">&quot;NO_NAME&quot;</span>;</div>
-<div class="line"><span class="lineno">    7</span>    UcClasses = vector&lt;string&gt;();</div>
-<div class="line"><span class="lineno">    8</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00005">5</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>{</div>
+<div class="line"><span class="lineno">    7</span>    UcCode = <span class="stringliteral">&quot;NO_NAME&quot;</span>;</div>
+<div class="line"><span class="lineno">    8</span>    UcClasses = vector&lt;string&gt;();</div>
+<div class="line"><span class="lineno">    9</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -199,14 +199,14 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00024">24</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">for</span> (vector&lt;string&gt;::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)</div>
-<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">if</span> (*it == UcClass)</div>
-<div class="line"><span class="lineno">   28</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   29</span>    UcClasses.push_back(UcClass);</div>
-<div class="line"><span class="lineno">   30</span>    sort(UcClasses.begin(), UcClasses.end());</div>
-<div class="line"><span class="lineno">   31</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00025">25</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">for</span> (vector&lt;string&gt;::iterator it = UcClasses.begin(); it != UcClasses.end(); it++)</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (*it == UcClass)</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   30</span>    UcClasses.push_back(UcClass);</div>
+<div class="line"><span class="lineno">   31</span>    sort(UcClasses.begin(), UcClasses.end());</div>
+<div class="line"><span class="lineno">   32</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -228,10 +228,10 @@ Private Attributes</h2></td></tr>
 <p>Get the number of classes in this <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of classes as an unsigned integer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00054">54</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> UcClasses.size();</div>
-<div class="line"><span class="lineno">   57</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00057">57</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> UcClasses.size();</div>
+<div class="line"><span class="lineno">   60</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -253,10 +253,10 @@ Private Attributes</h2></td></tr>
 <p>Get a vector of class names associated with this <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of strings containing class names. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00050">50</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>                             {</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">return</span> this-&gt;UcClasses;</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00053">53</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>                             {</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> this-&gt;UcClasses;</div>
+<div class="line"><span class="lineno">   55</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -278,10 +278,10 @@ Private Attributes</h2></td></tr>
 <p>Get the UcCode associated with this <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The UcCode as a string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00014">14</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> UcCode;</div>
-<div class="line"><span class="lineno">   17</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00015">15</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> UcCode;</div>
+<div class="line"><span class="lineno">   18</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -309,22 +309,24 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00033">33</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (SortMethod == <span class="stringliteral">&quot;1&quot;</span>) {</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;turma : UcClasses)</div>
-<div class="line"><span class="lineno">   37</span>            cout &lt;&lt; turma &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   38</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (SortMethod == <span class="stringliteral">&quot;2&quot;</span>) {</div>
-<div class="line"><span class="lineno">   39</span>        stack&lt;string&gt; reverse;</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;turma : UcClasses) reverse.push(turma);</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">while</span>(!reverse.empty()){</div>
-<div class="line"><span class="lineno">   42</span>            cout &lt;&lt; reverse.top() &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   43</span>            reverse.pop();</div>
-<div class="line"><span class="lineno">   44</span>        }</div>
-<div class="line"><span class="lineno">   45</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   46</span>        cout &lt;&lt; <span class="stringliteral">&quot;Selecione um método de ordenação válido&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00034">34</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>{   </div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span> (SortMethod == <span class="stringliteral">&quot;1&quot;</span>) {</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;turma : UcClasses){</div>
+<div class="line"><span class="lineno">   38</span>            cout &lt;&lt; <span class="stringliteral">&quot;|&quot;</span> &lt;&lt; turma &lt;&lt; <span class="stringliteral">&quot;|&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   39</span>        }</div>
+<div class="line"><span class="lineno">   40</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (SortMethod == <span class="stringliteral">&quot;2&quot;</span>) {</div>
+<div class="line"><span class="lineno">   41</span>        stack&lt;string&gt; reverse;</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;turma : UcClasses) reverse.push(turma);</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">while</span>(!reverse.empty()){</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>            cout &lt;&lt; <span class="stringliteral">&quot;|&quot;</span> &lt;&lt;reverse.top() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   46</span>            reverse.pop();</div>
+<div class="line"><span class="lineno">   47</span>        }</div>
+<div class="line"><span class="lineno">   48</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   49</span>        cout &lt;&lt; <span class="stringliteral">&quot;Selecione um método de ordenação válido&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   50</span>    }</div>
+<div class="line"><span class="lineno">   51</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -352,10 +354,10 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00019">19</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span>    this-&gt;UcCode = UcCode;</div>
-<div class="line"><span class="lineno">   22</span>}</div>
+<p class="definition">Definition at line <a class="el" href="Uc_8cpp_source.html#l00020">20</a> of file <a class="el" href="Uc_8cpp_source.html">Uc.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<div class="line"><span class="lineno">   22</span>    this-&gt;UcCode = UcCode;</div>
+<div class="line"><span class="lineno">   23</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -34,7 +34,7 @@ Additionally, the project allows for the implementation of other relevant functi
 The program allows for the registration and management of various entities, making use of both linear (vector, list, stack, queue) and hierarchical data structures (binary search tree). Important information is saved in files for future use. The program also includes documentation for the code, generated using Doxygen, and indicates the time complexity of the most relevant functions and algorithms.
 
 ---
-### To compile the project, run the following commands:
+### To run the project, run the following commands:
 ```
 mkdir build
 cd build

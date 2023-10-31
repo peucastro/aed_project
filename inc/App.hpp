@@ -20,6 +20,8 @@ public:
     void consultStudents();
     void consultStudentsAdmin();
     void makeRequest();
+    void undoRequest();
+    void consultRequests();
 
 private:
     Student student;

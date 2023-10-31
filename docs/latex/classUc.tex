@@ -57,14 +57,14 @@ Default constructor for the \doxylink{classUc}{Uc} class.
 
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00005\ \{}
-\DoxyCodeLine{00006\ \ \ \ \ UcCode\ =\ \textcolor{stringliteral}{"{}NO\_NAME"{}};}
-\DoxyCodeLine{00007\ \ \ \ \ UcClasses\ =\ vector<string>();}
-\DoxyCodeLine{00008\ \}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ UcCode\ =\ \textcolor{stringliteral}{"{}NO\_NAME"{}};}
+\DoxyCodeLine{00008\ \ \ \ \ UcClasses\ =\ vector<string>();}
+\DoxyCodeLine{00009\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_aa9aa080974c6106ef75ca88706108b19}\label{classUc_aa9aa080974c6106ef75ca88706108b19} 
@@ -102,17 +102,17 @@ Add a class to the \doxylink{classUc}{Uc}.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<string>::iterator\ it\ =\ UcClasses.begin();\ it\ !=\ UcClasses.end();\ it++)}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ UcClass)}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00029\ \ \ \ \ UcClasses.push\_back(UcClass);}
-\DoxyCodeLine{00030\ \ \ \ \ sort(UcClasses.begin(),\ UcClasses.end());}
-\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<string>::iterator\ it\ =\ UcClasses.begin();\ it\ !=\ UcClasses.end();\ it++)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ UcClass)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00030\ \ \ \ \ UcClasses.push\_back(UcClass);}
+\DoxyCodeLine{00031\ \ \ \ \ sort(UcClasses.begin(),\ UcClasses.end());}
+\DoxyCodeLine{00032\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_af8b26e6ae7c58d5b555fa6fec38361e4}\label{classUc_af8b26e6ae7c58d5b555fa6fec38361e4} 
@@ -130,13 +130,13 @@ The number of classes as an unsigned integer.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00055\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ UcClasses.size();}
-\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ UcClasses.size();}
+\DoxyCodeLine{00060\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_aa62915670950e7362acb862afe829634}\label{classUc_aa62915670950e7362acb862afe829634} 
@@ -154,13 +154,13 @@ A vector of strings containing class names.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>UcClasses;}
-\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>UcClasses;}
+\DoxyCodeLine{00055\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_a633ef57e70835ffad02718d7d4b26973}\label{classUc_a633ef57e70835ffad02718d7d4b26973} 
@@ -178,13 +178,13 @@ The Uc\+Code as a string.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ UcCode;}
-\DoxyCodeLine{00017\ \}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ UcCode;}
+\DoxyCodeLine{00018\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_a9d58bd9a63dfde444de3711400bce727}\label{classUc_a9d58bd9a63dfde444de3711400bce727} 
@@ -204,25 +204,27 @@ Print the list of classes in this \doxylink{classUc}{Uc}, optionally sorted by S
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00034\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (SortMethod\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&turma\ :\ UcClasses)}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ turma\ <<\ endl;}
-\DoxyCodeLine{00038\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (SortMethod\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ stack<string>\ reverse;}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&turma\ :\ UcClasses)\ reverse.push(turma);}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(!reverse.empty())\{}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ reverse.top()\ <<\ endl;}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ reverse.pop();}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00045\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Selecione\ um\ método\ de\ ordenação\ válido"{}}\ <<\ endl;}
-\DoxyCodeLine{00047\ \ \ \ \ \}}
-\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00035\ \{\ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (SortMethod\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&turma\ :\ UcClasses)\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}|"{}}\ <<\ turma\ <<\ \textcolor{stringliteral}{"{}|"{}}\ <<\ endl;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (SortMethod\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ stack<string>\ reverse;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&turma\ :\ UcClasses)\ reverse.push(turma);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(!reverse.empty())\{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}|"{}}\ <<reverse.top()\ <<\ endl;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ reverse.pop();}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Selecione\ um\ método\ de\ ordenação\ válido"{}}\ <<\ endl;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \}}
 
 \end{DoxyCode}
 \Hypertarget{classUc_a196c8d2312ead0e5366d26739b82f74b}\label{classUc_a196c8d2312ead0e5366d26739b82f74b} 
@@ -242,13 +244,13 @@ Set the Uc\+Code for this \doxylink{classUc}{Uc}.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
+Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{Uc_8cpp_source}{Uc.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00020\ \{}
-\DoxyCodeLine{00021\ \ \ \ \ this-\/>UcCode\ =\ UcCode;}
-\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ this-\/>UcCode\ =\ UcCode;}
+\DoxyCodeLine{00023\ \}}
 
 \end{DoxyCode}
 
