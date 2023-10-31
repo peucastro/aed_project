@@ -799,7 +799,7 @@ void App::makeRequest(){
             cout << "Enter the code for the class you want to disenroll: ", cin >> classOrigin; cout << endl;
             cout << "Enter the code for the class you want to enroll: ", cin >> classDestination; cout << endl;
             switchclass.switchClass(uc, classOrigin, classDestination);
-
+        
             Student newStudent = Script().loadStudent(this->student.getstudentCode());
             map<string, string> new_schedule = newStudent.getSchedule();
             cout << "======================== NEW SCHEDULE ============================" << endl;
@@ -809,6 +809,12 @@ void App::makeRequest(){
             int back;
             cout << "[0] Go back to the Student menu: ", cin >> back; cout << endl;
             if(back == 0) clearScreen(); studentMenu(this->student.getstudentCode());
+        }
+        case '0':
+        {
+            clearScreen();
+            studentMenu(this->student.getstudentCode());
+            break;
         }
     }
     clearScreen();
