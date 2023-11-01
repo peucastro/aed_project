@@ -161,7 +161,8 @@
 \indexentry{inc/Student.hpp@{inc/Student.hpp}|hyperpage}{41}
 \indexentry{inc/Uc.hpp@{inc/Uc.hpp}|hyperpage}{41}
 \indexentry{src/Lecture.cpp@{src/Lecture.cpp}|hyperpage}{42}
-\indexentry{src/Request.cpp@{src/Request.cpp}|hyperpage}{43}
+\indexentry{src/main.cpp@{src/main.cpp}|hyperpage}{43}
+\indexentry{src/Request.cpp@{src/Request.cpp}|hyperpage}{44}
 \indexentry{src/Script.cpp@{src/Script.cpp}|hyperpage}{49}
 \indexentry{src/Student.cpp@{src/Student.cpp}|hyperpage}{53}
 \indexentry{src/Uc.cpp@{src/Uc.cpp}|hyperpage}{54}

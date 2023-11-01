@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.29)  30 OCT 2023 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.29)  1 NOV 2023 19:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,13 +886,12 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 7.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 17.
  [1
 
 
-]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 33.
-) [2]
+]) [2]
 Chapter 2.
 (./annotated.tex) [3
 
@@ -1003,7 +1002,7 @@ Underfull \hbox (badness 10000) detected at line 560
  []
 
 [21] [22]) (./classScript.tex [23]
-Underfull \hbox (badness 10000) detected at line 51
+Underfull \hbox (badness 10000) detected at line 60
 [][][]
  []
 
@@ -1012,38 +1011,42 @@ Overfull \hbox (3.9776pt too wide) in paragraph at lines 1--1
 []\T1/phv/m/sl/10 uc[] 
  []
 
+
+Overfull \vbox (6.52551pt too high) has occurred while \output is active []
+
+
 [25]
-Underfull \hbox (badness 10000) detected at line 175
+Underfull \hbox (badness 10000) detected at line 184
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 245
+Underfull \hbox (badness 10000) detected at line 254
 [][][]
  []
 
 [26]
-Underfull \hbox (badness 10000) detected at line 303
+Underfull \hbox (badness 10000) detected at line 312
 [][][]
  []
 
 [27]
-Underfull \hbox (badness 10000) detected at line 406
+Underfull \hbox (badness 10000) detected at line 415
 [][][]
  []
 
 [28]
-Underfull \hbox (badness 10000) detected at line 465
+Underfull \hbox (badness 10000) detected at line 474
 [][][]
  []
 
 [29]
-Underfull \hbox (badness 10000) detected at line 519
+Underfull \hbox (badness 10000) detected at line 528
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 566
+Underfull \hbox (badness 10000) detected at line 575
 [][][]
  []
 
@@ -1099,26 +1102,28 @@ Chapter 5.
 (./Lecture_8hpp_source.tex [39]) (./Request_8hpp_source.tex)
 (./Script_8hpp_source.tex [40]) (./Student_8hpp_source.tex)
 (./Uc_8hpp_source.tex [41]) (./Lecture_8cpp_source.tex [42])
-(./Request_8cpp_source.tex [43] [44] [45] [46] [47] [48])
-(./Script_8cpp_source.tex [49] [50] [51] [52]) (./Student_8cpp_source.tex
-[53]) (./Uc_8cpp_source.tex) [54] (./refman.ind
+(./main_8cpp_source.tex [43]) (./Request_8cpp_source.tex [44] [45] [46]
+[47] [48]) (./Script_8cpp_source.tex [49] [50] [51] [52])
+(./Student_8cpp_source.tex [53]) (./Uc_8cpp_source.tex [54]) [55] [56
+
+]
+(./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [55
+ [57
 
 
-
-] [56] [57
+] [58] [59
 
 ]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: A04405EF875821ADEFD9B2C63759AEFC;22585.
+(rerunfilecheck)             Checksum: A4F2A0B70428621AC30CB0A12B801F12;24114.
  ) 
 Here is how much of TeX's memory you used:
- 19888 strings out of 476175
- 336865 string characters out of 5796270
+ 19941 strings out of 476175
+ 337985 string characters out of 5796270
  1871793 words of memory out of 6000000
- 38220 multiletter control sequences out of 15000+600000
+ 38239 multiletter control sequences out of 15000+600000
  569236 words of font info for 103 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  99i,16n,117p,857b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1133,10 +1138,10 @@ r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (63 pages, 303962 bytes).
+Output written on refman.pdf (65 pages, 307566 bytes).
 PDF statistics:
- 3929 PDF objects out of 4296 (max. 8388607)
- 3790 compressed objects within 38 object streams
- 1612 named destinations out of 1728 (max. 500000)
- 993 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4014 PDF objects out of 4296 (max. 8388607)
+ 3872 compressed objects within 39 object streams
+ 1644 named destinations out of 1728 (max. 500000)
+ 1057 words of extra memory for PDF output out of 10000 (max. 10000000)
 

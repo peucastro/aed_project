@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['removestudent_0',['removeStudent',['../classLecture.html#a76f96e263fc8a05f0cd4129cd23dbf3b',1,'Lecture']]],
-  ['removeuc_1',['removeUc',['../classRequest.html#a262bfb8a03d06f273b685293dc21e947',1,'Request']]],
-  ['request_2',['request',['../classRequest.html',1,'Request'],['../classRequest.html#afaf8d8928de7ffff8a3767589489bd33',1,'Request::Request()'],['../classRequest.html#aaf2589b455dc2e93c9e4e5e17da86fd4',1,'Request::Request(std::string studentCode, char type)']]],
-  ['results_3',['Expected Results',['../index.html#autotoc_md4',1,'']]],
-  ['run_20the_20project_20run_20the_20following_20commands_3a_4',['To run the project, run the following commands:',['../index.html#autotoc_md6',1,'']]]
+  ['printclasses_0',['printClasses',['../classUc.html#a9d58bd9a63dfde444de3711400bce727',1,'Uc']]],
+  ['project_20description_1',['Project Description',['../index.html#autotoc_md1',1,'']]],
+  ['project_20run_20the_20following_20commands_3a_2',['To run the project, run the following commands:',['../index.html#autotoc_md10',1,'']]]
 ];

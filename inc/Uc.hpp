@@ -42,8 +42,8 @@ public:
     void addClass(const std::string &UcClass);
 
     /**
-     * @brief Print the list of classes in this Uc, optionally sorted by SortMethod.
-     * @param SortMethod The method for sorting classes (e.g., "alphabetical").
+     * @brief Print the list of classes in this Uc, sorted by SortMethod.
+     * @param SortMethod The method for sorting classes ("1" for ascending and "2" for descending).
      */
     void printClasses(const std::string &SortMethod);
 
@@ -54,8 +54,8 @@ public:
     unsigned int classesCount();
 
     /**
-     * @brief Get a vector of class names associated with this Uc.
-     * @return A vector of strings containing class names.
+     * @brief Get a vector of class codes associated with this Uc.
+     * @return A vector of strings containing class codes.
      */
     std::vector<std::string> getClasses();
 

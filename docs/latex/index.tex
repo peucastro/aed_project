@@ -13,24 +13,14 @@ The project uses a provided dataset available in {\ttfamily schedule.\+zip}, whi
 \item {\ttfamily students\+\_\+classes.\+csv}\+: Contains the classes of the students in each UC.
 \end{DoxyEnumerate}
 
-The dataset provides information about classes, students, and their schedules, which is essential for the functionality of the system.\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Statement of Work (\+So\+W)}{Statement of Work (SoW)}}\label{index_autotoc_md3}
-The project is developed using various data structures, including vectors, lists, stacks, queues, and binary search trees, to perform the following tasks\+:
-
-
-\begin{DoxyEnumerate}
-\item Read and parse the given data into appropriate data structures.
-\item Develop a schedule management system with a comprehensive set of functionalities.
-\item Perform listings of data with sorting and filtering options.
-\item Process requests for new registrations or updates to existing registrations.
-\item Maintain a chronological record of all changes made to the system.
-\item Include documentation for the implemented functions using Doxygen.
-\end{DoxyEnumerate}
-
-Additionally, the project allows for the implementation of other relevant functionalities as deemed necessary.\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Expected Results}{Expected Results}}\label{index_autotoc_md4}
-The program allows for the registration and management of various entities, making use of both linear (vector, list, stack, queue) and hierarchical data structures (binary search tree). Important information is saved in files for future use. The program also includes documentation for the code, generated using Doxygen, and indicates the time complexity of the most relevant functions and algorithms.
-
-\DoxyHorRuler{0}
- \hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{To run the project, run the following commands\+:}{To run the project, run the following commands:}}\label{index_autotoc_md6}
+The dataset provides information about classes, students, and their schedules, which is essential for the functionality of the system.\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Classes}{Classes}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Uc Class}{Uc Class}}\label{index_autotoc_md4}
+The {\ttfamily \doxylink{classUc}{Uc}} class represents a course unit (UC) and provides methods for managing UC information.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Student Class}{Student Class}}\label{index_autotoc_md5}
+The {\ttfamily \doxylink{classStudent}{Student}} class represents a student and provides methods for managing student information, including their schedule.\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Lecture Class}{Lecture Class}}\label{index_autotoc_md6}
+The {\ttfamily \doxylink{classLecture}{Lecture}} class represents a class lecture and includes information about the UC, class code, students enrolled, day, start time, duration, and lecture type.\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Script Class}{Script Class}}\label{index_autotoc_md7}
+The {\ttfamily \doxylink{classScript}{Script}} class reads and processes data from CSV files, allowing the system to handle students and their schedules.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Request Class}{Request Class}}\label{index_autotoc_md8}
+The {\ttfamily \doxylink{classRequest}{Request}} class handles various operations related to student enrollments, including adding, removing, and switching courses and classes.\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Results}{Results}}\label{index_autotoc_md9}
+The program allows for the registration and management of various entities, making use of both linear (vector, list, stack, queue) and hierarchical data structures (binary search tree). Important information is saved in files for future use. The program also includes documentation for the code, generated using Doxygen, and indicates the time complexity of the most relevant functions and algorithms.\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{To run the project, run the following commands\+:}{To run the project, run the following commands:}}\label{index_autotoc_md10}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{mkdir\ build}
@@ -40,10 +30,9 @@ The program allows for the registration and management of various entities, maki
 \DoxyCodeLine{./aed\_project}
 
 \end{DoxyCode}
-
-
+\hypertarget{index_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{All documentation can be found inside the docs folder}{All documentation can be found inside the docs folder}}\label{index_autotoc_md11}
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Authors}{Authors}}\label{index_autotoc_md8}
+\hypertarget{index_autotoc_md13}{}\doxysubsection{\texorpdfstring{Authors}{Authors}}\label{index_autotoc_md13}
 Leonardo Garcia ~\newline
  Marcel Medeiros ~\newline
  Pedro Castro 

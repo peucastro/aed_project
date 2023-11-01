@@ -4,5 +4,6 @@ var searchData=
   ['addstudent_1',['addStudent',['../classLecture.html#a6b355298ef1d9636947c99938ec5a167',1,'Lecture']]],
   ['adduc_2',['addUc',['../classRequest.html#a4b08ad75b75dd10abd4e3dd99241c750',1,'Request']]],
   ['adminrequests_3',['adminRequests',['../classRequest.html#a80d4e21c54cbd3f1a59463023e7f027f',1,'Request']]],
-  ['authors_4',['Authors',['../index.html#autotoc_md8',1,'']]]
+  ['all_20documentation_20can_20be_20found_20inside_20the_20docs_20folder_4',['All documentation can be found inside the docs folder',['../index.html#autotoc_md11',1,'']]],
+  ['authors_5',['Authors',['../index.html#autotoc_md13',1,'']]]
 ];

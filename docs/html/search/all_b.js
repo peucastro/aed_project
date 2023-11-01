@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['printclasses_0',['printClasses',['../classUc.html#a9d58bd9a63dfde444de3711400bce727',1,'Uc']]],
-  ['project_20description_1',['Project Description',['../index.html#autotoc_md1',1,'']]],
-  ['project_20run_20the_20following_20commands_3a_2',['To run the project, run the following commands:',['../index.html#autotoc_md6',1,'']]]
+  ['operator_3c_0',['operator&lt;',['../classLecture.html#a1f12366443359172d4dad0593fd5fbaa',1,'Lecture']]],
+  ['operator_3d_3d_1',['operator==',['../classLecture.html#a87e2fce680b5e4477e4120f903d1691a',1,'Lecture::operator==()'],['../classStudent.html#a8f7c31ed0e331481ac58f12b2e822047',1,'Student::operator==()']]],
+  ['overlay_2',['overlay',['../classLecture.html#a0b15345938ae001dbee23dab648b8ab7',1,'Lecture']]]
 ];

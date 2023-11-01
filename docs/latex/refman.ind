@@ -175,7 +175,8 @@
   \item {setWeekDay}
     \subitem {Lecture}, \hyperpage{13}
   \item {src/Lecture.cpp}, \hyperpage{42}
-  \item {src/Request.cpp}, \hyperpage{43}
+  \item {src/main.cpp}, \hyperpage{43}
+  \item {src/Request.cpp}, \hyperpage{44}
   \item {src/Script.cpp}, \hyperpage{49}
   \item {src/Student.cpp}, \hyperpage{53}
   \item {src/Uc.cpp}, \hyperpage{54}

@@ -23,11 +23,11 @@ void \mbox{\hyperlink{classUc_a196c8d2312ead0e5366d26739b82f74b}{set\+Uc\+Code}}
 void \mbox{\hyperlink{classUc_a5bfbb0dc5ebf2c8f10823d9ab1d631d8}{add\+Class}} (const std\+::string \&Uc\+Class)
 \begin{DoxyCompactList}\small\item\em Add a class to the \doxylink{classUc}{Uc}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUc_a9d58bd9a63dfde444de3711400bce727}{print\+Classes}} (const std\+::string \&Sort\+Method)
-\begin{DoxyCompactList}\small\item\em Print the list of classes in this \doxylink{classUc}{Uc}, optionally sorted by Sort\+Method. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Print the list of classes in this \doxylink{classUc}{Uc}, sorted by Sort\+Method. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classUc_af8b26e6ae7c58d5b555fa6fec38361e4}{classes\+Count}} ()
 \begin{DoxyCompactList}\small\item\em Get the number of classes in this \doxylink{classUc}{Uc}. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classUc_aa62915670950e7362acb862afe829634}{get\+Classes}} ()
-\begin{DoxyCompactList}\small\item\em Get a vector of class names associated with this \doxylink{classUc}{Uc}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get a vector of class codes associated with this \doxylink{classUc}{Uc}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -147,10 +147,10 @@ Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00057}{57}} of file \mbox{\h
 
 
 
-Get a vector of class names associated with this \doxylink{classUc}{Uc}. 
+Get a vector of class codes associated with this \doxylink{classUc}{Uc}. 
 
 \begin{DoxyReturn}{Returns}
-A vector of strings containing class names. 
+A vector of strings containing class codes. 
 \end{DoxyReturn}
 
 
@@ -195,11 +195,11 @@ Definition at line \mbox{\hyperlink{Uc_8cpp_source_l00015}{15}} of file \mbox{\h
 
 
 
-Print the list of classes in this \doxylink{classUc}{Uc}, optionally sorted by Sort\+Method. 
+Print the list of classes in this \doxylink{classUc}{Uc}, sorted by Sort\+Method. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Sort\+Method} & The method for sorting classes (e.\+g., "{}alphabetical"{}). \\
+{\em Sort\+Method} & The method for sorting classes ("{}1"{} for ascending and "{}2"{} for descending). \\
 \hline
 \end{DoxyParams}
 

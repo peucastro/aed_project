@@ -9,6 +9,10 @@
 #include <set>
 #include <list>
 
+/**
+ * @class Script
+ * @brief Reads and processes data from the CSV files
+ */
 class Script
 {
 public:

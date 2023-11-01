@@ -122,7 +122,7 @@ public:
     /**
      * @brief Compare two lectures to determine their order.
      * @param other The lecture to compare with.
-     * @return True if this lecture is less than the other, otherwise false.
+     * @return True if this lecture starts before the other, otherwise false.
      */
     bool operator<(const Lecture &other) const;
 
