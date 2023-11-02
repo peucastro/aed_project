@@ -11,6 +11,7 @@
 \contentsline {section}{\numberline {1.4}Results}{2}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}To run the project, run the following commands\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{2}{subsection.1.4.1}%
 \contentsline {subsubsection}{\numberline {1.4.1.1}All documentation can be found inside the docs folder}{2}{subsubsection.1.4.1.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.2}To access the Adminstrator area, use the following login and password\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:}{2}{subsubsection.1.4.1.2}%
 \contentsline {subsection}{\numberline {1.4.2}Authors}{2}{subsection.1.4.2}%
 \contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%

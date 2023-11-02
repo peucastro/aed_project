@@ -35,6 +35,13 @@ void App::mainMenu()
 
     clearScreen();
 
+    if (!(option == 0 or option == 1 or option == 2))
+    {
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        mainMenu();
+    }
+
     switch (option)
     {
     case 1:
@@ -61,7 +68,8 @@ void App::mainMenu()
         }
         else
         {
-            cout << "Wrong credentials, try again" << endl;
+            cout << "Wrong credentials! please try again:" << endl
+                 << endl;
             mainMenu();
         }
         break;
@@ -80,7 +88,8 @@ void App::studentMenu(string studentCode)
     this->student = Script().loadStudent(studentCode);
     if (this->student.getstudentName() == "NO_NAME")
     {
-        cout << "Invalid student code, please try again: " << endl;
+        cout << "Invalid student code, please try again:" << endl
+             << endl;
         mainMenu();
     }
 
@@ -103,6 +112,13 @@ void App::studentMenu(string studentCode)
     cout << "-> ", cin >> option;
 
     clearScreen();
+
+    if (!(option == 0 or option == 1 or option == 2 or option == 3 or option == 4 or option == 5 or option == 6))
+    {
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        studentMenu(this->student.getstudentCode());
+    }
 
     switch (option)
     {
@@ -164,6 +180,13 @@ void App::adminMenu()
 
     clearScreen();
 
+    if (!(option == 0 or option == 1 or option == 2 or option == 3))
+    {
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        adminMenu();
+    }
+
     switch (option)
     {
     case 1:
@@ -224,6 +247,15 @@ void App::consultUcSt()
     int option;
     cout << "-> ", cin >> option;
 
+    clearScreen();
+
+    if (!(option == 0 or option == 1 or option == 2))
+    {
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        consultUcSt();
+    }
+
     switch (option)
     {
     case 1:
@@ -275,7 +307,9 @@ void App::consultUcSt()
         script.loadClasses(ucConsult);
         if (ucConsult.classesCount() == 0)
         {
-            cout << "Invalid UC code, please try again: " << endl;
+            clearScreen();
+            cout << "Invalid UC code! Please try again:" << endl
+                 << endl;
             consultUcSt();
         }
         cout << "Sort Method:" << endl
@@ -283,6 +317,13 @@ void App::consultUcSt()
              << "[2] Descending order" << endl
              << "-> ";
         cin >> sortmethod;
+        if (!(sortmethod == "1" or sortmethod == "2"))
+        {
+            clearScreen();
+            cout << "Invalid sort method! Please try again:" << endl
+                 << endl;
+            consultUcSt();
+        }
 
         clearScreen();
         cout << "=================================================================================================" << endl
@@ -331,6 +372,13 @@ void App::consultUcAdm()
 
     clearScreen();
 
+    if (!(option == 0 or option == 1 or option == 2))
+    {
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        consultUcAdm();
+    }
+
     switch (option)
     {
     case 1:
@@ -363,20 +411,34 @@ void App::consultUcAdm()
     }
     case 2:
     {
+        clearScreen();
         Script script;
         string uc, sortmethod;
-        cout << "Enter uc code:" << endl
+        cout << "Enter the uc code: " << endl
              << "-> ",
             cin >> uc, cout << endl;
 
         Uc ucConsult = Uc(uc);
         script.loadClasses(ucConsult);
-
+        if (ucConsult.classesCount() == 0)
+        {
+            clearScreen();
+            cout << "Invalid UC code! Please try again:" << endl
+                 << endl;
+            consultUcSt();
+        }
         cout << "Sort Method:" << endl
              << "[1] Ascending order" << endl
              << "[2] Descending order" << endl
              << "-> ";
-        cin >> sortmethod, cout << endl;
+        cin >> sortmethod;
+        if (!(sortmethod == "1" or sortmethod == "2"))
+        {
+            clearScreen();
+            cout << "Invalid sort method! Please try again:" << endl
+                 << endl;
+            consultUcSt();
+        }
 
         clearScreen();
         cout << "=================================================================================================" << endl
@@ -465,6 +527,15 @@ void App::consultStudents()
          << endl;
     int option;
     cout << "-> ", cin >> option;
+
+    if (!(option == 0 or option == 1 or option == 2 or option == 3))
+    {
+        clearScreen();
+        cout << "Invalid option! Please try again:" << endl
+             << endl;
+        consultStudents();
+    }
+
     switch (option)
     {
     case 1:
@@ -508,6 +579,16 @@ void App::consultStudents()
         cout << "Enter the UC code: " << endl;
         cout << "-> ", cin >> uc;
         Uc uc_(uc);
+        Script().loadClasses(uc_);
+
+        if (uc_.classesCount() == 0)
+        {
+            clearScreen();
+            cout << "Invalid UC code! Please try again:" << endl
+                 << endl;
+            consultStudents();
+        }
+
         for (Student student : Script().studentsinUc(uc_))
         {
             cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
@@ -540,9 +621,38 @@ void App::consultStudents()
         string classCode, ucCode;
         cout << "=================================================================================================" << endl;
         cout << "Enter the UC code: " << endl;
-        cout << "-> ", cin >> ucCode;
+        cout << "-> ", cin >> ucCode, cout << endl;
+
+        Uc uc_(ucCode);
+        Script().loadClasses(uc_);
+        if (uc_.classesCount() == 0)
+        {
+            clearScreen();
+            cout << "Invalid UC code! Please try again:" << endl
+                 << endl;
+            consultStudents();
+        }
+
         cout << "Enter the class code: " << endl;
-        cout << "-> ", cin >> classCode;
+        cout << "-> ", cin >> classCode, cout << endl;
+
+        vector<string>::iterator it = uc_.getClasses().begin();
+        for (it; it != uc_.getClasses().end(); it++)
+        {
+            if (*it == classCode)
+                break;
+        }
+        if (it == uc_.getClasses().end())
+        {
+            clearScreen();
+            cout << "Invalid Class code! Please try again:" << endl
+                 << endl;
+            consultStudents();
+        }
+
+        clearScreen();
+        cout << "=================================================================================================" << endl;
+        cout << "Students at uc " << ucCode << " class " << classCode << ":" << endl;
         for (Student student : Script().studentsinClass(ucCode, classCode))
         {
             cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
@@ -593,6 +703,15 @@ void App::consultStudentsAdmin()
          << endl;
     int option;
     cout << "-> ", cin >> option;
+
+    if (!(option == 0 or option == 1 or option == 2 or option == 3 or option == 4))
+    {
+        clearScreen();
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        consultStudentsAdmin();
+    }
+
     switch (option)
     {
     case 1:
@@ -635,6 +754,16 @@ void App::consultStudentsAdmin()
         cout << "Enter the UC code: " << endl;
         cout << "-> ", cin >> uc;
         Uc uc_(uc);
+
+        Script().loadClasses(uc_);
+        if (uc_.classesCount() == 0)
+        {
+            clearScreen();
+            cout << "Invalid Uc code! Please try again:" << endl
+                 << endl;
+            consultStudentsAdmin();
+        }
+
         for (Student student : Script().studentsinUc(uc_))
         {
             cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
@@ -666,9 +795,38 @@ void App::consultStudentsAdmin()
         string classCode, ucCode;
         cout << "=================================================================================================" << endl;
         cout << "Enter the UC code: " << endl;
-        cout << "-> ", cin >> ucCode;
+        cout << "-> ", cin >> ucCode, cout << endl;
+
+        Uc uc_(ucCode);
+        Script().loadClasses(uc_);
+        if (uc_.classesCount() == 0)
+        {
+            clearScreen();
+            cout << "Invalid UC code! Please try again:" << endl
+                 << endl;
+            consultStudentsAdmin();
+        }
+
         cout << "Enter the class code: " << endl;
-        cout << "-> ", cin >> classCode;
+        cout << "-> ", cin >> classCode, cout << endl;
+
+        vector<string>::iterator it = uc_.getClasses().begin();
+        for (it; it != uc_.getClasses().end(); it++)
+        {
+            if (*it == classCode)
+                break;
+        }
+        if (it == uc_.getClasses().end())
+        {
+            clearScreen();
+            cout << "Invalid Class code! Please try again:" << endl
+                 << endl;
+            consultStudentsAdmin();
+        }
+
+        clearScreen();
+        cout << "=================================================================================================" << endl;
+        cout << "Students at uc " << ucCode << " class " << classCode << ":" << endl;
         for (Student student : Script().studentsinClass(ucCode, classCode))
         {
             cout << "Student Code: " << std::setw(8) << student.getstudentCode() << "|"
@@ -748,6 +906,14 @@ void App::makeRequest()
     char option;
     cin >> option;
 
+    if (!(option == '0' or option == '1' or option == '2' or option == '3' or option == '4'))
+    {
+        clearScreen();
+        cout << "Invalid option! please try again:" << endl
+             << endl;
+        makeRequest();
+    }
+
     switch (option)
     {
     case '1':
@@ -763,9 +929,19 @@ void App::makeRequest()
         cout << "==================================================================" << endl
              << endl;
 
-        cout << "Enter the code for the UC you want to enroll: ", cin >> ucCodeDestination;
-        cout << endl;
-        adduc.addUc(ucCodeDestination);
+        cout << "Enter the code for the UC you want to enroll: ", cin >> ucCodeDestination, cout << endl;
+
+        try
+        {
+            adduc.addUc(ucCodeDestination);
+        }
+        catch (const runtime_error &err)
+        {
+            clearScreen();
+            cout << "Error: " << err.what() << endl
+                 << endl;
+            makeRequest();
+        }
 
         Student newStudent = Script().loadStudent(this->student.getstudentCode());
         map<string, string> new_schedule = newStudent.getSchedule();
@@ -776,12 +952,11 @@ void App::makeRequest()
              << endl;
 
         cout << "[0] Go back to the Student menu" << endl
-             << endl
-             << "-> ";
+             << endl;
         while (true)
         {
             cout << "-> ", cin >> option;
-            if (option == 0)
+            if (option == '0')
             {
                 clearScreen();
                 studentMenu(this->student.getstudentCode());
@@ -789,7 +964,7 @@ void App::makeRequest()
             }
             else
             {
-                cout << "Wrong option, try again" << endl
+                cout << "Invalid option, try again" << endl
                      << endl;
             }
         }
@@ -808,7 +983,18 @@ void App::makeRequest()
              << endl;
         cout << "Enter the code for the UC you want to disenroll: ", cin >> ucCode;
         cout << endl;
-        removeuc.removeUc(ucCode);
+
+        try
+        {
+            removeuc.removeUc(ucCode);
+        }
+        catch (const runtime_error &err)
+        {
+            clearScreen();
+            cout << "Error: " << err.what() << endl
+                 << endl;
+            makeRequest();
+        }
 
         Student newStudent = Script().loadStudent(this->student.getstudentCode());
         map<string, string> new_schedule = newStudent.getSchedule();
@@ -818,12 +1004,11 @@ void App::makeRequest()
         cout << "==================================================================" << endl
              << endl;
         cout << "[0] Go back to the Student menu" << endl
-             << endl
-             << "-> ";
+             << endl;
         while (true)
         {
             cout << "-> ", cin >> option;
-            if (option == 0)
+            if (option == '0')
             {
                 clearScreen();
                 studentMenu(this->student.getstudentCode());
@@ -831,7 +1016,7 @@ void App::makeRequest()
             }
             else
             {
-                cout << "Wrong option, try again" << endl
+                cout << "Invalid option, try again" << endl
                      << endl;
             }
         }
@@ -852,7 +1037,18 @@ void App::makeRequest()
         cout << endl;
         cout << "Enter the code for the UC you want to enroll: ", cin >> ucDestination;
         cout << endl;
-        switchuc.switchUc(ucOrigin, ucDestination);
+
+        try
+        {
+            switchuc.switchUc(ucOrigin, ucDestination);
+        }
+        catch (const runtime_error &err)
+        {
+            clearScreen();
+            cout << "Error: " << err.what() << endl
+                 << endl;
+            makeRequest();
+        }
 
         Student newStudent = Script().loadStudent(this->student.getstudentCode());
         map<string, string> new_schedule = newStudent.getSchedule();
@@ -862,8 +1058,7 @@ void App::makeRequest()
         cout << "==================================================================" << endl
              << endl;
         cout << "[0] Go back to the Student menu" << endl
-             << endl
-             << "-> ";
+             << endl;
         while (true)
         {
             cout << "-> ", cin >> option;
@@ -898,8 +1093,18 @@ void App::makeRequest()
         cout << endl;
         cout << "Enter the code for the class you want to enroll: ", cin >> classDestination;
         cout << endl;
-        switchclass.switchClass(uc, classOrigin, classDestination);
 
+        try
+        {
+            switchclass.switchClass(uc, classOrigin, classDestination);
+        }
+        catch (const runtime_error &err)
+        {
+            clearScreen();
+            cout << "Error: " << err.what() << endl
+                 << endl;
+            makeRequest();
+        }
         Student newStudent = Script().loadStudent(this->student.getstudentCode());
         map<string, string> new_schedule = newStudent.getSchedule();
         cout << "======================== NEW SCHEDULE ============================" << endl;
@@ -908,8 +1113,7 @@ void App::makeRequest()
         cout << "==================================================================" << endl
              << endl;
         cout << "[0] Go back to the Student menu" << endl
-             << endl
-             << "-> ";
+             << endl;
         while (true)
         {
             cout << "-> ", cin >> option;
@@ -942,15 +1146,24 @@ void App::undoRequest()
     cout << "=================================================================================================" << endl
          << "Enter the request ID you want to undo: " << endl;
     cout << "-> ", cin >> req_id, cout << endl;
-
-    Request().undoRequest(req_id);
     cout << "=================================================================================================" << endl
          << endl;
 
+    try
+    {
+        Request().undoRequest(req_id);
+    }
+    catch (const runtime_error &err)
+    {
+        clearScreen();
+        cout << "Error: " << err.what() << endl
+             << endl;
+        studentMenu(this->student.getstudentCode());
+    }
+
     int option;
     cout << "[0] Go back to the Student menu" << endl
-         << endl
-         << "-> ";
+         << endl;
     while (true)
     {
         cout << "-> ", cin >> option;
@@ -975,8 +1188,7 @@ void App::consultRequests()
     Request().studentRequests(this->student.getstudentCode());
     cout << "=================================================================================================" << endl
          << "[0] Go back to the Student menu" << endl
-         << endl
-         << "-> ";
+         << endl;
 
     int option;
     while (true)

@@ -57,6 +57,12 @@ make
 
 #### All documentation can be found inside the docs folder
 
+#### To access the Adminstrator area, use the following login and password:
+|Login  |Password|
+|-------|--------|
+|adm    |123     |
+
+
 ---
 
 ### Authors
