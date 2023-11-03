@@ -5,6 +5,5 @@ var searchData=
   ['lecture_20class_2',['Lecture Class',['../index.html#autotoc_md6',1,'']]],
   ['loadclasses_3',['loadClasses',['../classScript.html#a99e51f3f465d51e1f2b5e35c6afb3f7f',1,'Script']]],
   ['loadlecture_4',['loadLecture',['../classScript.html#a0493f1b8cb577cb3ae94351e0ca04cbe',1,'Script']]],
-  ['loadstudent_5',['loadStudent',['../classScript.html#acb8810db66aa71002633c9c728a6c399',1,'Script']]],
-  ['login_20and_20password_3a_6',['To access the Adminstrator area, use the following login and password:',['../index.html#autotoc_md12',1,'']]]
+  ['loadstudent_5',['loadStudent',['../classScript.html#acb8810db66aa71002633c9c728a6c399',1,'Script']]]
 ];

@@ -6,5 +6,6 @@ var searchData=
   ['classes_3',['Classes',['../index.html#autotoc_md3',1,'']]],
   ['classescheck_4',['classesCheck',['../classRequest.html#ab13c3c3ff27206b68cb299972a5ce4c2',1,'Request']]],
   ['classescount_5',['classesCount',['../classUc.html#af8b26e6ae7c58d5b555fa6fec38361e4',1,'Uc']]],
-  ['commands_3a_6',['To run the project, run the following commands:',['../index.html#autotoc_md10',1,'']]]
+  ['commands_3a_6',['To run the project, run the following commands:',['../index.html#autotoc_md10',1,'']]],
+  ['credentials_3a_7',['To access the Adminstrator area, use the following credentials:',['../index.html#autotoc_md12',1,'']]]
 ];
