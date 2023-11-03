@@ -437,7 +437,7 @@ void App::consultUcAdm()
             clearScreen();
             cout << "Invalid sort method! Please try again:" << endl
                  << endl;
-            consultUcSt();
+            consultUcAdm();
         }
 
         clearScreen();
