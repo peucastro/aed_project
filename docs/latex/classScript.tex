@@ -13,25 +13,35 @@ Reads and processes data from the CSV files.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classStudent}{Student}} \mbox{\hyperlink{classScript_acb8810db66aa71002633c9c728a6c399}{load\+Student}} (const std\+::string \&student\+Code)
-\begin{DoxyCompactList}\small\item\em Loads a student based on the student code. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Loads a student based on the student code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::list$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ \mbox{\hyperlink{classScript_a0493f1b8cb577cb3ae94351e0ca04cbe}{load\+Lecture}} (std\+::string uc\+Code\+\_\+, std\+::string class\+Code\+\_\+)
-\begin{DoxyCompactList}\small\item\em Loads a list of lectures for a specific UC and class code. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Loads a list of lectures for a specific UC and class code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classScript_a99e51f3f465d51e1f2b5e35c6afb3f7f}{load\+Classes}} (\mbox{\hyperlink{classUc}{Uc}} \&uc\+\_\+)
-\begin{DoxyCompactList}\small\item\em Loads classes into a \doxylink{classUc}{Uc} object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Loads classes into a \doxylink{classUc}{Uc} object.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes\+\_\+per\+\_\+uc.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classScript_a98b13e523e4421414e968ec125b5ad01}{students\+In\+Lecture}} (\mbox{\hyperlink{classLecture}{Lecture}} \&one\+Lecture\+\_\+)
-\begin{DoxyCompactList}\small\item\em Populates a lecture with students who are enrolled in it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Populates a lecture with students who are enrolled in it.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::set$<$ \mbox{\hyperlink{classLecture}{Lecture}} $>$ \mbox{\hyperlink{classScript_ac36adfcd9d25dcaf8810e27c1499a066}{get\+Schedule}} (const std\+::string \&student\+Code)
-\begin{DoxyCompactList}\small\item\em Gets the schedule of lectures for a student based on their student code. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the schedule of lectures for a student based on their student code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classScript_af7d993ef35de5729f002289c8b89ae3d}{studentsin\+Uc}} (\mbox{\hyperlink{classUc}{Uc}} \&uc)
-\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific UC. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific UC.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ \mbox{\hyperlink{classScript_aa7457bd0bf843a7e3be49dbdc6c584c4}{studentsin\+Class}} (std\+::string uc\+Code\+\_\+, std\+::string class\+Code\+\_\+)
-\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a specific class.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classStudent}{Student}}, \mbox{\hyperlink{structStudent_1_1Hash}{Student\+::\+Hash}} $>$ \mbox{\hyperlink{classScript_a70fa28baae6891cc57f9d8189e82b1a3}{students\+In\+Year}} (const std\+::string \&year)
-\begin{DoxyCompactList}\small\item\em Retrieves a set of students based on their enrollment year. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retrieves a set of students based on their enrollment year.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classScript_af841346bf9e5caeb287d29b831328fbf}{students\+In\+NUc}} (int number)
-\begin{DoxyCompactList}\small\item\em Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ \mbox{\hyperlink{classScript_a87838ab2eee310066f1c4a685f4c18e1}{ucs\+With\+Most\+Students}} ()
-\begin{DoxyCompactList}\small\item\em Retrieves a list of UCs with the most students, along with the number of students in each UC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves a list of UCs with the most students, along with the number of students in each UC.~\newline
+Time complexity\+: O(\+N log N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -50,7 +60,8 @@ Definition at line \mbox{\hyperlink{Script_8hpp_source_l00016}{16}} of file \mbo
 
 
 
-Gets the schedule of lectures for a student based on their student code. 
+Gets the schedule of lectures for a student based on their student code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -58,9 +69,9 @@ Gets the schedule of lectures for a student based on their student code.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A set of \doxylink{classLecture}{Lecture} objects representing the student\textquotesingle{}s schedule.
+A set of \doxylink{classLecture}{Lecture} objects representing the student\textquotesingle{}s schedule. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -123,14 +134,15 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00138}{138}} of file \mb
 
 
 
-Loads classes into a \doxylink{classUc}{Uc} object. 
+Loads classes into a \doxylink{classUc}{Uc} object.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes\+\_\+per\+\_\+uc.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em uc\+\_\+} & The \doxylink{classUc}{Uc} object to load classes into.\\
+{\em uc\+\_\+} & The \doxylink{classUc}{Uc} object to load classes into. \\
 \hline
 \end{DoxyParams}
-Time complexity\+: O(\+N), where N is the number of lines in the classes\+\_\+per\+\_\+uc.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -172,7 +184,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00082}{82}} of file \mbo
 
 
 
-Loads a list of lectures for a specific UC and class code. 
+Loads a list of lectures for a specific UC and class code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -182,9 +195,9 @@ Loads a list of lectures for a specific UC and class code.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A list of loaded \doxylink{classLecture}{Lecture} objects.
+A list of loaded \doxylink{classLecture}{Lecture} objects. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -244,7 +257,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00036}{36}} of file \mbo
 
 
 
-Loads a student based on the student code. 
+Loads a student based on the student code.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -252,9 +266,9 @@ Loads a student based on the student code.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The loaded \doxylink{classStudent}{Student} object.
+The loaded \doxylink{classStudent}{Student} object. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -300,7 +314,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00004}{4}} of file \mbox
 
 
 
-Retrieves a list of students enrolled in a specific class. 
+Retrieves a list of students enrolled in a specific class.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -310,9 +325,9 @@ Retrieves a list of students enrolled in a specific class.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of \doxylink{classStudent}{Student} objects.
+A vector of \doxylink{classStudent}{Student} objects. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -356,14 +371,15 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00217}{217}} of file \mb
 
 
 
-Populates a lecture with students who are enrolled in it. 
+Populates a lecture with students who are enrolled in it.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em one\+Lecture\+\_\+} & The lecture to populate with students.\\
+{\em one\+Lecture\+\_\+} & The lecture to populate with students. \\
 \hline
 \end{DoxyParams}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -405,7 +421,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00110}{110}} of file \mb
 
 
 
-Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs. 
+Counts the number of students enrolled in at least \textquotesingle{}number\textquotesingle{} UCs.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -413,9 +430,9 @@ Counts the number of students enrolled in at least \textquotesingle{}number\text
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The count of students meeting the criteria.
+The count of students meeting the criteria. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00275}{275}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -464,7 +481,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00275}{275}} of file \mb
 
 
 
-Retrieves a list of students enrolled in a specific UC. 
+Retrieves a list of students enrolled in a specific UC.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -472,9 +490,9 @@ Retrieves a list of students enrolled in a specific UC.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of \doxylink{classStudent}{Student} objects.
+A vector of \doxylink{classStudent}{Student} objects. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00187}{187}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -518,7 +536,8 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00187}{187}} of file \mb
 
 
 
-Retrieves a set of students based on their enrollment year. 
+Retrieves a set of students based on their enrollment year.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -526,9 +545,9 @@ Retrieves a set of students based on their enrollment year.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-An unordered set of \doxylink{classStudent}{Student} objects.
+An unordered set of \doxylink{classStudent}{Student} objects. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00247}{247}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 
@@ -570,12 +589,13 @@ Definition at line \mbox{\hyperlink{Script_8cpp_source_l00247}{247}} of file \mb
 
 
 
-Retrieves a list of UCs with the most students, along with the number of students in each UC. 
+Retrieves a list of UCs with the most students, along with the number of students in each UC.~\newline
+Time complexity\+: O(\+N log N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 \begin{DoxyReturn}{Returns}
-A vector of pairs, where the first element is the UC code, and the second element is the number of students.
+A vector of pairs, where the first element is the UC code, and the second element is the number of students. 
 \end{DoxyReturn}
-Time complexity\+: O(\+N log N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
+
 
 Definition at line \mbox{\hyperlink{Script_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{Script_8cpp_source}{Script.\+cpp}}.
 

@@ -93,28 +93,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aaf2589b455dc2e93c9e4e5e17da86fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classRequest.html" title="Represents a request to perform various operations related to student enrollments.">Request</a> class to create a new request.  <br /></td></tr>
 <tr class="separator:aaf2589b455dc2e93c9e4e5e17da86fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b08ad75b75dd10abd4e3dd99241c750" id="r_a4b08ad75b75dd10abd4e3dd99241c750"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b08ad75b75dd10abd4e3dd99241c750">addUc</a> (std::string ucCodeDestination)</td></tr>
-<tr class="memdesc:a4b08ad75b75dd10abd4e3dd99241c750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a student to a specified course and class.  <br /></td></tr>
+<tr class="memdesc:a4b08ad75b75dd10abd4e3dd99241c750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a student to a specified course and class.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a4b08ad75b75dd10abd4e3dd99241c750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a262bfb8a03d06f273b685293dc21e947" id="r_a262bfb8a03d06f273b685293dc21e947"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a262bfb8a03d06f273b685293dc21e947">removeUc</a> (std::string ucCode)</td></tr>
-<tr class="memdesc:a262bfb8a03d06f273b685293dc21e947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a student from a specified course.  <br /></td></tr>
+<tr class="memdesc:a262bfb8a03d06f273b685293dc21e947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a student from a specified course.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a262bfb8a03d06f273b685293dc21e947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1606678b0871ff8ab20242409691db67" id="r_a1606678b0871ff8ab20242409691db67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1606678b0871ff8ab20242409691db67">switchUc</a> (std::string ucOrigin, std::string ucDestination)</td></tr>
-<tr class="memdesc:a1606678b0871ff8ab20242409691db67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches a student from one course to another, preserving their schedule.  <br /></td></tr>
+<tr class="memdesc:a1606678b0871ff8ab20242409691db67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches a student from one course to another, preserving their schedule.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a1606678b0871ff8ab20242409691db67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc6cf3d4251bd24f7b016ee4712b6b2b" id="r_adc6cf3d4251bd24f7b016ee4712b6b2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc6cf3d4251bd24f7b016ee4712b6b2b">switchClass</a> (std::string uc, std::string classOrigin, std::string classDestination)</td></tr>
-<tr class="memdesc:adc6cf3d4251bd24f7b016ee4712b6b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches a student from one class to another within the same course.  <br /></td></tr>
+<tr class="memdesc:adc6cf3d4251bd24f7b016ee4712b6b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches a student from one class to another within the same course.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:adc6cf3d4251bd24f7b016ee4712b6b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b774fa113d6ede2e3b43dc8ccca9069" id="r_a6b774fa113d6ede2e3b43dc8ccca9069"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b774fa113d6ede2e3b43dc8ccca9069">studentRequests</a> (const std::string &amp;<a class="el" href="#a586f33f4ba7c8a937fa57f5de11c8031">studentCode</a>)</td></tr>
-<tr class="memdesc:a6b774fa113d6ede2e3b43dc8ccca9069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the list of requests for a specific student.  <br /></td></tr>
+<tr class="memdesc:a6b774fa113d6ede2e3b43dc8ccca9069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the list of requests for a specific student.<br  />
+Time complexity: O(N), where N is the number of lines in the requests_log.csv file.  <br /></td></tr>
 <tr class="separator:a6b774fa113d6ede2e3b43dc8ccca9069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80d4e21c54cbd3f1a59463023e7f027f" id="r_a80d4e21c54cbd3f1a59463023e7f027f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80d4e21c54cbd3f1a59463023e7f027f">adminRequests</a> ()</td></tr>
-<tr class="memdesc:a80d4e21c54cbd3f1a59463023e7f027f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all admin requests.  <br /></td></tr>
+<tr class="memdesc:a80d4e21c54cbd3f1a59463023e7f027f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all requests.<br  />
+Time complexity: O(N), where N is the number of lines in the requests_log.csv file.  <br /></td></tr>
 <tr class="separator:a80d4e21c54cbd3f1a59463023e7f027f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2800a59f0f6040ce4a7e24d8c58d29ef" id="r_a2800a59f0f6040ce4a7e24d8c58d29ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2800a59f0f6040ce4a7e24d8c58d29ef">undoRequest</a> (unsigned <a class="el" href="#a93ea3d2ec6140ff10593d36c61ff1b3e">id</a>)</td></tr>
-<tr class="memdesc:a2800a59f0f6040ce4a7e24d8c58d29ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undoes a specific request by its ID.  <br /></td></tr>
+<tr class="memdesc:a2800a59f0f6040ce4a7e24d8c58d29ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undoes a specific request by its ID.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a2800a59f0f6040ce4a7e24d8c58d29ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab13c3c3ff27206b68cb299972a5ce4c2" id="r_ab13c3c3ff27206b68cb299972a5ce4c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab13c3c3ff27206b68cb299972a5ce4c2">classesCheck</a> (std::string uc, std::queue&lt; std::string &gt; &amp;eligibleClasses)</td></tr>
-<tr class="memdesc:ab13c3c3ff27206b68cb299972a5ce4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the eligibility of available classes for a student's UC request.  <br /></td></tr>
+<tr class="memdesc:ab13c3c3ff27206b68cb299972a5ce4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the eligibility of available classes for a student's UC request.<br  />
+It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.<br  />
+Time complexity: O(N²), where N is the number of lines in the classes.csv file.  <br /></td></tr>
 <tr class="separator:ab13c3c3ff27206b68cb299972a5ce4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -218,7 +227,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a student to a specified course and class. </p>
+<p>Adds a student to a specified course and class.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCodeDestination</td><td>The code of the course to add the student. </td></tr>
@@ -268,12 +278,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  104</span>    this-&gt;<a class="code hl_variable" href="#a8643f6b95a2003e32487e916c9a41475">flag</a> = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="#a8643f6b95a2003e32487e916c9a41475">flag</a>;</div>
 <div class="line"><span class="lineno">  106</span>}</div>
-<div class="ttc" id="aclassRequest_html_a3bd4fe5482cd4ed6b21bfe7c28462041"><div class="ttname"><a href="#a3bd4fe5482cd4ed6b21bfe7c28462041">Request::type</a></div><div class="ttdeci">char type</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00099">Request.hpp:99</a></div></div>
-<div class="ttc" id="aclassRequest_html_a586f33f4ba7c8a937fa57f5de11c8031"><div class="ttname"><a href="#a586f33f4ba7c8a937fa57f5de11c8031">Request::studentCode</a></div><div class="ttdeci">std::string studentCode</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00096">Request.hpp:96</a></div></div>
-<div class="ttc" id="aclassRequest_html_a8643f6b95a2003e32487e916c9a41475"><div class="ttname"><a href="#a8643f6b95a2003e32487e916c9a41475">Request::flag</a></div><div class="ttdeci">bool flag</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00102">Request.hpp:102</a></div></div>
-<div class="ttc" id="aclassRequest_html_ab13c3c3ff27206b68cb299972a5ce4c2"><div class="ttname"><a href="#ab13c3c3ff27206b68cb299972a5ce4c2">Request::classesCheck</a></div><div class="ttdeci">bool classesCheck(std::string uc, std::queue&lt; std::string &gt; &amp;eligibleClasses)</div><div class="ttdoc">Checks the eligibility of available classes for a student's UC request.</div><div class="ttdef"><b>Definition</b> <a href="Request_8cpp_source.html#l00369">Request.cpp:369</a></div></div>
+<div class="ttc" id="aclassRequest_html_a3bd4fe5482cd4ed6b21bfe7c28462041"><div class="ttname"><a href="#a3bd4fe5482cd4ed6b21bfe7c28462041">Request::type</a></div><div class="ttdeci">char type</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00107">Request.hpp:107</a></div></div>
+<div class="ttc" id="aclassRequest_html_a586f33f4ba7c8a937fa57f5de11c8031"><div class="ttname"><a href="#a586f33f4ba7c8a937fa57f5de11c8031">Request::studentCode</a></div><div class="ttdeci">std::string studentCode</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00104">Request.hpp:104</a></div></div>
+<div class="ttc" id="aclassRequest_html_a8643f6b95a2003e32487e916c9a41475"><div class="ttname"><a href="#a8643f6b95a2003e32487e916c9a41475">Request::flag</a></div><div class="ttdeci">bool flag</div><div class="ttdef"><b>Definition</b> <a href="Request_8hpp_source.html#l00110">Request.hpp:110</a></div></div>
+<div class="ttc" id="aclassRequest_html_ab13c3c3ff27206b68cb299972a5ce4c2"><div class="ttname"><a href="#ab13c3c3ff27206b68cb299972a5ce4c2">Request::classesCheck</a></div><div class="ttdeci">bool classesCheck(std::string uc, std::queue&lt; std::string &gt; &amp;eligibleClasses)</div><div class="ttdoc">Checks the eligibility of available classes for a student's UC request. It evaluates if the student c...</div><div class="ttdef"><b>Definition</b> <a href="Request_8cpp_source.html#l00369">Request.cpp:369</a></div></div>
 <div class="ttc" id="aclassScript_html"><div class="ttname"><a href="classScript.html">Script</a></div><div class="ttdoc">Reads and processes data from the CSV files.</div><div class="ttdef"><b>Definition</b> <a href="Script_8hpp_source.html#l00016">Script.hpp:17</a></div></div>
-<div class="ttc" id="aclassScript_html_acb8810db66aa71002633c9c728a6c399"><div class="ttname"><a href="classScript.html#acb8810db66aa71002633c9c728a6c399">Script::loadStudent</a></div><div class="ttdeci">Student loadStudent(const std::string &amp;studentCode)</div><div class="ttdoc">Loads a student based on the student code.</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00004">Script.cpp:4</a></div></div>
+<div class="ttc" id="aclassScript_html_acb8810db66aa71002633c9c728a6c399"><div class="ttname"><a href="classScript.html#acb8810db66aa71002633c9c728a6c399">Script::loadStudent</a></div><div class="ttdeci">Student loadStudent(const std::string &amp;studentCode)</div><div class="ttdoc">Loads a student based on the student code. Time complexity: O(N), where N is the number of lines in t...</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00004">Script.cpp:4</a></div></div>
 <div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdoc">Represents a student.</div><div class="ttdef"><b>Definition</b> <a href="Student_8hpp_source.html#l00011">Student.hpp:12</a></div></div>
 <div class="ttc" id="aclassStudent_html_a150b531f3957ce9cb0cdf4ed1d2a5cd8"><div class="ttname"><a href="classStudent.html#a150b531f3957ce9cb0cdf4ed1d2a5cd8">Student::getstudentCode</a></div><div class="ttdeci">std::string getstudentCode()</div><div class="ttdoc">Get the student code associated with this student.</div><div class="ttdef"><b>Definition</b> <a href="Student_8cpp_source.html#l00024">Student.cpp:24</a></div></div>
 <div class="ttc" id="aclassStudent_html_a3433c9a897202d4561352eb96410d8b8"><div class="ttname"><a href="classStudent.html#a3433c9a897202d4561352eb96410d8b8">Student::getSchedule</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; getSchedule()</div><div class="ttdoc">Get the schedule of the student as a map of UcCode to classCode.</div><div class="ttdef"><b>Definition</b> <a href="Student_8cpp_source.html#l00046">Student.cpp:46</a></div></div>
@@ -296,7 +306,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Displays all admin requests. </p>
+<p>Displays all requests.<br  />
+Time complexity: O(N), where N is the number of lines in the requests_log.csv file. </p>
 
 <p class="definition">Definition at line <a class="el" href="Request_8cpp_source.html#l00329">329</a> of file <a class="el" href="Request_8cpp_source.html">Request.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  330</span>{</div>
@@ -366,8 +377,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks the eligibility of available classes for a student's UC request. </p>
-<p>It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.</p>
+<p>Checks the eligibility of available classes for a student's UC request.<br  />
+It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.<br  />
+Time complexity: O(N²), where N is the number of lines in the classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucDestination</td><td>The UC code for which the student is requesting enrollment. </td></tr>
@@ -455,8 +467,8 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  432</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  433</span>}</div>
 <div class="ttc" id="aclassLecture_html"><div class="ttname"><a href="classLecture.html">Lecture</a></div><div class="ttdoc">Represents a lecture.</div><div class="ttdef"><b>Definition</b> <a href="Lecture_8hpp_source.html#l00010">Lecture.hpp:11</a></div></div>
-<div class="ttc" id="aclassScript_html_a99e51f3f465d51e1f2b5e35c6afb3f7f"><div class="ttname"><a href="classScript.html#a99e51f3f465d51e1f2b5e35c6afb3f7f">Script::loadClasses</a></div><div class="ttdeci">void loadClasses(Uc &amp;uc_)</div><div class="ttdoc">Loads classes into a Uc object.</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00082">Script.cpp:82</a></div></div>
-<div class="ttc" id="aclassScript_html_aa7457bd0bf843a7e3be49dbdc6c584c4"><div class="ttname"><a href="classScript.html#aa7457bd0bf843a7e3be49dbdc6c584c4">Script::studentsinClass</a></div><div class="ttdeci">std::vector&lt; Student &gt; studentsinClass(std::string ucCode_, std::string classCode_)</div><div class="ttdoc">Retrieves a list of students enrolled in a specific class.</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00217">Script.cpp:217</a></div></div>
+<div class="ttc" id="aclassScript_html_a99e51f3f465d51e1f2b5e35c6afb3f7f"><div class="ttname"><a href="classScript.html#a99e51f3f465d51e1f2b5e35c6afb3f7f">Script::loadClasses</a></div><div class="ttdeci">void loadClasses(Uc &amp;uc_)</div><div class="ttdoc">Loads classes into a Uc object. Time complexity: O(N), where N is the number of lines in the classes_...</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00082">Script.cpp:82</a></div></div>
+<div class="ttc" id="aclassScript_html_aa7457bd0bf843a7e3be49dbdc6c584c4"><div class="ttname"><a href="classScript.html#aa7457bd0bf843a7e3be49dbdc6c584c4">Script::studentsinClass</a></div><div class="ttdeci">std::vector&lt; Student &gt; studentsinClass(std::string ucCode_, std::string classCode_)</div><div class="ttdoc">Retrieves a list of students enrolled in a specific class. Time complexity: O(N), where N is the numb...</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00217">Script.cpp:217</a></div></div>
 <div class="ttc" id="aclassUc_html"><div class="ttname"><a href="classUc.html">Uc</a></div><div class="ttdoc">Represents a Uc.</div><div class="ttdef"><b>Definition</b> <a href="Uc_8hpp_source.html#l00014">Uc.hpp:15</a></div></div>
 <div class="ttc" id="aclassUc_html_a633ef57e70835ffad02718d7d4b26973"><div class="ttname"><a href="classUc.html#a633ef57e70835ffad02718d7d4b26973">Uc::getUcCode</a></div><div class="ttdeci">std::string getUcCode()</div><div class="ttdoc">Get the UcCode associated with this Uc.</div><div class="ttdef"><b>Definition</b> <a href="Uc_8cpp_source.html#l00015">Uc.cpp:15</a></div></div>
 </div><!-- fragment -->
@@ -478,7 +490,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes a student from a specified course. </p>
+<p>Removes a student from a specified course.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode</td><td>The code of the course to remove the student from. </td></tr>
@@ -551,7 +564,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Displays the list of requests for a specific student. </p>
+<p>Displays the list of requests for a specific student.<br  />
+Time complexity: O(N), where N is the number of lines in the requests_log.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentCode</td><td>The student's unique code. </td></tr>
@@ -635,7 +649,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Switches a student from one class to another within the same course. </p>
+<p>Switches a student from one class to another within the same course.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uc</td><td>The course code. </td></tr>
@@ -732,7 +747,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Switches a student from one course to another, preserving their schedule. </p>
+<p>Switches a student from one course to another, preserving their schedule.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucOrigin</td><td>The original course code. </td></tr>
@@ -832,7 +848,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Undoes a specific request by its ID. </p>
+<p>Undoes a specific request by its ID.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>The ID of the request to undo. </td></tr>
@@ -915,7 +932,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A flag indicating the success status of the request. </p>
 
-<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00102">102</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00110">110</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
 
 </div>
 </div>
@@ -940,7 +957,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Unique ID of the request. </p>
 
-<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00093">93</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00101">101</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
 
 </div>
 </div>
@@ -965,7 +982,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="classStudent.html" title="Represents a student.">Student</a>'s unique code. </p>
 
-<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00096">96</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00104">104</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
 
 </div>
 </div>
@@ -990,7 +1007,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Type of request (1: Add <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>, 2: Remove <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>, 3: Switch <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a>, 4: Switch Class). </p>
 
-<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00099">99</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Request_8hpp_source.html#l00107">107</a> of file <a class="el" href="Request_8hpp_source.html">Request.hpp</a>.</p>
 
 </div>
 </div>

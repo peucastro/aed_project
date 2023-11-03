@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {addClass}
-    \subitem {Student}, \hyperpage{32}
+    \subitem {Student}, \hyperpage{33}
     \subitem {Uc}, \hyperpage{36}
   \item {addStudent}
     \subitem {Lecture}, \hyperpage{9}
@@ -34,16 +34,16 @@
   \item {getClassCode}
     \subitem {Lecture}, \hyperpage{9}
   \item {getClasses}
-    \subitem {Uc}, \hyperpage{36}
+    \subitem {Uc}, \hyperpage{37}
   \item {getDuration}
     \subitem {Lecture}, \hyperpage{10}
   \item {getSchedule}
     \subitem {Script}, \hyperpage{24}
-    \subitem {Student}, \hyperpage{32}
+    \subitem {Student}, \hyperpage{33}
   \item {getStartHour}
     \subitem {Lecture}, \hyperpage{10}
   \item {getstudentCode}
-    \subitem {Student}, \hyperpage{32}
+    \subitem {Student}, \hyperpage{33}
   \item {getstudentName}
     \subitem {Student}, \hyperpage{33}
   \item {getStudents}
@@ -53,7 +53,7 @@
   \item {getUc}
     \subitem {Lecture}, \hyperpage{10}
   \item {getUcCode}
-    \subitem {Uc}, \hyperpage{36}
+    \subitem {Uc}, \hyperpage{37}
   \item {getWeekDay}
     \subitem {Lecture}, \hyperpage{11}
 
@@ -101,9 +101,9 @@
   \item {loadClasses}
     \subitem {Script}, \hyperpage{25}
   \item {loadLecture}
-    \subitem {Script}, \hyperpage{25}
-  \item {loadStudent}
     \subitem {Script}, \hyperpage{26}
+  \item {loadStudent}
+    \subitem {Script}, \hyperpage{27}
 
   \indexspace
 
@@ -113,14 +113,14 @@
     \subitem {Student::Hash}, \hyperpage{7}
   \item {operator==}
     \subitem {Lecture}, \hyperpage{11}
-    \subitem {Student}, \hyperpage{33}
+    \subitem {Student}, \hyperpage{34}
   \item {overlay}
     \subitem {Lecture}, \hyperpage{12}
 
   \indexspace
 
   \item {printClasses}
-    \subitem {Uc}, \hyperpage{36}
+    \subitem {Uc}, \hyperpage{37}
 
   \indexspace
 
@@ -146,17 +146,17 @@
   \indexspace
 
   \item {schedule}
-    \subitem {Student}, \hyperpage{34}
-  \item {Script}, \hyperpage{23}
+    \subitem {Student}, \hyperpage{35}
+  \item {Script}, \hyperpage{24}
     \subitem {getSchedule}, \hyperpage{24}
     \subitem {loadClasses}, \hyperpage{25}
-    \subitem {loadLecture}, \hyperpage{25}
-    \subitem {loadStudent}, \hyperpage{26}
+    \subitem {loadLecture}, \hyperpage{26}
+    \subitem {loadStudent}, \hyperpage{27}
     \subitem {studentsinClass}, \hyperpage{27}
-    \subitem {studentsInLecture}, \hyperpage{27}
+    \subitem {studentsInLecture}, \hyperpage{28}
     \subitem {studentsInNUc}, \hyperpage{28}
     \subitem {studentsinUc}, \hyperpage{29}
-    \subitem {studentsInYear}, \hyperpage{29}
+    \subitem {studentsInYear}, \hyperpage{30}
     \subitem {ucsWithMostStudents}, \hyperpage{30}
   \item {setDuration}
     \subitem {Lecture}, \hyperpage{12}
@@ -183,25 +183,25 @@
   \item {startHour}
     \subitem {Lecture}, \hyperpage{14}
   \item {Student}, \hyperpage{31}
-    \subitem {addClass}, \hyperpage{32}
-    \subitem {getSchedule}, \hyperpage{32}
-    \subitem {getstudentCode}, \hyperpage{32}
+    \subitem {addClass}, \hyperpage{33}
+    \subitem {getSchedule}, \hyperpage{33}
+    \subitem {getstudentCode}, \hyperpage{33}
     \subitem {getstudentName}, \hyperpage{33}
     \subitem {inClass}, \hyperpage{33}
-    \subitem {operator==}, \hyperpage{33}
-    \subitem {schedule}, \hyperpage{34}
+    \subitem {operator==}, \hyperpage{34}
+    \subitem {schedule}, \hyperpage{35}
     \subitem {setstudentCode}, \hyperpage{34}
     \subitem {setstudentName}, \hyperpage{34}
-    \subitem {Student}, \hyperpage{31, 32}
-    \subitem {studentCode}, \hyperpage{34}
-    \subitem {studentName}, \hyperpage{34}
+    \subitem {Student}, \hyperpage{32}
+    \subitem {studentCode}, \hyperpage{35}
+    \subitem {studentName}, \hyperpage{35}
   \item {Student::Hash}, \hyperpage{7}
     \subitem {operator()}, \hyperpage{7}
   \item {studentCode}
     \subitem {Request}, \hyperpage{23}
-    \subitem {Student}, \hyperpage{34}
+    \subitem {Student}, \hyperpage{35}
   \item {studentName}
-    \subitem {Student}, \hyperpage{34}
+    \subitem {Student}, \hyperpage{35}
   \item {studentRequests}
     \subitem {Request}, \hyperpage{19}
   \item {students}
@@ -209,13 +209,13 @@
   \item {studentsinClass}
     \subitem {Script}, \hyperpage{27}
   \item {studentsInLecture}
-    \subitem {Script}, \hyperpage{27}
+    \subitem {Script}, \hyperpage{28}
   \item {studentsInNUc}
     \subitem {Script}, \hyperpage{28}
   \item {studentsinUc}
     \subitem {Script}, \hyperpage{29}
   \item {studentsInYear}
-    \subitem {Script}, \hyperpage{29}
+    \subitem {Script}, \hyperpage{30}
   \item {switchClass}
     \subitem {Request}, \hyperpage{20}
   \item {switchUc}
@@ -232,19 +232,19 @@
   \item {Uc}, \hyperpage{35}
     \subitem {addClass}, \hyperpage{36}
     \subitem {classesCount}, \hyperpage{36}
-    \subitem {getClasses}, \hyperpage{36}
-    \subitem {getUcCode}, \hyperpage{36}
-    \subitem {printClasses}, \hyperpage{36}
+    \subitem {getClasses}, \hyperpage{37}
+    \subitem {getUcCode}, \hyperpage{37}
+    \subitem {printClasses}, \hyperpage{37}
     \subitem {setUcCode}, \hyperpage{37}
-    \subitem {Uc}, \hyperpage{35}
-    \subitem {UcClasses}, \hyperpage{37}
-    \subitem {UcCode}, \hyperpage{37}
+    \subitem {Uc}, \hyperpage{36}
+    \subitem {UcClasses}, \hyperpage{38}
+    \subitem {UcCode}, \hyperpage{38}
   \item {uc}
     \subitem {Lecture}, \hyperpage{14}
   \item {UcClasses}
-    \subitem {Uc}, \hyperpage{37}
+    \subitem {Uc}, \hyperpage{38}
   \item {UcCode}
-    \subitem {Uc}, \hyperpage{37}
+    \subitem {Uc}, \hyperpage{38}
   \item {ucsWithMostStudents}
     \subitem {Script}, \hyperpage{30}
   \item {undoRequest}

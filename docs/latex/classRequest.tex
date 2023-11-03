@@ -17,21 +17,30 @@ Represents a request to perform various operations related to student enrollment
 \mbox{\hyperlink{classRequest_aaf2589b455dc2e93c9e4e5e17da86fd4}{Request}} (std\+::string \mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{student\+Code}}, char \mbox{\hyperlink{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}{type}})
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classRequest}{Request} class to create a new request. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classRequest_a4b08ad75b75dd10abd4e3dd99241c750}{add\+Uc}} (std\+::string uc\+Code\+Destination)
-\begin{DoxyCompactList}\small\item\em Adds a student to a specified course and class. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds a student to a specified course and class.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classRequest_a262bfb8a03d06f273b685293dc21e947}{remove\+Uc}} (std\+::string uc\+Code)
-\begin{DoxyCompactList}\small\item\em Removes a student from a specified course. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Removes a student from a specified course.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classRequest_a1606678b0871ff8ab20242409691db67}{switch\+Uc}} (std\+::string uc\+Origin, std\+::string uc\+Destination)
-\begin{DoxyCompactList}\small\item\em Switches a student from one course to another, preserving their schedule. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Switches a student from one course to another, preserving their schedule.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classRequest_adc6cf3d4251bd24f7b016ee4712b6b2b}{switch\+Class}} (std\+::string uc, std\+::string class\+Origin, std\+::string class\+Destination)
-\begin{DoxyCompactList}\small\item\em Switches a student from one class to another within the same course. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Switches a student from one class to another within the same course.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRequest_a6b774fa113d6ede2e3b43dc8ccca9069}{student\+Requests}} (const std\+::string \&\mbox{\hyperlink{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}{student\+Code}})
-\begin{DoxyCompactList}\small\item\em Displays the list of requests for a specific student. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Displays the list of requests for a specific student.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the requests\+\_\+log.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRequest_a80d4e21c54cbd3f1a59463023e7f027f}{admin\+Requests}} ()
-\begin{DoxyCompactList}\small\item\em Displays all admin requests. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Displays all requests.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the requests\+\_\+log.\+csv file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRequest_a2800a59f0f6040ce4a7e24d8c58d29ef}{undo\+Request}} (unsigned \mbox{\hyperlink{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e}{id}})
-\begin{DoxyCompactList}\small\item\em Undoes a specific request by its ID. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Undoes a specific request by its ID.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classRequest_ab13c3c3ff27206b68cb299972a5ce4c2}{classes\+Check}} (std\+::string uc, std\+::queue$<$ std\+::string $>$ \&eligible\+Classes)
-\begin{DoxyCompactList}\small\item\em Checks the eligibility of available classes for a student\textquotesingle{}s UC request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks the eligibility of available classes for a student\textquotesingle{}s UC request.~\newline
+It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.~\newline
+Time complexity\+: O(N²), where N is the number of lines in the classes.\+csv file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -102,7 +111,8 @@ Constructor for the \doxylink{classRequest}{Request} class to create a new reque
 
 
 
-Adds a student to a specified course and class. 
+Adds a student to a specified course and class.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -168,7 +178,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00066}{66}} of file \mb
 
 
 
-Displays all admin requests. 
+Displays all requests.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the requests\+\_\+log.\+csv file. 
 
 
 
@@ -224,9 +235,9 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00329}{329}} of file \m
 
 
 
-Checks the eligibility of available classes for a student\textquotesingle{}s UC request. 
-
-It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.
+Checks the eligibility of available classes for a student\textquotesingle{}s UC request.~\newline
+It evaluates if the student can be assigned to a class without violating capacity, balance, and schedule constraints.~\newline
+Time complexity\+: O(N²), where N is the number of lines in the classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -329,7 +340,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00369}{369}} of file \m
 
 
 
-Removes a student from a specified course. 
+Removes a student from a specified course.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -399,7 +411,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00020}{20}} of file \mb
 
 
 
-Displays the list of requests for a specific student. 
+Displays the list of requests for a specific student.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the requests\+\_\+log.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -462,7 +475,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00180}{180}} of file \m
 
 
 
-Switches a student from one class to another within the same course. 
+Switches a student from one class to another within the same course.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -548,7 +562,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00221}{221}} of file \m
 
 
 
-Switches a student from one course to another, preserving their schedule. 
+Switches a student from one course to another, preserving their schedule.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -646,7 +661,8 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00108}{108}} of file \m
 
 
 
-Undoes a specific request by its ID. 
+Undoes a specific request by its ID.~\newline
+Time complexity\+: O(\+N), where N is the number of lines in the students\+\_\+classes.\+csv file. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -720,7 +736,7 @@ Definition at line \mbox{\hyperlink{Request_8cpp_source_l00279}{279}} of file \m
 
 A flag indicating the success status of the request. 
 
-Definition at line \mbox{\hyperlink{Request_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
 
 \Hypertarget{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e}\label{classRequest_a93ea3d2ec6140ff10593d36c61ff1b3e} 
 \index{Request@{Request}!id@{id}}
@@ -730,7 +746,7 @@ Definition at line \mbox{\hyperlink{Request_8hpp_source_l00102}{102}} of file \m
 
 Unique ID of the request. 
 
-Definition at line \mbox{\hyperlink{Request_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00101}{101}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
 
 \Hypertarget{classRequest_a586f33f4ba7c8a937fa57f5de11c8031}\label{classRequest_a586f33f4ba7c8a937fa57f5de11c8031} 
 \index{Request@{Request}!studentCode@{studentCode}}
@@ -740,7 +756,7 @@ Definition at line \mbox{\hyperlink{Request_8hpp_source_l00093}{93}} of file \mb
 
 \doxylink{classStudent}{Student}\textquotesingle{}s unique code. 
 
-Definition at line \mbox{\hyperlink{Request_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
 
 \Hypertarget{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041}\label{classRequest_a3bd4fe5482cd4ed6b21bfe7c28462041} 
 \index{Request@{Request}!type@{type}}
@@ -750,7 +766,7 @@ Definition at line \mbox{\hyperlink{Request_8hpp_source_l00096}{96}} of file \mb
 
 Type of request (1\+: Add \doxylink{classUc}{Uc}, 2\+: Remove \doxylink{classUc}{Uc}, 3\+: Switch \doxylink{classUc}{Uc}, 4\+: Switch Class). 
 
-Definition at line \mbox{\hyperlink{Request_8hpp_source_l00099}{99}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
+Definition at line \mbox{\hyperlink{Request_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{Request_8hpp_source}{Request.\+hpp}}.
 
 
 

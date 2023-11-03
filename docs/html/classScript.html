@@ -86,34 +86,44 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acb8810db66aa71002633c9c728a6c399" id="r_acb8810db66aa71002633c9c728a6c399"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStudent.html">Student</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb8810db66aa71002633c9c728a6c399">loadStudent</a> (const std::string &amp;studentCode)</td></tr>
-<tr class="memdesc:acb8810db66aa71002633c9c728a6c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a student based on the student code.  <br /></td></tr>
+<tr class="memdesc:acb8810db66aa71002633c9c728a6c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a student based on the student code.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:acb8810db66aa71002633c9c728a6c399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0493f1b8cb577cb3ae94351e0ca04cbe" id="r_a0493f1b8cb577cb3ae94351e0ca04cbe"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classLecture.html">Lecture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0493f1b8cb577cb3ae94351e0ca04cbe">loadLecture</a> (std::string ucCode_, std::string classCode_)</td></tr>
-<tr class="memdesc:a0493f1b8cb577cb3ae94351e0ca04cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a list of lectures for a specific UC and class code.  <br /></td></tr>
+<tr class="memdesc:a0493f1b8cb577cb3ae94351e0ca04cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a list of lectures for a specific UC and class code.<br  />
+Time complexity: O(N), where N is the number of lines in the classes.csv file.  <br /></td></tr>
 <tr class="separator:a0493f1b8cb577cb3ae94351e0ca04cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99e51f3f465d51e1f2b5e35c6afb3f7f" id="r_a99e51f3f465d51e1f2b5e35c6afb3f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99e51f3f465d51e1f2b5e35c6afb3f7f">loadClasses</a> (<a class="el" href="classUc.html">Uc</a> &amp;uc_)</td></tr>
-<tr class="memdesc:a99e51f3f465d51e1f2b5e35c6afb3f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads classes into a <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object.  <br /></td></tr>
+<tr class="memdesc:a99e51f3f465d51e1f2b5e35c6afb3f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads classes into a <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object.<br  />
+Time complexity: O(N), where N is the number of lines in the classes_per_uc.csv file.  <br /></td></tr>
 <tr class="separator:a99e51f3f465d51e1f2b5e35c6afb3f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98b13e523e4421414e968ec125b5ad01" id="r_a98b13e523e4421414e968ec125b5ad01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b13e523e4421414e968ec125b5ad01">studentsInLecture</a> (<a class="el" href="classLecture.html">Lecture</a> &amp;oneLecture_)</td></tr>
-<tr class="memdesc:a98b13e523e4421414e968ec125b5ad01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates a lecture with students who are enrolled in it.  <br /></td></tr>
+<tr class="memdesc:a98b13e523e4421414e968ec125b5ad01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates a lecture with students who are enrolled in it.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a98b13e523e4421414e968ec125b5ad01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac36adfcd9d25dcaf8810e27c1499a066" id="r_ac36adfcd9d25dcaf8810e27c1499a066"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="classLecture.html">Lecture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac36adfcd9d25dcaf8810e27c1499a066">getSchedule</a> (const std::string &amp;studentCode)</td></tr>
-<tr class="memdesc:ac36adfcd9d25dcaf8810e27c1499a066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the schedule of lectures for a student based on their student code.  <br /></td></tr>
+<tr class="memdesc:ac36adfcd9d25dcaf8810e27c1499a066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the schedule of lectures for a student based on their student code.<br  />
+Time complexity: O(N), where N is the number of lines in the classes.csv file.  <br /></td></tr>
 <tr class="separator:ac36adfcd9d25dcaf8810e27c1499a066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d993ef35de5729f002289c8b89ae3d" id="r_af7d993ef35de5729f002289c8b89ae3d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7d993ef35de5729f002289c8b89ae3d">studentsinUc</a> (<a class="el" href="classUc.html">Uc</a> &amp;uc)</td></tr>
-<tr class="memdesc:af7d993ef35de5729f002289c8b89ae3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of students enrolled in a specific UC.  <br /></td></tr>
+<tr class="memdesc:af7d993ef35de5729f002289c8b89ae3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of students enrolled in a specific UC.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:af7d993ef35de5729f002289c8b89ae3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7457bd0bf843a7e3be49dbdc6c584c4" id="r_aa7457bd0bf843a7e3be49dbdc6c584c4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classStudent.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7457bd0bf843a7e3be49dbdc6c584c4">studentsinClass</a> (std::string ucCode_, std::string classCode_)</td></tr>
-<tr class="memdesc:aa7457bd0bf843a7e3be49dbdc6c584c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of students enrolled in a specific class.  <br /></td></tr>
+<tr class="memdesc:aa7457bd0bf843a7e3be49dbdc6c584c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of students enrolled in a specific class.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:aa7457bd0bf843a7e3be49dbdc6c584c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70fa28baae6891cc57f9d8189e82b1a3" id="r_a70fa28baae6891cc57f9d8189e82b1a3"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; <a class="el" href="classStudent.html">Student</a>, <a class="el" href="structStudent_1_1Hash.html">Student::Hash</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70fa28baae6891cc57f9d8189e82b1a3">studentsInYear</a> (const std::string &amp;year)</td></tr>
-<tr class="memdesc:a70fa28baae6891cc57f9d8189e82b1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a set of students based on their enrollment year.  <br /></td></tr>
+<tr class="memdesc:a70fa28baae6891cc57f9d8189e82b1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a set of students based on their enrollment year.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a70fa28baae6891cc57f9d8189e82b1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af841346bf9e5caeb287d29b831328fbf" id="r_af841346bf9e5caeb287d29b831328fbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af841346bf9e5caeb287d29b831328fbf">studentsInNUc</a> (int number)</td></tr>
-<tr class="memdesc:af841346bf9e5caeb287d29b831328fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of students enrolled in at least 'number' UCs.  <br /></td></tr>
+<tr class="memdesc:af841346bf9e5caeb287d29b831328fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of students enrolled in at least 'number' UCs.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:af841346bf9e5caeb287d29b831328fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87838ab2eee310066f1c4a685f4c18e1" id="r_a87838ab2eee310066f1c4a685f4c18e1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87838ab2eee310066f1c4a685f4c18e1">ucsWithMostStudents</a> ()</td></tr>
-<tr class="memdesc:a87838ab2eee310066f1c4a685f4c18e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of UCs with the most students, along with the number of students in each UC.  <br /></td></tr>
+<tr class="memdesc:a87838ab2eee310066f1c4a685f4c18e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of UCs with the most students, along with the number of students in each UC.<br  />
+Time complexity: O(N log N), where N is the number of lines in the students_classes.csv file.  <br /></td></tr>
 <tr class="separator:a87838ab2eee310066f1c4a685f4c18e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -137,15 +147,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the schedule of lectures for a student based on their student code. </p>
+<p>Gets the schedule of lectures for a student based on their student code.<br  />
+Time complexity: O(N), where N is the number of lines in the classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentCode_</td><td>The student code. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A set of <a class="el" href="classLecture.html" title="Represents a lecture.">Lecture</a> objects representing the student's schedule.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>A set of <a class="el" href="classLecture.html" title="Represents a lecture.">Lecture</a> objects representing the student's schedule. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00138">138</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  139</span>{</div>
@@ -197,7 +207,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">  185</span>}</div>
 <div class="ttc" id="aclassLecture_html"><div class="ttname"><a href="classLecture.html">Lecture</a></div><div class="ttdoc">Represents a lecture.</div><div class="ttdef"><b>Definition</b> <a href="Lecture_8hpp_source.html#l00010">Lecture.hpp:11</a></div></div>
 <div class="ttc" id="aclassScript_html"><div class="ttname"><a href="classScript.html">Script</a></div><div class="ttdoc">Reads and processes data from the CSV files.</div><div class="ttdef"><b>Definition</b> <a href="Script_8hpp_source.html#l00016">Script.hpp:17</a></div></div>
-<div class="ttc" id="aclassScript_html_acb8810db66aa71002633c9c728a6c399"><div class="ttname"><a href="#acb8810db66aa71002633c9c728a6c399">Script::loadStudent</a></div><div class="ttdeci">Student loadStudent(const std::string &amp;studentCode)</div><div class="ttdoc">Loads a student based on the student code.</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00004">Script.cpp:4</a></div></div>
+<div class="ttc" id="aclassScript_html_acb8810db66aa71002633c9c728a6c399"><div class="ttname"><a href="#acb8810db66aa71002633c9c728a6c399">Script::loadStudent</a></div><div class="ttdeci">Student loadStudent(const std::string &amp;studentCode)</div><div class="ttdoc">Loads a student based on the student code. Time complexity: O(N), where N is the number of lines in t...</div><div class="ttdef"><b>Definition</b> <a href="Script_8cpp_source.html#l00004">Script.cpp:4</a></div></div>
 <div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdoc">Represents a student.</div><div class="ttdef"><b>Definition</b> <a href="Student_8hpp_source.html#l00011">Student.hpp:12</a></div></div>
 <div class="ttc" id="aclassStudent_html_a6d1888373c941aa13e6fd1a49f5d017c"><div class="ttname"><a href="classStudent.html#a6d1888373c941aa13e6fd1a49f5d017c">Student::inClass</a></div><div class="ttdeci">bool inClass(const std::string &amp;ucCode, const std::string &amp;classCode)</div><div class="ttdoc">Check if the student is enrolled in a specific class.</div><div class="ttdef"><b>Definition</b> <a href="Student_8cpp_source.html#l00050">Student.cpp:50</a></div></div>
 </div><!-- fragment -->
@@ -219,14 +229,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads classes into a <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object. </p>
+<p>Loads classes into a <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object.<br  />
+Time complexity: O(N), where N is the number of lines in the classes_per_uc.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uc_</td><td>The <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object to load classes into.</td></tr>
+    <tr><td class="paramname">uc_</td><td>The <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object to load classes into. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Time complexity: O(N), where N is the number of lines in the classes_per_uc.csv file. </p>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00082">82</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
@@ -286,7 +296,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads a list of lectures for a specific UC and class code. </p>
+<p>Loads a list of lectures for a specific UC and class code.<br  />
+Time complexity: O(N), where N is the number of lines in the classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode_</td><td>The UC code. </td></tr>
@@ -294,8 +305,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A list of loaded <a class="el" href="classLecture.html" title="Represents a lecture.">Lecture</a> objects.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>A list of loaded <a class="el" href="classLecture.html" title="Represents a lecture.">Lecture</a> objects. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00036">36</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
@@ -361,15 +371,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads a student based on the student code. </p>
+<p>Loads a student based on the student code.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentCode</td><td>The student code to load. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The loaded <a class="el" href="classStudent.html" title="Represents a student.">Student</a> object.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>The loaded <a class="el" href="classStudent.html" title="Represents a student.">Student</a> object. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00004">4</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    5</span>{</div>
@@ -434,7 +444,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieves a list of students enrolled in a specific class. </p>
+<p>Retrieves a list of students enrolled in a specific class.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode_</td><td>The UC code. </td></tr>
@@ -442,8 +453,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00217">217</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  218</span>{</div>
@@ -493,14 +503,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Populates a lecture with students who are enrolled in it. </p>
+<p>Populates a lecture with students who are enrolled in it.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">oneLecture_</td><td>The lecture to populate with students.</td></tr>
+    <tr><td class="paramname">oneLecture_</td><td>The lecture to populate with students. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00110">110</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  111</span>{</div>
@@ -551,15 +561,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Counts the number of students enrolled in at least 'number' UCs. </p>
+<p>Counts the number of students enrolled in at least 'number' UCs.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">number</td><td>The minimum number of UCs for a student to be counted. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The count of students meeting the criteria.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>The count of students meeting the criteria. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00275">275</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  276</span>{</div>
@@ -614,15 +624,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieves a list of students enrolled in a specific UC. </p>
+<p>Retrieves a list of students enrolled in a specific UC.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uc</td><td>The <a class="el" href="classUc.html" title="Represents a Uc.">Uc</a> object representing the UC. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00187">187</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
@@ -672,15 +682,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieves a set of students based on their enrollment year. </p>
+<p>Retrieves a set of students based on their enrollment year.<br  />
+Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">year</td><td>The year for which to retrieve students. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An unordered set of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects.</dd></dl>
-<p>Time complexity: O(N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>An unordered set of <a class="el" href="classStudent.html" title="Represents a student.">Student</a> objects. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00247">247</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  248</span>{</div>
@@ -727,9 +737,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retrieves a list of UCs with the most students, along with the number of students in each UC. </p>
-<dl class="section return"><dt>Returns</dt><dd>A vector of pairs, where the first element is the UC code, and the second element is the number of students.</dd></dl>
-<p>Time complexity: O(N log N), where N is the number of lines in the students_classes.csv file. </p>
+<p>Retrieves a list of UCs with the most students, along with the number of students in each UC.<br  />
+Time complexity: O(N log N), where N is the number of lines in the students_classes.csv file. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of pairs, where the first element is the UC code, and the second element is the number of students. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Script_8cpp_source.html#l00310">310</a> of file <a class="el" href="Script_8cpp_source.html">Script.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  311</span>{</div>
